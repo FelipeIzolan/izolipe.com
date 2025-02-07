@@ -1,0 +1,63 @@
+import Post from '#/layouts/Post.astro';
+
+<Post
+  title='Math - Fraction Arithmetic'
+  description='The fundamentals of fraction arithmetic cover addition, subtraction, multiplication, and division of fractions, including steps for working with like and unlike denominators.'
+  katex={true}
+>
+
+## Addition & Subtraction
+
+### Like denominators
+To add or subtract fractions with like denominators, combine the numerators and keep the denominator the same.
+
+> $\frac{a}{b} + \frac{c}{b} = \frac{a+c}{b}$\
+> $\frac{a}{b} - \frac{c}{b} = \frac{a-c}{b}$
+
+### Unlike denominators
+
+[How to Add and Subtract Fractions (youtube)](https://www.youtube.com/watch?v=3fY1AqnrUhQ)
+
+> $\frac{a}{b} + \frac{c}{d} = \frac{(a * d)+(c * b)}{b * d}$\
+> $\frac{a}{b} - \frac{c}{d} = \frac{(a * d)-(c * b)}{b * d}$
+
+### Examples
+> $
+\frac{1}{2} + \frac{1}{2} = \frac{2}{2}\\
+\frac{8}{8} - \frac{3}{8} = \frac{5}{8}\\
+\frac{4}{10} + \frac{7}{12} = \frac{(4*12)+(7*10)}{10*12} = \frac{118}{120}\\
+\frac{-5}{4} - \frac{3}{8} = \frac{(-5*8)-(3*4)}{4*8} = \frac{-52}{32}
+$
+
+---
+
+## Multiplication
+
+To multiply fractions, multiply the numerators and the denominators.
+
+> $\frac{a}{b} * \frac{c}{b} = \frac{a * c}{b * b}$\
+> $\frac{a}{b} * \frac{c}{d} = \frac{a * c}{b * d}$
+
+### Examples
+> $
+\frac{7}{1} * \frac{5}{2} = \frac{35}{2}\\
+\frac{2}{8} * \frac{11}{4} = \frac{22}{32}
+$
+
+---
+
+## Division
+
+To divide fractions, flip the second fraction then multiply.
+
+> $\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} * \frac{d}{c}$
+
+<br />
+
+### Examples
+> $
+\frac{8}{8} \div \frac{9}{3} = \frac{8}{8} * \frac{3}{9} = \frac{24}{72}\\
+\frac{3}{9} \div \frac{12}{3} = \frac{3}{9} * \frac{3}{12} = \frac{9}{108}
+$
+
+</Post>

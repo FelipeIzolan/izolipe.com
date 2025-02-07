@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #212121;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 18px;
+  font-family: system-ui;
+  line-height: 1.4;
+
+  margin: 16px auto;
+  max-width: 800px;
+
+  background: #f6f6f6;
+}
+
+nav {
+  display: flex;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:hover {
+  transform: translateY(-2px);
+}
+
+/*----------------------------------------------------------*/
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+main {
+  margin: 0.8em 0;
+}
+
+input,
+button {
+  outline: none;
+  background: none;
+  border-radius: 2px;
+  border: 2px solid #212121;
+  padding: 2px 4px;
+}
+
+
+table,
+th,
+td {
+  padding: 6px;
+  border: 1px solid #212121;
+  border-collapse: collapse;
+}
+
+button {
+  cursor: pointer;
+}
+
+p,
+ul,
+ol,
+hr {
+  margin: 1em 0;
+}
+
+ol,
+ul {
+  margin-left: 1em;
+}
+
+li > p {
+  margin: 0;
+}
+
+blockquote {
+  padding-left: 10px;
+  border-left: 4px solid #212121;
+}
+
+pre,code {
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+code {
+  color:#e1e4e8;
+  background-color:#24292e;
+  padding: 0.2em;
+}
+
+/*----------------------------------------------------------*/
+
+nav a,
+.inode {
+  transition: 200ms;
+}
+
+.inode {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.inode:hover {
+  transform: translateX(4px);
+}
+
+@media (max-width: 816px) {
+  body {
+    max-width: auto;
+    margin: 16px 8px;
+  }
+}

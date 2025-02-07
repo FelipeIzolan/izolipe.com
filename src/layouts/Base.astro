@@ -1,0 +1,33 @@
+---
+import Head from "../components/Head.astro";
+import Nav from "../components/Nav.astro";  
+import Footer from "../components/Footer.astro";  
+import KoFi from "../components/Ko-fi.astro";
+
+import '../assets/styles/global.css';
+
+import copyCode from '../assets/scripts/copy-code.js?url';
+
+let title = Astro.props.title;
+let description = Astro.props.description;
+
+let katex = Astro.props.katex;
+let code = Astro.props.code;
+---
+<html lang='en-us'>
+  <Head
+    title={title}
+    description={description}
+    katex={katex}
+    code={code}
+  />
+  <body lang='en'>
+    <Nav />  
+    <slot />
+    <Footer />
+    <KoFi />
+  </body>
+  {code && <script src={copyCode}></script>}
+</html>
+
+

@@ -1,0 +1,67 @@
+import Post from '#/layouts/Post.astro';
+import { Image } from "astro:assets"; 
+
+import Image1 from "#/assets/imgs/18.png";
+import Image2 from "#/assets/imgs/19.png";
+import Image3 from "#/assets/imgs/97.png";
+import Image4 from "#/assets/imgs/98.png";
+import Image5 from "#/assets/imgs/99.png";
+
+<Post
+  title='Math - Ratios'
+  description='The fundamentals of ratios include part-to-part, part-to-whole, equivalent, and scaling ratios.'
+  katex={true}
+>
+
+<Image src={Image1} alt="Ratio visual demonstration"/>
+
+> **1:2** 1 apple to 2 carrots.\
+> **7:2** 7 water to 2 humans.
+
+The **ratios** are the **relationships between two values**.
+
+---
+
+## Part-to-Part & Part-to-Whole  
+ 
+A ratio has two types of relationships:
+
+<Image src={Image3} alt='Red and blue squares'/>
+  
+- **Part-to-Part**: The relationship between one part to another part.
+  > **14:10** 14 blue to 10 red.\
+  > **10:14** 10 red to 14 blue.
+- **Part-to-Whole**: The relationship between one part and the whole, the total.
+  > **14:24** 14 blue to 24 total.\
+  > **10:24** 10 red to 24 total.
+   
+---
+
+## Equivalent Ratios
+
+<Image src={Image2} alt='Equivalent ratios'/>
+
+**Equivalent Ratios** are ratios that have **the same proportion**, even if the numbers are different.
+
+> **3:1** $\small(3 * 1):(1 * 1)$\
+> **6:2** $\small(3 * 2):(1 * 2)$\
+> **9:3** $\small(3 * 3):(1 * 3)$
+
+---
+  
+## Scaling Ratios
+
+Ratios represent a proportion that can be increased or decreased.
+
+<Image src={Image4} alt="Ratio 1:2"/>
+ 
+> **1:2** $\small base \div 2$\
+> **2:4** $\small base$\
+> **4:8** $\small base * 2$
+
+<Image src={Image5} alt="Ratio 4:3"/>
+
+> **4:3** $\small base \div 2$\
+> **8:6** $\small base$\
+> **12:9** $\small base * 2$
+</Post>

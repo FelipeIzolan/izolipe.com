@@ -1,0 +1,143 @@
+---
+import Post from '#/layouts/Post.astro';
+let sources = Object.values(import.meta.glob('../../assets/bitcon/*.svg', { eager: true }));
+---
+<Post
+  title='Bitcon - 16x16 Icons'
+  description='A library of customizable 16x16 SVG icons for easy use in web design and development.'
+>
+  <b>~{sources.length} bitcons</b>
+  <div id='customize' style='display:flex;align-items:center'>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <h2 style="margin:0">Customize</h2>
+      <input type="range" min="1" max="8" />
+      <div style='display:grid;gap:2px;grid-template-columns:auto auto auto'></div>
+      <div>
+        <button id="download" style="background:#2bff80">Download</button>
+        <button id="copy" style="background:#4aa8ff">Copy</button>
+        <div style="margin:0.4em 0">
+          <input checked type="radio" name="format" />
+          <label>svg</label>
+          <input type="radio" name="format" />
+          <label>png</label>
+        </div> 
+      </div>
+    </div>
+    <div style="width:128px;height:128px;display:flex;justify-content:center;align-items:center">
+      <svg viewBox='0 0 16 16' width='128px' height='128px'/>
+    </div>
+  </div>
+  <blockquote style="margin:0.5em 0">
+⚠️ The SVG data is raw; it's recommended to minify/compress it.
+  </blockquote>
+  <ul style="display:flex;list-style:none;margin:0;flex-wrap:wrap;justify-content:center">
+    {sources.map(Icon => <li><Icon.default/></li>)}
+  </ul>
+</Post>
+
+<script>
+  const icons = document.querySelectorAll('li>svg');
+
+  const preview = document.querySelector('#customize div svg');
+  const colors = document.querySelector('#customize div div');
+  const scale = document.querySelector('input[type=range]');
+
+  preview.onclick = function () {
+    for (const rect of preview.children) {
+      rect.setAttribute('rx', 1)
+    }
+  }
+
+  scale.oninput = function () {
+    let size = 16 * scale.value;
+    preview.setAttribute('width', `${size}px`);
+    preview.setAttribute('height', `${size}px`);
+  }
+
+  document.querySelector('#download').onclick = function () {
+    let size = 16 * scale.value;
+    let data = `<svg viewBox='0 0 16 16' width='${size}px' height='${size}px'>${preview.innerHTML}</svg>`;
+    
+    let blob = new Blob([data], { type: 'image/svg+xml' });
+    let a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'icon.svg';
+    a.click();
+
+    URL.revokeObjectURL(a.href);
+    a.remove(); 
+  }
+
+  document.querySelector('#copy').onclick = function () {
+    let size = 16 * scale.value;
+    let data = `<svg viewBox='0 0 16 16' width='${size}px' height='${size}px'>${preview.innerHTML}</svg>`;
+    navigator.clipboard.writeText(data);
+  }
+  
+  for (const icon of icons) {
+    icon.setAttribute('width', '32px');
+    icon.setAttribute('height', '32px');
+    icon.setAttribute('viewBox', '0 0 16 16');
+    icon.onclick = function() { load(this.innerHTML); }
+  }
+  
+  function load(html) {
+    scale.value = scale.max;
+    colors.innerHTML = '';
+    preview.innerHTML = html;
+
+    preview.setAttribute('width', `${scale.value * 16}px`);
+    preview.setAttribute('height', `${scale.value * 16}px`);
+
+    let map = [];
+    for (const rect of preview.children) {
+      if (map.length > 12) 
+        return colors.innerHTML = "Too many colors!";
+      
+      let color = rect.getAttribute('fill');
+      !map.includes(color) && map.push(color);
+    }
+
+    for (const color of map) {
+      let element = document.createElement('input');
+        
+      element.type = 'color';
+      element.value = color;
+      element.dataset.color = color;
+      element.oninput = function () {
+        for (const rect of preview.children) {
+          let color = rect.getAttribute('fill');
+          if (color == this.dataset.color)
+            rect.setAttribute('fill', this.value);
+        }
+        this.dataset.color = this.value;
+      }
+
+      colors.appendChild(element);
+    }
+  }
+
+  load(icons[Math.floor(Math.random() * icons.length)].innerHTML);
+</script>
+
+<style>
+  li {
+    display: flex;
+    border-radius: 4px;
+  }
+
+  li:hover {
+    background: #212121;
+    transition: 200ms;
+  }
+
+  #customize {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid #212121;
+    border-radius: 4px;
+    padding: 16px;
+    height: 256px;
+  }
+</style>

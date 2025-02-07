@@ -1,0 +1,151 @@
+import Post from '#/layouts/Post.astro';
+import { Image } from 'astro:assets';
+
+import Image1 from "#/assets/imgs/78.png";
+import Image2 from "#/assets/imgs/79.png";
+import Image3 from "#/assets/imgs/80.png";
+import Image4 from "#/assets/imgs/50.png";
+import Image5 from "#/assets/imgs/81.png";
+import Image6 from "#/assets/imgs/51.png";
+import Image7 from "#/assets/imgs/96.png";
+
+<Post
+  title='Math - Linear Inequalities'
+  description=''
+  katex={true}
+>
+
+<Image src={Image1} alt="Linear inequality graph"/>
+> y > 2x + 1
+
+Linear inequalities represent a region of a plane, where the solutions are the values of the variable(s) that satisfy the inequality.
+
+---
+
+## Key Characteristics of Linear Inequalities
+
+- **Degree of 1**: The highest power of any variable is 1.
+- **No products of variables**: There are no terms like xy, x²y, x², y², or similar combinations.
+- **Boundary Line**: When plotted on a coordinate plane, it forms a straight line. This line represents the equality part of the inequality.
+- **Shaded Region**: The solution to the inequality is represented by a shaded region on the coordinate plane.
+
+### Examples of Linear Inequalities
+
+$2x + 3y > 7$\
+$y ≤ 5x - 2$\
+$x ≥ 4$
+
+### Examples of Non-linear Inequalities
+
+$x² + y² ≤ 25$\
+$y > 2x³ - 1$\
+$1/x + y < 3$
+
+---
+
+## Solving Linear Inequalities
+
+<Image src={Image2} alt='Inequality x < 2'/>
+
+$
+7x - 3 < 11\\
+7x - 3 + 3 < 11 + 3\\
+7x < 14\\
+\frac{7x}{7} < \frac{14}{7}\\
+\frac{\cancel{7}}{\cancel{7}} < \frac{14}{7}\\
+x < 2
+$
+
+<br/>
+
+<Image src={Image3} alt='Inequality x >= 3'/>
+
+$
+3(x-3) \ge -2x + 6\\
+3x - 9 \ge -2x + 6\\
+3x - 9 + 9 \ge -2x + 6 + 9\\
+3x \ge -2x + 15\\
+3x + 2x \ge -2x + 2x + 15\\
+5x \ge 15\\
+\frac{5x}{5} \ge \frac{15}{5}\\
+\frac{\cancel{5}x}{\cancel{5}} \ge \frac{15}{5}\\
+x \ge 3
+$
+
+<br/>
+
+<Image src={Image4} alt='Inequality x < -4'/>
+
+$
+\frac{x+8}{4} < -2x - 7\\
+4 * \frac{x+8}{4} < 4(-2x - 7)\\
+\cancel{4} * \frac{x+8}{\cancel{4}} < 4(-2x - 7)\\
+x+8 < -8x - 28\\
+x+8-8 < -8x - 28-8\\
+x < -8x - 36\\
+1x + 8x < -8x + 8x - 36\\
+9x < -36\\
+\frac{9x}{9} < \frac{-36}{9}\\
+\frac{\cancel{9}x}{\cancel{9}} < \frac{-36}{9}\\
+x < -4
+$
+
+---
+
+## Graphing Linear Inequalities
+
+<Image src={Image5} alt='Graphing linear inequalities'/>
+The best way to graph a linear inequality is to write the inequality in slope-intercept form, then test the inequality to determine which side of the line to shade.
+
+---
+
+<Image src={Image6} alt='Slope-intercept form'/>
+> $y = mx + b$
+
+---
+
+### Graph Line
+
+<Image src={Image7} alt='Graph line dashed & solid' />
+  
+Depending on the inequality operator used, the line in the graph will be solid or dashed:
+
+- $\ge$ or $\le$ - solid.
+- $>$ or $<$ - dashed.
+
+---
+
+[Graphing Inequalities (youtube)](https://www.youtube.com/watch?v=DCQY8Dyce4k)\
+[Graphing two variable inequality (youtube)](https://www.youtube.com/watch?v=dK_w1HzU3Ts)
+
+---
+
+## Examples
+
+> $
+2(x + 10) \le 30\\
+2x + 20 \le 30\\
+y \ge 2x + 20
+$
+
+> $
+6x + 3y > 9\\
+6x - 6x + 3y > -6x + 9\\
+3y > -6x + 9\\
+\frac{3y}{3} > \frac{-6x+9}{3}\\
+\frac{\cancel{3}y}{\cancel{3}} > \frac{-6x+9}{3}\\
+y > -2x + 3
+$
+  
+> $
+-2x - 2y \ge 2x + 4\\
+-2x + 2x - 2y \ge 2x + 2x + 4\\
+-2y \ge 4x + 4\\
+-1 * -2y \ge -1(4x+4)\\
+2y \le -4x - 4\\
+\frac{2y}{2} \le \frac{-4x-4}{2}\\
+\frac{\cancel{2}y}{\cancel{2}} \le \frac{-4x-4}{2}\\
+y \le -2x - 2
+$
+
+</Post>

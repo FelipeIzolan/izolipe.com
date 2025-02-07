@@ -1,0 +1,44 @@
+import Post from '#/layouts/Post.astro';
+import { Image } from "astro:assets"; 
+
+import Image1 from "#/assets/imgs/20.png";
+import Image2 from "#/assets/imgs/115.png";
+
+<Post
+  title='Math - Percentage'
+  description='The fundamentals of percentage, including how to express it as a fraction, decimal, and how to use key percentage formulas for calculations.'
+  katex={true}
+>
+
+<Image src={Image1} alt="Percentage visual representation" />
+Percentage is **a number expressed as a fraction of 100**.
+
+---
+
+## Percentage as Decimal or Fraction
+
+<Image src={Image2} alt="Percentage as decimal and fraction" />
+
+Percentage is nothing but a **way to express a value as a fraction of 100**, so you can also **represent it as a decimal or a fraction**.
+
+> **88%** <small>(percentage)</small>\
+> **0.88** <small>(decimal)</small>\
+> **22/25** <small>(fraction)</small>
+
+---
+
+## Percentage Formulas
+
+- **Percentage of a value:**\
+  $\frac{\text{value}}{\text{total}} * 100$
+
+- **Value of a percentage:**\
+  $\frac{\text{percentage}}{100} * \text{value}$
+
+- **Percentage increase/decrease:**\
+  $\frac{new - old}{old} \times 100$
+
+- **Original value:**\
+  $\frac{\text{value}}{\frac{\text{percentage}}{100}}$
+
+</Post>

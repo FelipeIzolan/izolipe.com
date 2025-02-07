@@ -1,0 +1,28 @@
+---
+const slugify = (...args) => {
+  const value = args.join(' ')
+
+  return '#' + value
+    .replaceAll('-', ' ')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9 ]/g, '')
+    .replace(/\s+/g, '-')
+}
+
+let headings = Astro.props.headings;
+---
+<hr/>
+<h2>Table of Contents</h2>
+<ul>
+  {
+    headings
+    .map(
+      ({title, depth}) => 
+      <li style={`margin-left:${depth}em`}><a href={slugify(title)}>{title}</a></li>
+    )
+  }
+</ul>
+<hr/>

@@ -1,0 +1,423 @@
+import Post from '#/layouts/Post.astro';
+import TOC from "#/components/TOC.astro";
+import { Image } from 'astro:assets';
+
+import Image1 from "#/assets/imgs/2.png";
+import Image2 from "#/assets/imgs/131.png";
+import Image3 from "#/assets/imgs/132.png";
+import Image4 from "#/assets/imgs/133.png";
+import Image5 from "#/assets/imgs/134.png";
+import Image6 from "#/assets/imgs/135.png";
+import Image7 from "#/assets/imgs/136.png";
+import Image8 from "#/assets/imgs/137.png";
+import Image9 from "#/assets/imgs/138.png";
+import Image10 from "#/assets/imgs/139.png";
+import Image11 from "#/assets/imgs/140.png";
+import Image12 from "#/assets/imgs/141.png";
+import Image13 from "#/assets/imgs/142.png";
+import Image14 from "#/assets/imgs/143.png";
+import Image15 from "#/assets/imgs/144.png";
+import Image16 from "#/assets/imgs/145.png";
+import Image17 from "#/assets/imgs/146.png";
+import Image18 from "#/assets/imgs/147.png";
+import Image19 from "#/assets/imgs/148.png";
+import Image20 from "#/assets/imgs/149.png";
+import Image21 from "#/assets/imgs/150.png";
+import Image22 from "#/assets/imgs/151.png";
+import Image23 from "#/assets/imgs/152.png";
+import Image24 from "#/assets/imgs/153.png";
+
+<Post
+  title='Void Linux - Installation Guide'
+  description='Void Linux installation guide, covering download options, creating bootable media, and step-by-step installation instructions.'
+>
+
+> ⚠️ This guide is based on the **void-installer** command, so it **only works with the x86-64 or i686 architecture.**
+
+<Image src={Image1} alt="void linux screenshot"/>
+
+Void Linux is a general-purpose Linux distro. It's independent and has its own package manager, build system, and use runit as init system.
+
+<TOC
+  headings={[
+    { title: 'Download Void Linux', depth: 1 },
+    { title: 'Live image: Base vs XFCE4', depth: 2 },
+    { title: 'Live image: glibc vs musl', depth: 2 },
+    { title: 'Create a bootable media (USB)', depth: 1 },
+    { title: 'Windows (Rufus)', depth: 2 },
+    { title: 'Linux (Command Line)', depth: 2 },
+    { title: 'Installation', depth: 1 },
+    { title: 'GNU GRUB', depth: 2 },
+    { title: 'Running void-installer', depth: 2},
+    { title: 'Base', depth: 3},
+    { title: 'XFCE4', depth: 3},
+    { title: 'Void Installer', depth: 2},
+    { title: 'Keyboard', depth: 3},
+    { title: 'Network', depth: 3},
+    { title: 'Source', depth: 3},
+    { title: 'Mirror', depth: 3},
+    { title: 'Hostname', depth: 3},
+    { title: 'Locale', depth: 3},
+    { title: 'Timezone', depth: 3},
+    { title: 'RootPassword', depth: 3},
+    { title: 'UserAccount', depth: 3},
+    { title: 'BootLoader', depth: 3},
+    { title: 'Partition', depth: 3},
+    { title: 'Filesystems', depth: 3},
+    { title: 'Install', depth: 3},
+  ]}
+/>
+
+## Download Void Linux
+
+<a href="https://voidlinux.org/download/"><Image src={Image2} alt='Void Linux download page'/></a>
+> **Download Link**: https://voidlinux.org/download/
+
+### Live image: Base vs XFCE4
+
+Void Linux offers two image options:
+
+- **Base Image**:
+  - Contains the core Void Linux system.
+  - Ideal for advanced users who prefer to customize their system from scratch.
+  - No pre-installed desktop environment or graphical interface.
+
+- **XFCE4 Image**:
+  - Includes Void Linux, Xorg, and the XFCE4 desktop environment pre-installed.
+  - Perfect for users who want a "ready-to-use" system with a lightweight and efficient desktop environment.
+
+> **Recommendation**: If you're new to Linux, choose the XFCE4 image!
+
+### Live image: glibc vs musl
+
+Void Linux offers two versions of its images based on different C libraries (libc):
+
+- **glibc (GNU C Library)**:
+  - The standard C library used by most Linux distributions.
+  - Highly compatible with a wide range of software.
+  - Feature-rich and suitable for general-purpose use.
+
+- **musl**:
+  - A lightweight and modern C library designed for simplicity and performance.
+  - Ideal for resource-constrained systems or users seeking a minimalistic setup.
+  - May have compatibility issues with certain software (e.g., NVIDIA drivers, Steam, Discord).
+
+> **Recommendation**: If you're unsure which to choose, go with glibc!
+
+---
+
+## Create a bootable media (USB)
+
+<Image src={Image3} alt='Rufus logo'/>
+
+After downloading the Void Linux live image, create a bootable USB.
+
+### Windows (Rufus)
+
+<a href="https://rufus.ie/"><Image src={Image4} alt='Rufus window' width='296px'/></a>
+> **Download Link**: https://rufus.ie/
+
+To create a bootable USB on Windows, use Rufus.
+
+#### Steps:
+
+1. Insert your USB drive.
+2. Open Rufus.
+3. Select your USB under **Device**.
+4. Click **SELECT** under **Boot selection** and choose the Void Linux .iso file.
+5. Click START.
+6. ACCEPT EVERYTHING!!
+7. Wait 😊.
+8. Your bootable USB is ready!
+
+### Linux (Command Line)
+
+<Image src={Image6} alt='Linux terminal with commands' />
+
+To create a bootable USB on Linux, use Terminal. 😎
+
+#### Steps:
+
+- **Identify the device**:
+  - ```sudo fdisk -l```
+  - Identify your USB device (e.g., /dev/sd*).
+- **Umount the device**:
+  - ```umount /dev/sd*```
+  - Unmount the USB drive if it is automatically mounted.
+- **Write the Live Image to the USB**:
+  - ```dd bs=4M if=/path/to/void-live-ARCH-DATE-VARIANT.iso of=/dev/sd*```
+- **Sync and Eject**:
+  - ```sync```
+  - Safely eject the USB drive.
+
+
+---
+
+## Installation
+
+After creating a bootable USB from the live image, insert it, restart your computer, and boot from the USB.
+
+### GNU GRUB
+
+<Image src={Image5} alt='Void Linux GNU GRUB'/>
+
+After booting from the USB, you will see the GNU GRUB menu of Void Linux. You will be presented with a few options, but the most important ones are:
+
+- **Void Linux**: Boots the image directly from the disk..
+- **Void Linux (RAM)**: Loads the image entirely into RAM.
+
+> **Recommendation**: If you have enough RAM, choose RAM!
+
+### Running void-installer
+
+Depending on the Void Linux live image you chose, the steps to start the void-installer vary.
+
+#### Base
+
+<Image src={Image7} alt='Void Linux Live System'/>
+
+- Wait live system initalization.
+- Login with **user:root** **password:voidlinux**.
+- Run `void-installer` command.
+
+#### XFCE4
+
+<Image src={Image8} alt='Void Linux XFCE4 Live System'/>
+
+- Wait live system initalization.
+- Open terminal.
+- Run `sudo void-installer` command.
+- Enter the **password:voidlinux** and press Enter.
+
+### Void Installer
+
+<Image src={Image9} alt='Void Linux void-installer'/>
+
+Once you execute the `void-installer` command, the Void Linux installation menu will appear, guiding you through the setup process.
+
+#### Keyboard
+
+<Image src={Image13} alt='void-installer Keyboard'/>
+
+Select the keymap for your keyboard.
+
+#### Network
+
+<Image src={Image15} alt='void-installer Network'/>
+Select your primary network interface. Use DHCP for automatic IP configuration. If you're connecting via Wi-Fi, enter the following details:
+
+- **SSID** (Network Name)
+- **Encryption Type** (WPA or WEP)
+- **Password**
+
+> **Recommendation**: Most modern routers use WPA encryption. If unsure, use WPA!.
+
+#### Source
+
+<Image src={Image14} alt='void-installer Source'/>
+
+Select installation source:
+
+- **Local**: Packages from ISO image.
+- **Network**: Packages from official repository.
+
+> ⚠️ If you are installing the desktop environment from the XFCE4 image, you MUST choose Local for the source!
+
+#### Mirror
+
+<Image src={Image16} alt='void-installer Mirror'/>
+Choose a mirror for the package manager (XBPS).
+
+**Mirror Tiers:**
+
+- **Tier 1**: Maintained by the Void Linux team. Always up-to-date.
+- **Tier 2**: Not maintained by the Void Linux team. May not be up-to-date.
+
+> **Recommendation**: Choose a Tier 1 mirror geographically close to you.
+
+#### Hostname
+
+<Image src={Image17} alt='void-installer Hostname'/>
+Set a hostname for your computer. (that is all lowercase, with no spaces.)
+
+> **Recommendation**: voidlinux
+
+#### Locale
+
+<Image src={Image18} alt='void-installer Locale'/>
+
+Select your locale.
+
+#### Timezone
+
+<Image src={Image19} alt='void-installer Timezone'/>
+
+Select your timezone.
+
+#### RootPassword
+
+<Image src={Image20} alt='void-installer RootPassword'/>
+
+Enter the root password.
+
+#### UserAccount
+
+<Image src={Image21} alt='void-installer UserAccount'/>
+Create your user account by entering the following details:
+
+- **Login Name**
+- **Display Name**
+- **Password**
+- **Groups**
+
+#### BootLoader
+
+<Image src={Image22} alt='void-installer BootLoader'/>
+
+Select the disk to install the bootloader and decide whether to use a graphical terminal.
+
+> **Recommendation**: If you plan to customize GRUB (themes), use graphical terminal.
+
+#### Partition
+
+<Image src={Image10} alt='void-installer cfdisk partition'/>
+
+Manually partition your disk using `cfdisk`--it's easy to use, set partition table to **GPT**.
+
+> ⚠️ The first partition must be the boot system.\
+> https://docs.voidlinux.org/installation/live-images/partitions.html
+
+##### Recommended Partition Layouts
+
+###### BIOS System
+<table>
+  <thead>
+    <th>Type</th>
+    <th>Size</th>
+    <th>Mount Point</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BIOS boot</td>
+      <td>1M</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Linux swap</td>
+      <td>Equal to the amount of RAM</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Linux root</td>
+      <td>12% to 20% of available disk space</td>
+      <td>*/*</td>
+    </tr>
+    <tr>
+      <td>Linux filesystem</td>
+      <td>Remaining available disk space</td>
+      <td>*/home*</td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+###### UEFI System
+<table>
+  <thead>
+    <th>Type</th>
+    <th>Size</th>
+    <th>Mount Point</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>EFI System</td>
+      <td>256M</td>
+      <td>*/boot/efi*</td>
+    </tr>
+    <tr>
+      <td>Linux swap</td>
+      <td>Equal to the amount of RAM</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Linux root</td>
+      <td>12% to 20% of available disk space</td>
+      <td>*/*</td>
+    </tr>
+    <tr>
+      <td>Linux filesystem</td>
+      <td>Remaining available disk space</td>
+      <td>*/home*</td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+##### Changing the Partition Table Type
+
+<Image src={Image12} alt='void-installer fdisk'/>
+
+To modify the partition table type, select the disk and use `fdisk`. Run one of the following commands to create a specific partition table:
+
+<table>
+  <thead>
+    <th>Command</th>
+    <th>Partition Table Type</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**g**</td>
+      <td>GPT</td>
+    </tr>
+    <tr>
+      <td>**G**</td>
+      <td>SGT</td>
+    </tr>
+    <tr>
+      <td>**o**</td>
+      <td>MBR</td>
+    </tr>
+    <tr>
+      <td>**s**</td>
+      <td>Sun</td>
+    </tr>
+  </tbody>
+</table>
+
+> After making changes, run the **w** command to write the changes and exit.
+
+
+#### Filesystems
+
+<Image src={Image11} alt='void-installer filesystems'/>
+
+After partitioning your disk, the next step is to assign the appropriate filesystem to each partition.
+
+##### Boot System (First Partition)
+- **BIOS System**: Don't create any filesystem in it. GRUB will install itself without one.
+- **UEFI System**: Format the partition as **FAT32** and **mount it to */boot/efi***.
+
+##### Swap
+
+For swap partition, format it with **swap** filesystem.
+
+##### Root
+
+For root partition, format it with your preferred filesystem and **mount it to */***.
+
+##### Home (optional)
+
+If you have created a separate partition for your home directory, format it with your preferred filesystem and **mount it to */home***.
+
+> **Recommendation**: Use ext4 for root and home partitions.
+
+#### Install
+
+<Image src={Image24} alt='void-installer Install'/>
+
+If everything is okay, the installation process will begin. Once completed, you will be presented with a menu to select or deselect services (daemons). After that, reboot your system, and **Welcome to the Void!**
+
+
+</Post>

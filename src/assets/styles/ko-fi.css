@@ -1,0 +1,23 @@
+#kofi {
+  display: flex;
+  align-items: center;
+
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  font-size: 0.6em;
+  font-weight: bold;
+  text-decoration: none;
+
+  margin: 6px;
+  padding: 6px;
+  border-radius: 3px;
+
+  color: #F6F6F6;
+  background: #212121;
+}
+
+#kofi img {
+  margin-right: 4px;
+}

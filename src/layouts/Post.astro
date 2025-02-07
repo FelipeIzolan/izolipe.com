@@ -1,0 +1,27 @@
+---
+import Base from './Base.astro';
+import Calendar from '../components/icons/Calendar.astro';
+
+let title = Astro.props.title;
+let description = Astro.props.description;
+
+let date = Astro.props.date;
+
+
+let katex = Astro.props.katex; 
+let code = Astro.props.code;
+---
+<Base 
+  title={title} 
+  description={description}
+  katex={katex}
+  code={code}
+>
+  <header>
+    <h1>{title}</h1>
+    {date && <time style="display:flex;align-items:center;gap:4px"><Calendar/> {date}</time>}
+  </header>
+  <main>
+    <slot />
+  </main>
+</Base>

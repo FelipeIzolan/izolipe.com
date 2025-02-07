@@ -1,0 +1,13 @@
+---
+import Directory from "../layouts/Directory.astro"
+---
+<Directory
+  title="Home"
+  description="My blog, notes, tools, and other cool stuff!"
+  inodes={[
+    { type: 'folder', href: './math', text: 'Math' },  
+    { type: 'folder', href: './linux', text: 'Linux' },
+    { type: 'folder', href: './tools', text: 'Tools' },
+    { type: 'folder', href: './blog', text: 'Blog' },  
+  ]}
+/>

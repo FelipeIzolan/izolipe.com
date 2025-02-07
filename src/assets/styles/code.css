@@ -1,0 +1,19 @@
+pre {
+  position: relative;
+  margin: 1em 0;
+  padding: 1em;
+}
+
+.copy {
+  top: 0;
+  right: 0;
+
+  position: absolute;
+
+  border: none;
+  background: none;
+
+  margin: 8px;
+  cursor: pointer;
+  color: #F6F6F6;
+}

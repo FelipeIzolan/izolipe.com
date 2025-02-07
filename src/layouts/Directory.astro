@@ -1,0 +1,38 @@
+---
+import path from 'path';
+
+import Base from './Base.astro';
+import { Image } from 'astro:assets';
+
+import File from '../components/icons/File.astro';
+import Folder from '../components/icons/Folder.astro';
+
+let title = Astro.props.title;
+let inodes: Inodes = Astro.props.inodes;
+let description = Astro.props.description || 
+                  `Explore simple notes about ${title} - perfect for quick understanding.`;
+
+type Inode = { type: 'file' | 'folder' | 'line' | 'year', href: string, text: string }
+type Inodes = Inode[];
+---
+<Base 
+  title={'Izolipe - ' + title} 
+  description={description}
+>
+  <header>
+    <Image style='margin-top:0.5em;' loading='eager' src='/favicon.svg' alt='izolipe favicon' width={132} height={132}/>
+    <h1>{title}</h1>
+  </header>
+  <main>
+    {
+    inodes.map(({type, href, text}) => {
+      if (type == 'line') return <hr/>
+      if (type == 'year') return <h3>-{text}-</h3>
+
+      let label = 'Link to ' + text;  
+      let Icon = type == 'file' ? File : Folder;
+      return <a class='inode' href={path.join(Astro.url.pathname, href)} aria-label={label}><Icon/>{text}</a>
+    }) 
+    }
+  </main>
+</Base>

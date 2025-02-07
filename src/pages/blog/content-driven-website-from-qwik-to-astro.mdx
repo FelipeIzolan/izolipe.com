@@ -1,0 +1,141 @@
+import Post from '#/layouts/Post.astro';
+import { Image } from 'astro:assets';
+
+import Image1 from "#/assets/imgs/128.png";
+import Image2 from "#/assets/imgs/130.png";
+
+<Post
+  title='Content-Driven Website: From Qwik to Astro'
+  description='Discover why I transitioned from Qwik to Astro for my content-driven website.'
+  date='02-01-2025'
+  code={true}
+> 
+
+
+Recently, I made a <span style='background:#212121'><span style='color:#55CDFC'>tr</span><span style='color:#F7A8B8'>an</span><span><span style='color:white'>si</span></span><span style='color:#F7A8B8'>ti</span><span style='color:#55CDFC'>on</span></span> from [Qwik](https://qwik.dev/) to [Astro](https://astro.build/). If you're familiar with Qwik, you might be wondering why I chose it in the first place. It’s a solid framework, and I’ll definitely use it in future projects but for a content-driven website, it wasn’t the best fit.
+
+---
+
+## The Qwik
+
+<svg width="128px" height="128px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 1h1v1H5zM6 1h1v1H6zM7 1h1v1H7zM8 1h1v1H8zM9 1h1v1H9zM10 1h1v1h-1zM4 2h1v1H4z" fill="#0A0A0A"/>
+<path d="M5 2h1v1H5zM6 2h1v1H6zM7 2h1v1H7zM8 2h1v1H8zM9 2h1v1H9zM10 2h1v1h-1z" fill="#AB7EF3"/>
+<path d="M11 2h1v1h-1zM3 3h1v1H3z" fill="#0A0A0A"/>
+<path d="M4 3h1v1H4z" fill="#18B6F7"/>
+<path d="M5 3h1v1H5zM6 3h1v1H6zM7 3h1v1H7zM8 3h1v1H8zM9 3h1v1H9zM10 3h1v1h-1zM11 3h1v1h-1z" fill="#AB7EF3"/>
+<path d="M12 3h1v1h-1zM2 4h1v1H2z" fill="#0A0A0A"/>
+<path d="M3 4h1v1H3zM4 4h1v1H4zM5 4h1v1H5z" fill="#18B6F7"/>
+<path d="M6 4h1v1H6z" fill="#FFF"/>
+<path d="m7 4h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1z" fill="#AB7EF3"/>
+<path d="M13 4h1v1h-1zM1 5h1v1H1z" fill="#0A0A0A"/>
+<path d="M2 5h1v1H2zM3 5h1v1H3zM4 5h1v1H4zM5 5h1v1H5zM6 5h1v1H6z" fill="#18B6F7"/>
+<path d="M7 5h1v1H7zM8 5h1v1H8z" fill="#FFF"/>
+<path d="m9 5h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1z" fill="#AB7EF3"/>
+<path d="M14 5h1v1h-1zM1 6h1v1H1z" fill="#0A0A0A"/>
+<path d="M2 6h1v1H2zM3 6h1v1H3zM4 6h1v1H4zM5 6h1v1H5zM6 6h1v1H6z" fill="#18B6F7"/>
+<path d="M7 6h1v1H7zM8 6h1v1H8zM9 6h1v1H9z" fill="#FFF"/>
+<path d="m10 6h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1z" fill="#AB7EF3"/>
+<path d="M14 6h1v1h-1zM1 7h1v1H1z" fill="#0A0A0A"/>
+<path d="M2 7h1v1H2zM3 7h1v1H3zM4 7h1v1H4z" fill="#18B6F7"/>
+<path d="M5 7h1v1H5zM6 7h1v1H6zM7 7h1v1H7zM8 7h1v1H8zM9 7h1v1H9zM10 7h1v1h-1z" fill="#FFF"/>
+<path d="m11 7h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1z" fill="#AB7EF3"/>
+<path d="M14 7h1v1h-1zM1 8h1v1H1z" fill="#0A0A0A"/>
+<path d="M2 8h1v1H2zM3 8h1v1H3zM4 8h1v1H4z" fill="#18B6F7"/>
+<path d="M5 8h1v1H5zM6 8h1v1H6zM7 8h1v1H7zM8 8h1v1H8zM9 8h1v1H9zM10 8h1v1h-1z" fill="#FFF"/>
+<path d="m11 8h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1z" fill="#AB7EF3"/>
+<path d="M14 8h1v1h-1zM1 9h1v1H1z" fill="#0A0A0A"/>
+<path d="M2 9h1v1H2zM3 9h1v1H3zM4 9h1v1H4zM5 9h1v1H5z" fill="#18B6F7"/>
+<path d="M6 9h1v1H6zM7 9h1v1H7zM8 9h1v1H8z" fill="#FFF"/>
+<path d="m9 9h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1z" fill="#AB7EF3"/>
+<path d="M14 9h1v1h-1zM1 10h1v1H1z" fill="#0A0A0A"/>
+<path d="M2 10h1v1H2zM3 10h1v1H3zM4 10h1v1H4zM5 10h1v1H5zM6 10h1v1H6z" fill="#18B6F7"/>
+<path d="M7 10h1v1H7zM8 10h1v1H8z" fill="#FFF"/>
+<path d="m9 10h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1z" fill="#AB7EF3"/>
+<path d="M14 10h1v1h-1zM2 11h1v1H2z" fill="#0A0A0A"/>
+<path d="M3 11h1v1H3zM4 11h1v1H4zM5 11h1v1H5zM6 11h1v1H6zM7 11h1v1H7zM8 11h1v1H8z" fill="#18B6F7"/>
+<path d="M9 11h1v1H9z" fill="#FFF"/>
+<path d="m10 11h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1z" fill="#AB7EF3"/>
+<path d="M13 11h1v1h-1zM3 12h1v1H3z" fill="#0A0A0A"/>
+<path d="m4 12h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1z" fill="#18B6F7"/>
+<path d="m11 12h1v1h-1z" fill="#AB7EF3"/>
+<path d="M12 12h1v1h-1zM4 13h1v1H4z" fill="#0A0A0A"/>
+<path d="m5 13h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1z" fill="#18B6F7"/>
+<path d="m11 13h1v1h-1zm-6 1h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1zm1 0h1v1h-1z" fill="#0A0A0A"/>
+</svg>
+
+[Qwik](https://qwik.dev/) is a framework that enables instant-loading web apps, without effort (yes, that's the description on GitHub 😆). It uses JSX (like React) and a variety of techniques to achieve instant loading and speed, such as service workers, prefetch, resumability, and more.
+
+<Image src={Image2} style='border:1px solid #212121;' alt='izolipe.com old version home screenshot'/>
+
+To generate a static website with Qwik, you can use [Qwik's Static Site Adapter](https://qwik.dev/docs/deployments/static/). By utilizing the static adapter, [MDX](https://qwik.dev/docs/guides/mdx/), and plugins for syntax highlighting and TeX, I created the first version of izolipe.com.
+
+### Qwik is ideal for websites that require JavaScript.
+
+Qwik is good for websites that require JavaScript. It splits the JavaScript into small chunks and loads them as needed by your app. However, this is why Qwik is not the best choice for my website. Most of the pages contain minimal JavaScript—just analytics and possibly a script for code copying. There are no components or pages with reactivity.
+
+---
+
+## The Astro
+
+<svg width="128px" height="128px" viewBox="0 0 16 16"><path fill="#0A0A0A" d="M6 1h1v1H6zM7 1h1v1H7zM8 1h1v1H8zM9 1h1v1H9zM5 2h1v1H5z"/><path fill="#FFF" d="M6 2h1v1H6zM7 2h1v1H7zM8 2h1v1H8zM9 2h1v1H9z"/><path fill="#0A0A0A" d="M10 2h1v1h-1zM5 3h1v1H5z"/><path fill="#FFF" d="M6 3h1v1H6zM7 3h1v1H7zM8 3h1v1H8zM9 3h1v1H9z"/><path fill="#0A0A0A" d="M10 3h1v1h-1zM4 4h1v1H4z"/><path fill="#FFF" d="M5 4h1v1H5zM6 4h1v1H6zM7 4h1v1H7zM8 4h1v1H8zM9 4h1v1H9zM10 4h1v1h-1z"/><path fill="#0A0A0A" d="M11 4h1v1h-1zM4 5h1v1H4z"/><path fill="#FFF" d="M5 5h1v1H5zM6 5h1v1H6z"/><path fill="#0A0A0A" d="M7 5h1v1H7zM8 5h1v1H8z"/><path fill="#FFF" d="M9 5h1v1H9zM10 5h1v1h-1z"/><path fill="#0A0A0A" d="M11 5h1v1h-1zM4 6h1v1H4z"/><path fill="#FFF" d="M5 6h1v1H5zM6 6h1v1H6z"/><path fill="#0A0A0A" d="M7 6h1v1H7zM8 6h1v1H8z"/><path fill="#FFF" d="M9 6h1v1H9zM10 6h1v1h-1z"/><path fill="#0A0A0A" d="M11 6h1v1h-1zM3 7h1v1H3z"/><path fill="#FFF" d="M4 7h1v1H4zM5 7h1v1H5zM6 7h1v1H6z"/><path fill="#0A0A0A" d="M7 7h1v1H7zM8 7h1v1H8z"/><path fill="#FFF" d="M9 7h1v1H9zM10 7h1v1h-1zM11 7h1v1h-1z"/><path fill="#0A0A0A" d="M12 7h1v1h-1zM3 8h1v1H3z"/><path fill="#FFF" d="M4 8h1v1H4zM5 8h1v1H5z"/><path fill="#0A0A0A" d="M6 8h1v1H6zM7 8h1v1H7zM8 8h1v1H8zM9 8h1v1H9z"/><path fill="#FFF" d="M10 8h1v1h-1zM11 8h1v1h-1z"/><path fill="#0A0A0A" d="M12 8h1v1h-1zM3 9h1v1H3z"/><path fill="#FFF" d="M4 9h1v1H4zM5 9h1v1H5z"/><path fill="#0A0A0A" d="M6 9h1v1H6zM7 9h1v1H7zM8 9h1v1H8zM9 9h1v1H9z"/><path fill="#FFF" d="M10 9h1v1h-1zM11 9h1v1h-1z"/><path fill="#0A0A0A" d="M12 9h1v1h-1zM4 10h1v1H4zM5 10h1v1H5zM6 10h1v1H6zM7 10h1v1H7zM8 10h1v1H8zM9 10h1v1H9zM10 10h1v1h-1zM11 10h1v1h-1zM5 11h1v1H5z"/><path fill="#FF5D01" d="M6 11h1v1H6zM7 11h1v1H7z"/><path fill="#FF4C0E" d="M8 11h1v1H8zM9 11h1v1H9z"/><path fill="#0A0A0A" d="M10 11h1v1h-1zM5 12h1v1H5z"/><path fill="#FF5D01" d="M6 12h1v1H6z"/><path fill="#0A0A0A" d="M7 12h1v1H7z"/><path fill="#FF5D01" d="M8 12h1v1H8z"/><path fill="#FF4C0E" d="M9 12h1v1H9z"/><path fill="#0A0A0A" d="M10 12h1v1h-1zM6 13h1v1H6zM7 13h1v1H7z"/><path fill="#FF5D01" d="M8 13h1v1H8z"/><path fill="#0A0A0A" d="M9 13h1v1H9zM8 14h1v1H8z"/></svg>
+
+[Astro](https://astro.build/) is a framework designed for developing content-driven websites. It optimizes JavaScript usage through a architecture called ["Astro Islands"](https://docs.astro.build/en/concepts/islands/), which renders the majority of the site as static HTML while using small, interactive "islands" of JavaScript for reactivity. 
+
+<Image src={Image1} style='border:1px solid #212121;' alt='izolipe.com home screenshot'/>
+
+Using Astro and MDX, I created the second version of izolipe.com.
+
+Astro allows flexibility. I can use one or more frameworks (even Qwik) or do everything with VanillaJS, and that's why I'm using Astro—freedom! 🗽
+
+### Astro with Qwik
+
+Qwik [integrates](https://qwik.dev/docs/integrations/astro/) with Astro, allowing you to use Qwik components within Astro while maintaining Qwik's resumability.
+
+```tsx
+// counter.tsx
+import { component$, useSignal } from "@builder.io/qwik";
+
+export default component$(() => {
+  const counter = useSignal(0);
+
+  return (
+  <div>
+    <h2>{counter.value}</h2>
+    <button onClick$={() => counter.value++}>+</button>
+    <button onClick$={() => counter.value--}>-</button>
+  </div>
+  );
+});
+``` 
+
+```astro
+---
+// index.astro
+import Counter from "../components/counter";
+---
+<html lang="en">
+  <body>
+    <h1>Astro.js - Qwik</h1>
+    <!-- no hydration directive (client:* or server:*)! -->
+    <Counter />
+  </body>
+</html>
+```
+It’s good because Qwik components don’t need hydration (unlike Astro islands), which makes things faster ⚡.
+
+### So... Why not Qwik with Astro?
+
+Because my website doesn’t heavily rely on JavaScript, components, and so on, I do everything with VanillaJS, which is fast as hell 😎.
+
+However, the door to using Qwik isn’t closed. I might incorporate it into certain parts of my website in the future.
+
+---
+
+## The Future of Izolipe
+
+<img src='/og.png' style='border:1px solid #212121;' alt='izolipe.com open graph image'/>
+Izolipe is my personal brand. I want people to see Izolipe as a place where they can find useful, well-organized notes on various subjects and tools. That’s why the Izolipe logo is the division operator—it represents my mission to "divide knowledge with you ❤️."
+
+Looking ahead, I plan to add more high-quality content to my website, create useful free tools, write more blog posts. Stay tuned for exciting updates! 😆
+</Post>
