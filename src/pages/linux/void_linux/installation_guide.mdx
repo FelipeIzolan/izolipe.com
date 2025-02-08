@@ -282,14 +282,42 @@ Select the disk to install the bootloader and decide whether to use a graphical 
 
 <Image src={Image10} alt='void-installer cfdisk partition'/>
 
-Manually partition your disk using `cfdisk`--it's easy to use, set partition table to **GPT**.
+Disk partitioning is done manually. The Void installer provides two tools for this purpose:
+
+- **cfdisk**: A user-friendly TUI (Text User Interface) Linux partition editor.
+- **fdisk**: A CLI (Command Line Interface) Linux partition editor.
 
 > ⚠️ The first partition must be the boot system.\
 > https://docs.voidlinux.org/installation/live-images/partitions.html
 
-##### Recommended Partition Layouts
+##### Partition Table
 
-###### BIOS System
+A partition table organizes a device's storage into sections called **partitions**.
+
+There are two main types: 
+- **MBR (Master Boot Record)**
+  - Max 4 partitions.
+  - 32-bit addressing. (limits disk size to 2TB)
+  - Use BIOS Boot.
+- **GPT (GUID Partition Table)**
+  - Max 128 partitions.
+  - 64-bit addressing. (limits disk size to 9.4ZB)
+  - Use UEFI System. (compatible with BIOS Boot)
+
+> **Recommendation**: Use GPT if your motherboard supports UEFI.
+
+<Image src={Image12} alt='void-installer fdisk'/>
+
+To modify the partition table, select the disk and use `fdisk`.\
+To create a specific partition table, use one of the following commands:
+
+- **g**: GPT
+- **o**: MBR
+
+> After making changes, run the **w** to write the changes and exit.
+
+##### Recommended Partition Table (GPT)
+
 <table>
   <thead>
     <th>Type</th>
@@ -322,7 +350,6 @@ Manually partition your disk using `cfdisk`--it's easy to use, set partition tab
 
 <br/>
 
-###### UEFI System
 <table>
   <thead>
     <th>Type</th>
@@ -355,40 +382,6 @@ Manually partition your disk using `cfdisk`--it's easy to use, set partition tab
 
 <br/>
 
-##### Changing the Partition Table Type
-
-<Image src={Image12} alt='void-installer fdisk'/>
-
-To modify the partition table type, select the disk and use `fdisk`. Run one of the following commands to create a specific partition table:
-
-<table>
-  <thead>
-    <th>Command</th>
-    <th>Partition Table Type</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td>**g**</td>
-      <td>GPT</td>
-    </tr>
-    <tr>
-      <td>**G**</td>
-      <td>SGT</td>
-    </tr>
-    <tr>
-      <td>**o**</td>
-      <td>MBR</td>
-    </tr>
-    <tr>
-      <td>**s**</td>
-      <td>Sun</td>
-    </tr>
-  </tbody>
-</table>
-
-> After making changes, run the **w** command to write the changes and exit.
-
-
 #### Filesystems
 
 <Image src={Image11} alt='void-installer filesystems'/>
@@ -396,7 +389,7 @@ To modify the partition table type, select the disk and use `fdisk`. Run one of 
 After partitioning your disk, the next step is to assign the appropriate filesystem to each partition.
 
 ##### Boot System (First Partition)
-- **BIOS System**: Don't create any filesystem in it. GRUB will install itself without one.
+- **BIOS Boot**: Don't create any filesystem in it. GRUB will install itself without one.
 - **UEFI System**: Format the partition as **FAT32** and **mount it to */boot/efi***.
 
 ##### Swap
