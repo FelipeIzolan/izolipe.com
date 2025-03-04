@@ -1,18 +1,6 @@
 ---
-const slugify = (...args) => {
-  const value = args.join(' ')
-
-  return '#' + value
-    .replaceAll('-', ' ')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9 ]/g, '')
-    .replace(/\s+/g, '-')
-}
-
-let headings = Astro.props.headings;
+import { slugify } from "../utils.ts";
+let headings = Astro.props.headings as Array<{ title: string, depth: number }>;
 ---
 <hr/>
 <h2>Table of Contents</h2>
@@ -21,7 +9,7 @@ let headings = Astro.props.headings;
     headings
     .map(
       ({title, depth}) => 
-      <li style={`margin-left:${depth}em`}><a href={slugify(title)}>{title}</a></li>
+      <li style={`margin-left:${depth}em`}><a href={`#${slugify(title)}`}>{title}</a></li>
     )
   }
 </ul>

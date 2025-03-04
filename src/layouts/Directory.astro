@@ -1,5 +1,6 @@
 ---
 import path from 'path';
+import { slugify } from '../utils';
 
 import Base from './Base.astro';
 import { Image } from 'astro:assets';
@@ -12,7 +13,7 @@ let inodes: Inodes = Astro.props.inodes;
 let description = Astro.props.description || 
                   `Explore simple notes about ${title} - perfect for quick understanding.`;
 
-type Inode = { type: 'file' | 'folder' | 'line' | 'year', href: string, text: string }
+type Inode = { type: 'file' | 'folder' | 'line', date: string, text: string }
 type Inodes = Inode[];
 ---
 <Base 
@@ -25,13 +26,12 @@ type Inodes = Inode[];
   </header>
   <main>
     {
-    inodes.map(({type, href, text}) => {
+    inodes.map(({type, text, date}) => {
       if (type == 'line') return <hr/>
-      if (type == 'year') return <h3>-{text}-</h3>
 
       let label = 'Link to ' + text;  
       let Icon = type == 'file' ? File : Folder;
-      return <a class='inode' href={path.join(Astro.url.pathname, href)} aria-label={label}><Icon/>{text}</a>
+      return <a class="inode" aria-label={label} href={path.join(Astro.url.pathname, slugify(text))}>{date && <span class='date'>{date}</span>}<Icon/>{text}</a>;
     }) 
     }
   </main>

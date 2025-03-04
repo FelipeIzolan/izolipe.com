@@ -3,16 +3,16 @@ import { Image } from 'astro:assets';
 
 import Image1 from "#/assets/imgs/128.png";
 import Image2 from "#/assets/imgs/130.png";
+import Image3 from "#/assets/imgs/154.png";
 
 <Post
   title='Content-Driven Website: From Qwik to Astro'
   description='Discover why I transitioned from Qwik to Astro for my content-driven website.'
-  date='02-01-2025'
-  code={true}
 > 
 
+<Image src={Image3} alt="Image generated with Leonardo AI"/>
 
-Recently, I made a <span style='background:#212121'><span style='color:#55CDFC'>tr</span><span style='color:#F7A8B8'>an</span><span><span style='color:white'>si</span></span><span style='color:#F7A8B8'>ti</span><span style='color:#55CDFC'>on</span></span> from [Qwik](https://qwik.dev/) to [Astro](https://astro.build/). If you're familiar with Qwik, you might be wondering why I chose it in the first place. It’s a solid framework, and I’ll definitely use it in future projects but for a content-driven website, it wasn’t the best fit.
+Hi! I made a transition from [Qwik](https://qwik.dev/) to [Astro](https://astro.build/). If you're familiar with Qwik, you might be wondering why I chose it in the first place. It’s a solid framework, and I’ll definitely use it in future projects but for a content-driven website, it wasn’t the best fit.
 
 ---
 
@@ -70,9 +70,9 @@ Recently, I made a <span style='background:#212121'><span style='color:#55CDFC'>
 
 To generate a static website with Qwik, you can use [Qwik's Static Site Adapter](https://qwik.dev/docs/deployments/static/). By utilizing the static adapter, [MDX](https://qwik.dev/docs/guides/mdx/), and plugins for syntax highlighting and TeX, I created the first version of izolipe.com.
 
-### Qwik is ideal for websites that require JavaScript.
+### Qwik is ideal for JavaScript rely websites.
 
-Qwik is good for websites that require JavaScript. It splits the JavaScript into small chunks and loads them as needed by your app. However, this is why Qwik is not the best choice for my website. Most of the pages contain minimal JavaScript—just analytics and possibly a script for code copying. There are no components or pages with reactivity.
+Qwik is good for websites that require JavaScript. It splits the JavaScript into small chunks and loads them as needed by your app. However, this is why Qwik is not the best choice for my website. Most of the pages contain minimal JavaScript—just analytics. Actually, there are no components or pages with reactivity provided by a framework
 
 ---
 
@@ -86,7 +86,7 @@ Qwik is good for websites that require JavaScript. It splits the JavaScript into
 
 Using Astro and MDX, I created the second version of izolipe.com.
 
-Astro allows flexibility. I can use one or more frameworks (even Qwik) or do everything with VanillaJS, and that's why I'm using Astro—freedom! 🗽
+Astro offers an excellent workflow, allowing you to structure your site with layouts, pages, components, and more. To build components, you can use one or more frameworks (even Qwik). That's why I use Astro: for its great workflow, flexibility, and the freedom it provides! 🗽
 
 ### Astro with Qwik
 
@@ -134,8 +134,9 @@ However, the door to using Qwik isn’t closed. I might incorporate it into cert
 
 ## The Future of Izolipe
 
-<img src='/og.png' style='border:1px solid #212121;' alt='izolipe.com open graph image'/>
 Izolipe is my personal brand. I want people to see Izolipe as a place where they can find useful, well-organized notes on various subjects and tools. That’s why the Izolipe logo is the division operator—it represents my mission to "divide knowledge with you ❤️."
+
+<img src='/og.png' style='border:1px solid #212121;' alt='izolipe.com open graph image'/>
 
 Looking ahead, I plan to add more high-quality content to my website, create useful free tools, write more blog posts. Stay tuned for exciting updates! 😆
 </Post>

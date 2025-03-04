@@ -2,117 +2,103 @@
   margin: 0;
   padding: 0;
   color: #212121;
-  box-sizing: border-box;
 }
 
 body {
   font-size: 18px;
-  font-family: system-ui;
   line-height: 1.4;
 
-  margin: 16px auto;
-  max-width: 800px;
+  margin: 1em auto;
+  max-width: 720px;
 
   background: #f6f6f6;
 }
 
-nav {
-  display: flex;
-}
-
-nav a {
-  text-decoration: none;
-}
-
-nav a:hover {
-  transform: translateY(-2px);
-}
-
-/*----------------------------------------------------------*/
+/* --------------------------------------------------- */
 
 img {
   max-width: 100%;
   height: auto;
 }
 
-main {
-  margin: 0.8em 0;
+pre { 
+  padding: 1em;
+  border-radius: 4px;
+}
+
+code {
+  color: #e1e4e8;
+  background-color: #24292e;
+}
+
+blockquote {
+  border-left: 4px solid #212121;
+  padding-left: 1em;
+}
+
+ul,
+ol {
+  margin: 1.2em 1em;
 }
 
 input,
 button {
-  outline: none;
-  background: none;
-  border-radius: 2px;
-  border: 2px solid #212121;
   padding: 2px 4px;
 }
 
-
-table,
+td,
 th,
-td {
+table {
   padding: 6px;
   border: 1px solid #212121;
   border-collapse: collapse;
 }
 
-button {
-  cursor: pointer;
-}
-
-p,
-ul,
-ol,
-hr {
+p, 
+hr,
+pre,
+main { 
   margin: 1em 0;
 }
 
-ol,
-ul {
-  margin-left: 1em;
-}
+/* --------------------------------------------------- */
 
-li > p {
-  margin: 0;
+nav, 
+.inode {
+  display: flex;
+  align-items: center;
 }
-
-blockquote {
-  padding-left: 10px;
-  border-left: 4px solid #212121;
-}
-
-pre,code {
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-code {
-  color:#e1e4e8;
-  background-color:#24292e;
-  padding: 0.2em;
-}
-
-/*----------------------------------------------------------*/
 
 nav a,
 .inode {
   transition: 200ms;
+  text-decoration: none;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.inode {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
+.inode span::after {
+  content: '-';
+  margin: 0 7px;
+}
+
+
+nav a:hover {
+  transform: translateY(-2px);
 }
 
 .inode:hover {
-  transform: translateX(4px);
+  transform: translateX(3px);
 }
 
-@media (max-width: 816px) {
+@media (max-width: 756px) {
   body {
-    max-width: auto;
-    margin: 16px 8px;
+    font-size: 16px;
+    margin: 1em;
+  }
+  .inode span {
+    display: none;
   }
 }
