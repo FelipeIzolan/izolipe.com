@@ -10,7 +10,14 @@ import sitemap from "@astrojs/sitemap";
 
 const MdxConf = {
   shikiConfig: {
-    theme: "github-dark"
+    theme: 'github-dark',
+    transformers: [
+      {
+        pre(node) {
+          node.properties.style = "background-color:#212121;color:#e1e4e8;overflow-x:auto;"
+        }
+      }
+    ]
   },
   rehypePlugins: [
     rehypeKatex,

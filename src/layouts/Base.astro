@@ -2,10 +2,8 @@
 import Head from "../components/Head.astro";
 import Nav from "../components/Nav.astro";  
 import Footer from "../components/Footer.astro";  
-import KoFi from "../components/Ko-fi.astro";
 
 import '../assets/styles/global.css';
-
 
 let title = Astro.props.title;
 let description = Astro.props.description;
@@ -19,10 +17,9 @@ let katex = Astro.props.katex;
     katex={katex}
   />
   <body lang='en'>
-    <Nav />  
+    <Nav />
     <slot />
     <Footer />
-    <KoFi />
   </body>
 </html>
 

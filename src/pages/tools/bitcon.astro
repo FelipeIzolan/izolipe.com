@@ -1,8 +1,8 @@
 ---
-import Post from '#/layouts/Post.astro';
+import Base from '#/layouts/Base.astro';
 let sources = Object.values(import.meta.glob('../../assets/bitcon/*.svg', { eager: true }));
 ---
-<Post
+<Base
   title='Bitcon - 16x16 Icons'
   description='A library of customizable 16x16 SVG icons for easy use in web design and development.'
 >
@@ -31,7 +31,7 @@ let sources = Object.values(import.meta.glob('../../assets/bitcon/*.svg', { eage
   <ul style="list-style:none;display:flex;justify-content:center;flex-wrap:wrap;margin:0">
     {sources.map(Icon => <li><Icon.default/></li>)}
   </ul>
-</Post>
+</Base>
 
 <script>
   const scale = document.querySelector('input[type=range]');
