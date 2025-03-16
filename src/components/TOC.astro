@@ -8,8 +8,10 @@ let headings = Astro.props.headings as Array<{ title: string, depth: number }>;
   {
     headings
     .map(
-      ({title, depth}) => 
-      <li style={`margin-left:${depth}em`}><a href={`#${slugify(title)}`}>{title}</a></li>
+    ({title, depth}) => {
+        depth--;
+        return <li style={depth ? `margin:0 ${depth}em` : null}><a href={`#${slugify(title)}`}>{title}</a></li>
+      }    
     )
   }
 </ul>

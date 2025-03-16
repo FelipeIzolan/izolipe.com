@@ -1,19 +1,15 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 html,
 body {
-  font-size: 16px;
-  font-family: sans-serif;
-  line-height: 1.4;
   color: #212121;
+  font-size: 16px;
   background: #f6f6f6;
+  line-height: 1.4;
+  font-family: sans-serif;
 }
 
 body {
-  margin: 1em auto;
+  margin: auto;
+  padding: 1em;
   max-width: 720px;
 }
 
@@ -23,14 +19,8 @@ section {
   margin: 1em 0;
 }
 
-p,
-ul,
-ol,
-dl,
 dt,
-hr,
 pre,
-form,
 table,
 blockquote {
   margin: 1em 0;
@@ -46,11 +36,15 @@ pre {
 }
 
 img {
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
 }
 
-blockquote { 
+input {
+  vertical-align: middle;
+}
+
+blockquote {
   border-left: 4px solid #212121;
   padding-left: 1em;
 }
@@ -61,14 +55,14 @@ article h1 { /*override :-webkit-any*/
 
 ul,
 ol {
+  padding: 0;
   list-style-position: inside;
 }
 
-li ul,
-li ol {
-  margin: 1em;
+li > ul,
+li > ol {
+  padding: 0 1em;
 }
-
 
 pre,
 code {
@@ -108,11 +102,9 @@ legend,
 input[type="reset"],
 input[type="button"],
 input[type="submit"] {
-  background: #212121;
   color: #f6f6f6;
+  background: #212121;
 }
-
-/* --------------------------------------------------- */
 
 .inode {
   padding: 1px 0;
@@ -140,15 +132,4 @@ nav a:hover {
 
 .inode:hover {
   transform: translateX(3px);
-}
-
-/* --------------------------------------------------- */
-
-@media (max-width: 752px) {
-  body {
-    margin: 1em;
-  }
-  .inode span {
-    display: none;
-  }
 }
