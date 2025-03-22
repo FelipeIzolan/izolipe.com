@@ -1,0 +1,25 @@
+---
+import Base from '#/layouts/Base.astro';
+---
+<Base
+  title='HTML Formatter'
+  description=''
+>
+<h1 style="margin:0">HTML Formatter</h1>
+<b>A HTML formatter tidies up HTML code for readability.</b>
+<main>
+  <textarea style="width:100%;min-height:24em;resize:none" placeholder="Enter your HTML"></textarea>
+  <button>Format</button>
+</main>
+<script>
+  import { html } from 'js-beautify';
+  
+  let textarea = document.querySelector('textarea');
+  let button = document.querySelector('button');
+  
+  button.onclick = () => {
+    textarea.value = html(textarea.value, { indent_size: 2 });
+  }
+</script>
+</Base>
+

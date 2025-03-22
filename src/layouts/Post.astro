@@ -5,7 +5,9 @@ let title = Astro.props.title;
 let description = Astro.props.description;
 
 let katex = Astro.props.katex; 
+
 let date = Astro.props.date;
+let author = Astro.props.author;
 ---
 <Base 
   title={title} 
@@ -14,7 +16,13 @@ let date = Astro.props.date;
 >
   <header>
     <h1 style="margin:0">{title}</h1>
-    {date && <b>{date}</b>}
+    {
+      date &&
+      <div style="font-size:0.9em">
+        <span>{author ?? "Felipe Izolan"}</span> |
+        <span>{date}</span>
+      </div>
+    }
   </header>
   <main>
     <slot />
