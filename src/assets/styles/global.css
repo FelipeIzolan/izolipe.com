@@ -1,0 +1,134 @@
+html,
+body {
+  font-size: 15px;
+  line-height: 1.5;
+  
+  color: #212121;
+  background: #f6f6f6;  
+  
+  font-family: sans-serif;
+}
+
+body {
+  margin: auto;
+  padding: 1em;
+  max-width: 640px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1em 0;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+main,
+section {
+  margin: 1em 0;
+}
+
+dt,
+pre,
+table,
+blockquote {
+  margin: 1em 0;
+}
+
+a {
+  color: inherit;
+}
+
+pre {
+  padding: 1em;
+  border-radius: 3px;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+input {
+  vertical-align: middle;
+}
+
+blockquote {
+  border-left: 4px solid #212121;
+  padding-left: 1em;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style-position: inside;
+}
+
+li > ul,
+li > ol {
+  padding: 0 1em;
+}
+
+pre,
+code {
+  color: white;
+  overflow: auto;
+  background: #212121;
+}
+
+input:disabled,
+button:disabled {
+  opacity: 0.8;
+}
+
+td,
+th,
+table {
+  border: 1px solid #212121;
+  padding: 8px;
+  border-collapse: collapse;
+}
+
+input,
+button,
+select,
+legend,
+fieldset,
+textarea {
+  border: 1px solid #212121;
+  outline: none;
+  padding: 3px 8px;
+  background: none;
+  border-radius: 3px;
+}
+
+button,
+legend,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+  color: #f6f6f6;
+  background: #212121;
+}
+
+.inode {
+  gap: 3px;
+  display: flex;
+  padding: 1px 0; 
+  text-decoration: none;
+  transition: 200ms;
+}
+
+.inode:hover {
+  transform: translateX(3px);
+}
+
+nav,
+footer {
+  gap: 2px;
+  display: flex;
+  font-size: 13px;
+}

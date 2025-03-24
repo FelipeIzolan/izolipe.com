@@ -1,0 +1,31 @@
+---
+import Folder from './icons/Folder.astro';
+
+type Node = {
+  text: string,
+  href: string
+}
+
+let pathname = Astro.url.pathname;
+let path = pathname == '/' ? [] : pathname
+  .split('/')
+  .slice(1)
+  .reduce<Node[]>((acc, text, index) => {
+    let prev = index > 0 ? acc[index - 1].href : '';
+    text = '/' + text;
+    acc.push({ 
+      text, 
+      href: prev + text
+    });
+    return acc;
+    }, []);
+---
+<nav>
+  <a href='/' aria-label="Link to home"><Folder/></a>
+  {
+    path.map(({text, href}) => {
+      let label = "Link to " + text
+      return <a aria-label={label} href={href}>{text}</a>;
+    })
+  }
+</nav>

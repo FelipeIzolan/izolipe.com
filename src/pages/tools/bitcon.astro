@@ -1,0 +1,134 @@
+---
+import Base from '#/layouts/Base.astro';
+let sources = Object.values(import.meta.glob('../../assets/bitcon/*.svg', { eager: true }));
+---
+<Base
+  title='Bitcon - 16x16 Icons'
+  description='A library of customizable 16x16 SVG icons for easy use in web design and development.'
+>
+  <b>~{sources.length} bitcons</b>
+  <div id='customize' style='display:flex;align-items:center;justify-content:space-around;border:2px solid #212121;padding:1em'>
+    <div style='display:flex;flex-direction:column;gap:8px'>
+      <h2 style='margin:0'>Customize</h2>
+      <input type="range" min="1" max="8" value="8"/>
+      <div id="colors" style='display:flex;flex-wrap:wrap;width:156px'></div>
+      <div>
+        <button id="download">Download</button>
+        <button id="copy">Copy</button>
+        <div>
+          <input type="radio" value="svg" name="ext" checked />
+          <label>svg</label>
+          <input type="radio" value="png" name="ext"/>
+          <label>png</label>
+        </div>
+      </div>
+    </div>
+    <div style='width:128px;height:128px;display:flex;justify-content:center;align-items:center'>
+      <svg viewBox='0 0 16 16' width='128px' height='128px'/>
+    </div>
+  </div>
+  <blockquote style="margin:0.4em 0">
+    ⚠️ The SVG data is raw; it's recommended to minify/compress it.
+  </blockquote>
+  <ul style="list-style:none;display:flex;justify-content:center;flex-wrap:wrap;margin:0;padding:0">
+    {sources.map(Icon => <li><Icon.default/></li>)}
+  </ul>
+</Base>
+
+<script>
+  const scale = document.querySelector('input[type=range]');
+  const colors = document.querySelector('#colors');
+  const preview = document.querySelector('#customize svg');
+
+  load(document.querySelector('li>svg').innerHTML);
+  for (const svg of document.querySelectorAll('li>svg')) {
+    svg.setAttribute('width', '32px');
+    svg.setAttribute('height', '32px');
+    svg.setAttribute('viewBox', '0 0 16 16');
+    svg.onclick = function() { load(this.innerHTML); }
+  }
+
+  preview.onclick = function () {
+    for (const rect of preview.children) {
+      rect.setAttribute('rx', 1)
+    }
+  }
+
+  scale.oninput = function () {
+    let size = 16 * scale.value;
+    preview.setAttribute('width', `${size}px`);
+    preview.setAttribute('height', `${size}px`);
+  }
+
+  document.querySelector('#download').onclick = function () {
+    let ext = document.querySelector('input[name="ext"]:checked').value;
+    let size = 16 * scale.value;
+    let data = `<svg xmlns="http://www.w3.org/2000/svg" viewBox='0 0 16 16' width='${size}px' height='${size}px'>${preview.innerHTML}</svg>`;
+
+    let blob = new Blob([data], { type: 'image/svg+xml' });
+
+    if (ext == 'png') {
+      let img = document.createElement('img');
+      let canvas = document.createElement('canvas');
+      let context = canvas.getContext('2d');
+
+      canvas.width = size;
+      canvas.height = size;
+      
+      img.src = URL.createObjectURL(blob);
+      img.onload = function() {
+        context.drawImage(img, 0, 0);
+        let a = document.createElement('a');
+        a.href = canvas.toDataURL();
+        a.download = 'icon.png';
+        a.click();
+      }
+    }
+
+    if (ext == 'svg') {
+      let a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'icon.svg';
+      a.click();
+    }
+
+  }
+
+  document.querySelector('#copy').onclick = function () {
+    let size = 16 * scale.value;
+    let data = `<svg xmlns="http://www.w3.org/2000/svg" viewBox='0 0 16 16' width='${size}px' height='${size}px'>${preview.innerHTML}</svg>`;
+    navigator.clipboard.writeText(data);
+  }
+
+  function load(html) {
+    colors.innerHTML = '';
+    preview.innerHTML = html;
+
+    let map = [];
+    for (const rect of preview.children) {
+      if (map.length > 12) 
+        return colors.innerHTML = "Too many colors!";
+      
+      let color = rect.getAttribute('fill');
+      !map.includes(color) && map.push(color);
+    }
+
+    for (const color of map) {
+      let element = document.createElement('input');
+        
+      element.type = 'color';
+      element.value = color;
+      element.dataset.color = color;
+      element.oninput = function () {
+        for (const rect of preview.children) {
+          let color = rect.getAttribute('fill');
+          if (color == this.dataset.color)
+            rect.setAttribute('fill', this.value);
+        }
+        this.dataset.color = this.value;
+      }
+
+      colors.appendChild(element);
+    }
+  }
+</script>

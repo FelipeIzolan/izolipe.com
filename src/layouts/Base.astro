@@ -1,0 +1,30 @@
+---
+import Head from "../components/Head.astro";
+import Footer from "../components/Footer.astro";  
+
+import Header from "../components/Header.astro";
+
+import '../assets/styles/global.css';
+
+let date = Astro.props.date;
+let author = Astro.props.author;
+
+let title = Astro.props.title;
+let description = Astro.props.description;
+
+let katex = Astro.props.katex;
+---
+<html lang='en-us'>
+  <Head
+    title={title}
+    description={description}
+    katex={katex}
+  />
+  <body lang='en'>
+    <Header title={title} date={date} author={author}/>
+    <slot />
+    <Footer />
+  </body>
+</html>
+
+

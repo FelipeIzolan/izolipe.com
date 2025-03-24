@@ -1,0 +1,120 @@
+import Post from '#/layouts/Post.astro';
+import { Image } from 'astro:assets';
+
+import Image1 from "#/assets/imgs/40.png";
+import Image2 from "#/assets/imgs/41.png";
+import Image3 from "#/assets/imgs/42.png";
+
+<Post
+  title='Math - Variables'
+  description='The fundamentals of math variables, including how they represent values in expressions, with practical examples.'
+  katex={true}
+>
+
+<Image src={Image1} alt='Math variable'/>
+Variable is a **symbol** that represents a **mathematical object**.
+
+---
+
+## Example
+
+Consider the expression: $2x + 1$;\
+You can **replace the variable x** with **any mathematical object** and then calculate the result.
+
+<table>
+  <thead>
+    <th>x</th>
+    <th>Expression</th>
+    <th>Result</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3</td>
+      <td>$2 * 3 + 1$</td>
+      <td>$7$</td>
+    </tr>
+    <tr>
+      <td>$\sqrt[3]{64}$</td>
+      <td>$2 * \sqrt[3]{64} + 1$</td>
+      <td>$9$</td>
+    </tr>
+    <tr>
+      <td>$\log_4(16384)$</td>
+      <td>$2 * \log_4(16384) + 1$</td>
+      <td>$15$</td>
+    </tr>
+  </tbody>
+</table>
+
+
+---
+
+## The Chef
+
+<Image src={Image3} alt="Chef pixel art" />
+A chef sells a delicious hamburger for just **$2.99 per unit**.
+
+> $\small x * 2.99 = price$
+
+<table>
+  <thead>
+    <th>x (quantity)</th>
+    <th>Expression</th>
+    <th>Result</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$4$</td>
+      <td>$4 * 2.99$</td>
+      <td>$11.96$</td>
+    </tr>
+    <tr>
+      <td>$13$</td>
+      <td>$13 * 2.99$</td>
+      <td>$38.87$</td>
+    </tr>
+    <tr>
+      <td>$999$</td>
+      <td>$999 * 2.99$</td>
+      <td>$2987.01$</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## The Elekid Worker
+
+<Image src={Image2} alt="Elekid pixel art" />
+An Elekid generates energy for a small town, having its own **efficiency** and **base watts generated per hour**.
+> $x * y * 24 = \text{watts per day}$
+<table>
+  <thead>
+    <th>x (base)</th>
+    <th>y (efficiency)</th>
+    <th>Expression</th>
+    <th>Result</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$1200$</td>
+      <td>$1.2$</td>
+      <td>$1200 * 1.2 * 24$</td>
+      <td>$34560$</td>
+    </tr>
+    <tr>
+      <td>$2000$</td>
+      <td>$0.9$</td>
+      <td>$2000 * 0.9 * 24$</td>
+      <td>$43200$</td>
+    </tr>
+    <tr>
+      <td>$950$</td>
+      <td>$8$</td>
+      <td>$950 * 8 * 24$</td>
+      <td>$182400$</td>
+    </tr>
+  </tbody>
+</table>
+
+</Post>

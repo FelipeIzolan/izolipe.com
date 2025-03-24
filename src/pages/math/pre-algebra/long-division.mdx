@@ -1,0 +1,84 @@
+import Post from '#/layouts/Post.astro';
+import { Image } from "astro:assets"; 
+
+import Image1 from "#/assets/imgs/118.png";
+import Image2 from "#/assets/imgs/119.png";
+import Image3 from "#/assets/imgs/120.png";
+import Image4 from "#/assets/imgs/121.png";
+import Image5 from "#/assets/imgs/122.png";
+import Image6 from "#/assets/imgs/123.png";
+import Image7 from "#/assets/imgs/124.png";
+import Image8 from "#/assets/imgs/125.png";
+import Image9 from "#/assets/imgs/126.png";
+import Image10 from "#/assets/imgs/127.png";
+
+<Post
+  title='Math - Long Division'
+  description='The fundamentals of long division with step-by-step instructions and examples. Learn how to divide large numbers easily.'
+  katex={true}
+>
+
+<Image src={Image2} alt='Long division structure'/>
+Long division is a method for dividing large numbers digit-by-digit.
+
+**Divisor**: The number that divides.\
+**Dividend**: The number that is to be divided.
+
+---
+
+## Long Division Steps
+
+<Image src={Image1} alt='Long division example'/>
+
+1. **Setup**: Write the dividend inside the division box, and the divisor outside the box.
+2. **Divide**: Look at the digit of the dividend. Determine how many times the divisor fits into it, and write the answer above the division box.
+3. **Multiply**: Multiply the divisor by the number you wrote above the division box.
+4. **Subtract**: Subtract the result from the digit or digits you are working with. Write the remainder below.
+5. **Bring down**: Bring down the next digit of the dividend next to the remainder.
+6. **Repeat**: Repeat the process until you’ve used all the digits in the dividend.
+
+[Math Antics - Long Division (youtube)](https://www.youtube.com/watch?v=LGqBQrUYua4)\
+[Math Antics - Long Division with 2-Digit Divisors (youtube)](https://www.youtube.com/watch?v=HdU_rf7eMTI)
+
+### Example
+
+> $5877 \div 3$
+
+<table>
+  <tbody>
+    <tr>
+      <td><Image src={Image3} alt="Long division step 1"/></td>
+      <td>Setup; **5877** inside division box, **3** outside.</td>
+    </tr>
+    <tr>
+      <td><Image src={Image4} alt="Long division step 2"/></td>
+      <td>Divide the number **5** by **3**.</td>
+    </tr>
+    <tr>
+      <td><Image src={Image5} alt="Long division step 3"/></td>
+      <td>Bring down **8**, forming **28**.</td>
+    </tr>
+    <tr>
+      <td><Image src={Image6} alt="Long division step 4"/></td>
+      <td>Divide the number **28** by **3**.</td>
+    </tr>
+    <tr>
+      <td><Image src={Image7} alt="Long division step 5"/></td>
+      <td>Bring down **7**, forming **17**.</td>
+    </tr>
+    <tr>
+      <td><Image src={Image8} alt="Long division step 6"/></td>
+      <td>Divide the number **17** by **3**.</td>
+    </tr>
+    <tr>
+      <td><Image src={Image9} alt="Long division step 7"/></td>
+      <td>Bring down **7**, forming **27**.</td>
+    </tr>
+    <tr>
+      <td><Image src={Image10} alt="Long division step 8"/></td>
+      <td>Divide the number **27** by **3**.</td>
+    </tr>
+  </tbody>
+</table>
+
+</Post>

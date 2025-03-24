@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets";
+import Directory from "#/layouts/Directory.astro";
+import Image1 from "@img/169.png";
+---
+<Directory 
+  title='Math'
+  inodes={[
+    { type: 'folder', text: 'Arithmetic' },
+    { type: 'folder', text: 'Pre Algebra' },
+    { type: 'folder', text: 'Algebra' }
+  ]}
+  >
+<Image src={Image1} alt="Numbers pixel-art"/>
+<p>Math is a powerful language, it solves problems, simulates worlds (through programming), and much more.</p>
+</Directory>

@@ -1,0 +1,20 @@
+---
+import Path from "./Path.astro";
+
+let { date, author, title } = Astro.props;
+---
+<header>
+  <Path/>
+  <div style="display:flex;justify-content:space-between">
+    <h1 style="margin:0">{title}</h1>
+    <span>ʕ•ﻌ•ʔ</span>
+  </div>
+  {
+      date &&
+      <div style="font-size:13px">
+        <span>{author ?? "Felipe Izolan"}</span> |
+        <span>{date}</span>
+      </div>
+    }
+
+</header>

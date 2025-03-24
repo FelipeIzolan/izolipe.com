@@ -1,0 +1,40 @@
+---
+import path from 'path';
+import { slugify } from '../utils';
+
+import Base from './Base.astro';
+
+import Path from '../components/Path.astro';
+import File from '../components/icons/File.astro';
+import Folder from '../components/icons/Folder.astro';
+
+let title = Astro.props.title;
+let inodes: Inodes = Astro.props.inodes;
+let description = Astro.props.description || 
+                  `Explore simple notes about ${title};`;
+
+type Inode = { type: 'file' | 'folder' | 'line', text: string }
+type Inodes = Inode[];
+---
+<Base 
+  title={title} 
+  description={description}
+>
+  {
+    Astro.slots.has('default') &&
+    <section>
+      <slot/>
+    </section>
+  }
+  <main>
+    {
+      inodes.map(({type, text}) => {
+      if (type == 'line') return <hr/>
+
+      let label = 'Link to ' + text;  
+      let Icon = type == 'file' ? File : Folder;
+      return <a class="inode" aria-label={label} href={path.join(Astro.url.pathname, slugify(text))}><Icon/>{text}</a>;
+      }) 
+    }
+  </main>
+</Base>

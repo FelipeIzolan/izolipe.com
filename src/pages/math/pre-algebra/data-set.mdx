@@ -1,0 +1,70 @@
+import Post from '#/layouts/Post.astro';
+import { Image } from 'astro:assets';
+
+import Image1 from "#/assets/imgs/25.png";
+
+<Post
+  title='Math - Data Set'
+  description='The fundamentals of data sets in mathematics, including key concepts like mean, median, mode, and range, with practical examples and explanations.'
+  katex={true}
+>
+
+<Image src={Image1} alt="Data set example" />
+<div style='display:flex;gap:8px;font-size:small;font-weight:bolder'>
+
+<div style='display:flex;gap:4px;align-items:center'>
+  <div style='width:1em;height:1em;background:#2bff80' />
+  <span>Mean: $\small3.75$</span>
+</div>
+
+<div style='display:flex;gap:4px;align-items:center'>
+  <div style='width:1em;height:1em;background:#ffd28c' />
+  <span>Range: $\small3$</span>
+</div>
+
+<div style='display:flex;gap:4px;align-items:center'>
+  <div style='width:1em;height:1em;background:#ff4a79' />
+  <span>Median: $\small4$</span>
+</div>
+
+<div style='display:flex;gap:4px;align-items:center'>
+  <div style='width:1em;height:1em;background:#4aa8ff' />
+  <span>Mode: $\small5$</span>
+</div>
+
+</div>
+
+A data set in mathematics is a collection of related data points or values, often used in statistics to analyze and interpret information.
+
+---
+
+- **Median**: The middle value in a data set.
+- **Mean**: The average of all values in a data set.
+- **Mode**: The most frequent value in a data set.
+- **Range**: The difference between the largest and smallest values in a data set.
+
+---
+  
+## Examples
+
+### Median
+
+$\{1,1,3,3,3,\textcolor{#7932ff}{6},7,8,8,9,9\}\\$
+
+### Mean
+
+$\frac{2+2+4+5+8+12}{6} = \frac{33}{6} = \textcolor{#7932ff}{5.5}$
+> $\frac{\text{Total of all the numbers}}{\text{Count of the numbers}}$ 
+
+### Mode
+
+$\{2,3,3,5,\textcolor{#7932ff}{7},\textcolor{#7932ff}{7},\textcolor{#7932ff}{7},\textcolor{#7932ff}{7},9,13\}$
+
+### Range
+$
+\{4,5,6,8,15,17\}\\
+17-4\\
+\textcolor{#7932ff}{13}
+$
+> $\small\text{largest number} - \text{smallest number}$
+</Post>

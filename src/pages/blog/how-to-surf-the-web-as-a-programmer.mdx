@@ -1,0 +1,105 @@
+import Post from '#/layouts/Post.astro';
+import { Image } from 'astro:assets';
+
+import Image1 from '@img/155.png';
+import Image2 from '@img/156.png';
+import Image3 from '@img/157.png';
+import Image4 from '@img/159.png';
+import Image5 from '@img/160.png';
+import Image6 from '@img/161.png';
+import Image7 from '@img/162.png';
+import Image8 from '@img/163.png';
+
+<Post
+  title="How to surf the web as a Programmer!"
+  date='2025.03.04'
+  description="Learn how to surf the web like a pro programmer! Discover tips for using search engines effectively, exploring GitHub, GitLab, Codeberg, and leveraging social media to find cool projects, libraries, and frameworks. Perfect for beginners and experienced coders alike!"
+>
+
+<Image src={Image1} alt="Image generated with Leonardo AI" />
+
+Hi! You probably don't know how to surf the web to find cool projects, frameworks, libraries, and so on... After seeing a beginner friend struggle to find something simple as a cool CSS preset like [NES.css](https://nostalgic-css.github.io/NES.css/), I decided to write this post.
+
+---
+
+## The Search Engine
+
+<Image src={Image2} alt='Banner with Google logo'/>
+
+Well, if you want to surf the web, first you need a search engine! The most common search engine is Google. It's good, but it collects a lot of data and tracks you. Let me introduce you to some alternatives:
+
+- **Bing** - Microsoft's search engine.
+- **DuckDuckGo** - Privacy-focused search engine.
+- **Brave Search** - Independent, privacy-respecting search engine.
+
+> **Recommendation**: Any search engine is valid! For privacy, try Brave Search or DuckDuckGo. Otherwise, Google or Bing are reliable choices.
+
+### Search Engines perform better with keywords, not texts.
+
+Okay! The title above isn't definitive. For finding posts, educational content, 'texts' works better. However, for discovering projects, libraries, and repositories, 'keywords' is more effective. Let me explain:
+
+✅ <span style="color:green">C tiny game library</span>\
+❌ <span style="color:red">A tiny game library to make games in C programming language</span>
+
+> Yeah, I know it's a silly example, but GET THE CONCEPT!!!
+
+### Hacking Search Engines!
+
+Search engines have some handy 'tricks' to refine your searches and get better results. Here's a simple list:
+
+1. **Use Quotes (" ")**: Search for exact phrases.\
+   Example: `"GNU Not Unix"`
+2. **Exclude Words (-)**: Remove unwanted results.\
+   Example: `How to create a web api -node`
+3. **Site Search (site:)**: Search within a specific website.\
+   Example: `site:codeberg.org isometric`
+4. **Search by File Type (filetype:)**: Find specific file types.\
+   Example: `filetype:pdf matrix workbook`
+5. **Wildcard Search (*)**: Replace unknown words in a phrase.\
+   Example: `best * for beginners`
+
+---
+
+## Websites
+
+### GitHub
+
+<Image src={Image3} alt='GitHub Trending Page'/>
+
+GitHub, as you probably know, is the place where most projects are hosted. You can find a lot of cool things there, and it's a good idea to check the trending page regularly.
+
+#### Topics
+
+<Image src={Image7} alt="GitHub 'GUI' Topics Page"/>
+
+If you’re looking for something more specific, like a GUI library, GitHub’s topics feature can help you find what you need.
+
+#### The 'awesome' Culture
+
+<Image src={Image6} alt="jakubtomsu/awesome-odin repository" />
+
+I don’t know how it started, but if you search for 'awesome *' on GitHub (or Search Engine), you’ll likely find a repository with resources related to a specific topic.
+
+### GitLab
+
+<Image src={Image8} alt='GitLab Explore Page'/>
+
+Well, I’ll be honest—I don’t use GitLab often. I’ve only used it a few times, mainly to read the [libxcb](https://gitlab.freedesktop.org/xorg/lib/libxcb) source code and to download [pokemon-colorscripts](https://gitlab.com/phoneybadger/pokemon-colorscripts). However, I believe it can be a great place to discover cool things!
+
+### Codeberg
+
+<Image src={Image4} alt='Codeberg Repositories Page'/>
+
+Codeberg is a great alternative to GitHub. It’s a non-profit platform that hosts Git repositories and is community-driven. I often find many Linux-related cool projects there.
+
+### Social Media (Youtube, Reddit, Twitter, ...)
+
+Social media algorithms are powerful tools for discovering new projects and trends. Platforms like YouTube, Reddit, and Twitter can be great places to find tutorials, discussions, and recommendations for libraries, frameworks, and tools.
+
+---
+
+## Conclusion
+
+Surfing the web as a programmer isn’t so different from surfing as a goose farmer. It’s all about using search engines effectively + exploring related websites—TADA! BUT!! please, whether for me, your girlfriend, your dog, or your cat, do not rely on AI it's limited by it's own model.
+
+</Post>

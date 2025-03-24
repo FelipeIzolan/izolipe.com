@@ -1,0 +1,55 @@
+import Post from '#/layouts/Post.astro';
+import { Image } from "astro:assets"; 
+
+import Image1 from "#/assets/imgs/10.png";
+import Image2 from "#/assets/imgs/11.png";
+import Image3 from "#/assets/imgs/12.png";
+import Image4 from "#/assets/imgs/13.png";
+import Image5 from "#/assets/imgs/14.png";
+
+<Post
+  title='Math - Fractions'
+  description='The fundamentals of fractions include proper and improper fractions, mixed fractions, and equivalent fractions.'
+  katex={true}
+>
+
+<Image src={Image1} alt="Fraction visual demonstration" />
+<Image src={Image2} alt="Fraction structure" />
+
+Fraction is a way of represents **parts of a whole**.
+
+**Numerator**: The number that **appears above**.\
+**Denominator**: The number that **appears below**.
+
+---
+
+## Fractions: Proper vs Improper
+
+<Image src={Image5} alt="proper fraction and improper fraction" />
+
+**Proper Fraction**: A fraction **where the numerator** is **less than the denominator**.\
+**Improper Fraction**: A fraction **where the numerator** is **greater than or equal to the denominator**.
+
+---
+
+## Mixed Fraction
+
+<Image src={Image3} alt="Mixed fraction visual demonstration" />
+
+A **mixed fraction** (or mixed number) is a number made up of two parts: a **whole number** and a **proper fraction**.
+
+[Improper Fraction To Mixed Fraction (youtube)](https://www.youtube.com/watch?v=zvLql0wBM4E)\
+[Mixed Fraction To Improper Fraction (youtube)](https://www.youtube.com/watch?v=r_skHxRWZFw)
+
+---
+
+## Equivalent Fraction
+
+<Image src={Image4} alt="Equivalent fraction visual demonstration" />
+
+**Equivalent fractions** are fractions that **represent the same value**, even if the numbers are different.
+> $\bold{\frac{2}{3}}$ $\small0.6666$\
+> $\bold{\frac{14}{21}}$ $\small0.6666$\
+> $\bold{\frac{18}{27}}$ $\small0.6666$
+
+</Post>
