@@ -1,0 +1,44 @@
+import { Image } from "astro:assets";
+import Post from "#/layouts/Post.astro";
+import Image1 from "@img/36.png";
+
+<Post
+  title="Python - Virtual Environment"
+  description=""
+>
+<Image src={Image1} alt="Python pixel-art" />
+
+Python allow you to create isolated spaces for different projects, each with their own dependencies.
+
+---
+
+## Creating virtual environments
+
+```shell
+$ python -m venv /path/to/new/virtual/environment
+```
+
+---
+
+## Activating a virtual environment (Windows, Linux)
+
+```shell
+$ <venv>\Scripts\activate
+```
+
+```shell
+$ source <venv>/bin/activate
+```
+
+Now you can install packages in isolated environments using pip. View installed packages with **pip list** or **pip freeze**.
+
+---
+
+## Deactivating a virtual environment
+
+```shell
+$ deactivate
+```
+> This command only works when inside an active virtual environment.
+
+</Post>

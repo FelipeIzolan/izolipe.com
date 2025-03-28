@@ -39,9 +39,15 @@ export default defineConfig({
         '#': resolve(import.meta.dirname, './src'),
         '@img': resolve(import.meta.dirname, './src/assets/imgs')
       }
+    },
+    esbuild: {
+      legalComments: 'none'
     }
   },
   experimental: {
     svg: true
-  }
+  },
+  devToolbar: {
+    enabled: false
+  },
 });

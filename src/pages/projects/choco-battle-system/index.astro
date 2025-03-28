@@ -1,0 +1,85 @@
+---
+import Base from '#/layouts/Base.astro';
+---
+<Base
+  title='Choco: Battle System'
+  description=''
+>
+<main style='display:flex;flex-direction:column;align-items:center;text-align:center'>
+  <div style='width:min-content'>
+    <canvas></canvas>
+    <div>
+      <button id='fullscreen'>⛶</button>
+      <button onclick="location.href='https://www.gnu.org/licenses/gpl-3.0.html'">GPL-3.0</button>
+    </div>
+  </div>
+  <section>
+    <p>This is a prototype showcasing the battle system of a game concept. I hope you enjoy it!</p>
+  </section>
+
+</main>
+</Base>
+<script>
+// All code and assets (images, sounds, etc...) created by me in this project  
+// are licensed under GPL-3.0. Derivative works must remain open-source  
+// and under the same license.  
+// https://www.gnu.org/licenses/gpl-3.0.en.html
+
+import Phaser from "phaser";
+
+class Loader extends Phaser.Scene {
+  constructor() {
+    super();
+  }
+
+  preload() {
+
+  }
+  
+  create() {
+    this.scene.start('Home');
+  }
+}
+
+class Home extends Phaser.Scene {
+  constructor() {
+    super('Home');
+  }
+
+  create() {
+    this.add.rectangle(0, 0, 160, 144)
+            .setStrokeStyle(2, 0x212121)
+            .setOrigin(0);
+  }
+
+  update() {
+    console.log(this.input.mousePointer.x);
+    console.log(this.input.mousePointer.y);
+    console.log('-------');
+
+  }
+}
+
+function setup(canvas: HTMLCanvasElement) {
+  const config: Phaser.Types.Core.GameConfig = {
+    canvas,
+    type: Phaser.CANVAS,
+    width: 160, // 160
+    height: 144, // 144
+    zoom: 3,
+    pixelArt: true,
+    backgroundColor: 0xff0000,
+    scene: [Loader, Home],
+  };
+
+  return new Phaser.Game(config);
+}
+
+let canvas = document.querySelector('canvas') as HTMLCanvasElement;
+let fullscreen = document.querySelector('#fullscreen') as HTMLButtonElement;
+
+let game = setup(canvas);
+
+fullscreen.onclick = () =>
+  game.scale.toggleFullscreen();
+</script>
