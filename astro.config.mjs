@@ -44,9 +44,6 @@ export default defineConfig({
       legalComments: 'none'
     }
   },
-  experimental: {
-    svg: true
-  },
   devToolbar: {
     enabled: false
   },
