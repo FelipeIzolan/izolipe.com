@@ -5,16 +5,15 @@ let { date, author, title } = Astro.props;
 ---
 <header>
   <Path/>
-  <div style="display:flex;justify-content:space-between">
+  <div style="display:flex;justify-content:space-between;align-items:center">
     <h1 style="margin:0">{title}</h1>
-    <span>ʕ•ﻌ•ʔ</span>
+    <img width="16" height="16" alt="Izolipe Logo" src="/favicon.svg"/>
   </div>
   {
-      date &&
-      <div style="font-size:13px">
-        <span>{author ?? "Felipe Izolan"}</span> |
-        <span>{date}</span>
-      </div>
-    }
-
+    date &&
+    <div style="font-size:13px">
+      <span>{author ?? "Felipe Izolan"}</span> |
+      <span>{date}</span>
+    </div>
+  }
 </header>

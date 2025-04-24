@@ -1,18 +1,22 @@
 html,
 body {
-  font-size: 15px;
-  line-height: 1.5;
-  
   color: #212121;
-  background: #f6f6f6;  
-  
+  background: #f6f6f6;
+  font-size: 16px;
   font-family: sans-serif;
+  line-height: 1.6;
 }
 
 body {
   margin: auto;
   padding: 1em;
-  max-width: 640px;
+  max-width: 40em;
+}
+
+p,
+main,
+section {
+  margin: 1em 0;
 }
 
 h1,
@@ -21,20 +25,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 1em 0;
   font-size: 1em;
-  font-weight: bold;
-}
-
-main,
-section {
-  margin: 1em 0;
-}
-
-dt,
-pre,
-table,
-blockquote {
   margin: 1em 0;
 }
 
@@ -57,31 +48,27 @@ input {
 }
 
 blockquote {
+  margin: 0;
   border-left: 4px solid #212121;
   padding-left: 1em;
 }
 
 ul,
 ol {
-  padding: 0;
-  list-style-position: inside;
-}
-
-li > ul,
-li > ol {
   padding: 0 1em;
+  list-style-position: inside;
 }
 
 pre,
 code {
   color: white;
-  overflow: auto;
   background: #212121;
+  overflow: auto;
 }
 
 input:disabled,
 button:disabled {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 td,
@@ -95,18 +82,15 @@ table {
 input,
 button,
 select,
-legend,
-fieldset,
 textarea {
-  border: 1px solid #212121;
   outline: none;
-  padding: 3px 8px;
   background: none;
+  padding: 3px 7px;
+  border: 1px solid #212121;
   border-radius: 3px;
 }
 
 button,
-legend,
 input[type="reset"],
 input[type="button"],
 input[type="submit"] {
@@ -117,7 +101,7 @@ input[type="submit"] {
 .inode {
   gap: 3px;
   display: flex;
-  padding: 1px 0; 
+  padding: 1px 0;
   text-decoration: none;
   transition: 200ms;
 }
@@ -128,7 +112,6 @@ input[type="submit"] {
 
 nav,
 footer {
-  gap: 2px;
   display: flex;
-  font-size: 13px;
+  font-size: 14px;
 }

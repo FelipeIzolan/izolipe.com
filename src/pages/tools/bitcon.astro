@@ -36,71 +36,13 @@ let sources = Object.values(import.meta.glob('../../assets/bitcon/*.svg', { eage
 </Base>
 
 <script>
-  const scale = document.querySelector('input[type=range]');
   const colors = document.querySelector('#colors');
   const preview = document.querySelector('#customize svg');
 
-  load(document.querySelector('li>svg').innerHTML);
-  for (const svg of document.querySelectorAll('li>svg')) {
-    svg.setAttribute('width', '32px');
-    svg.setAttribute('height', '32px');
-    svg.setAttribute('viewBox', '0 0 16 16');
-    svg.onclick = function() { load(this.innerHTML); }
-  }
-
-  preview.onclick = function () {
-    for (const rect of preview.children) {
-      rect.setAttribute('rx', 1)
-    }
-  }
-
-  scale.oninput = function () {
-    let size = 16 * scale.value;
-    preview.setAttribute('width', `${size}px`);
-    preview.setAttribute('height', `${size}px`);
-  }
-
-  document.querySelector('#download').onclick = function () {
-    let ext = document.querySelector('input[name="ext"]:checked').value;
-    let size = 16 * scale.value;
-    let data = `<svg xmlns="http://www.w3.org/2000/svg" viewBox='0 0 16 16' width='${size}px' height='${size}px'>${preview.innerHTML}</svg>`;
-
-    let blob = new Blob([data], { type: 'image/svg+xml' });
-
-    if (ext == 'png') {
-      let img = document.createElement('img');
-      let canvas = document.createElement('canvas');
-      let context = canvas.getContext('2d');
-
-      canvas.width = size;
-      canvas.height = size;
-      
-      img.src = URL.createObjectURL(blob);
-      img.onload = function() {
-        context.drawImage(img, 0, 0);
-        let a = document.createElement('a');
-        a.href = canvas.toDataURL();
-        a.download = 'icon.png';
-        a.click();
-      }
-    }
-
-    if (ext == 'svg') {
-      let a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'icon.svg';
-      a.click();
-    }
-
-  }
-
-  document.querySelector('#copy').onclick = function () {
-    let size = 16 * scale.value;
-    let data = `<svg xmlns="http://www.w3.org/2000/svg" viewBox='0 0 16 16' width='${size}px' height='${size}px'>${preview.innerHTML}</svg>`;
-    navigator.clipboard.writeText(data);
-  }
-
-  function load(html) {
+  const build = (size, data) => 
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox='0 0 16 16' width='${size}px' height='${size}px'>${data}</svg>`;
+  
+  const load = html => {
     colors.innerHTML = '';
     preview.innerHTML = html;
 
@@ -130,5 +72,56 @@ let sources = Object.values(import.meta.glob('../../assets/bitcon/*.svg', { eage
 
       colors.appendChild(element);
     }
+  }
+  
+  let icons = document.querySelectorAll('li>svg')
+  for (const icon of icons) {
+    icon.setAttribute('width', '32px');
+    icon.setAttribute('height', '32px');
+    icon.setAttribute('viewBox', '0 0 16 16');
+    icon.onclick = function() { load(this.innerHTML); }
+  }
+  load(icons[Math.floor(Math.random() * icons.length)].innerHTML);
+  
+  let scale = document.querySelector('input[type=range]');
+  scale.oninput = () => {
+    let size = 16 * scale.value;
+    preview.setAttribute('width', `${size}px`);
+    preview.setAttribute('height', `${size}px`);
+  }
+
+  document.querySelector('#download').onclick = () => {
+    let ext = document.querySelector('input[name="ext"]:checked').value;
+    let size = 16 * scale.value;
+
+    let url = URL.createObjectURL(new Blob([build(size, preview.innerHTML)], { type: 'image/svg+xml' }));
+    
+    let a = document.createElement('a');
+    a.download = 'icon.' + ext;
+
+    if (ext == 'png') {
+      let img = document.createElement('img');
+      let canvas = document.createElement('canvas');
+      let context = canvas.getContext('2d');
+
+      canvas.width = size;
+      canvas.height = size;
+
+      img.src = url;
+      img.onload = function() {
+        context.drawImage(img, 0, 0);
+        a.href = canvas.toDataURL();
+        a.click();
+      }
+    }
+
+    if (ext == 'svg') {
+      a.href = url;
+      a.click();
+    }
+  }
+
+  document.querySelector('#copy').onclick = () => {
+    navigator.clipboard.writeText(build(16 * scale.value, preview.innerHTML));
   }
 </script>

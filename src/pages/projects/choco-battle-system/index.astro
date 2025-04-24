@@ -27,13 +27,36 @@ import Base from '#/layouts/Base.astro';
 
 import Phaser from "phaser";
 
+class UI {
+  static button(scene: Phaser.Scene, x: number, y: number, frame: 1 | 2, text: string, onclick: Function) {
+    let c = scene.add.container(x, y);
+    let f = scene.add.image(0, 0, 'choco-ui', `b${frame}frame`);
+    let t = scene.add.image(0, 0, 'choco-ui', text);
+
+    t.setPosition((f.width - t.width) / 2, (f.height - t.height) / 2)
+
+    f.setInteractive({ cursor: 'url(/_assets/choco-pointer.png), auto' })
+     .on('pointerdown', onclick);
+    
+    c.add([f, t]);
+
+    return c;
+  }
+}
+
+// ---------------------------------------------------------------------------------
+
 class Loader extends Phaser.Scene {
   constructor() {
     super();
   }
 
   preload() {
+    this.load.setBaseURL('/_assets');
+    this.input.setDefaultCursor('url(/_assets/choco-cursor.png), auto');
 
+    this.load.atlas('choco-ui', 'choco-ui.png', 'choco-ui.json');
+    this.load.spritesheet('choco', 'choco.png', { frameWidth: 16, frameHeight: 16 });
   }
   
   create() {
@@ -50,26 +73,57 @@ class Home extends Phaser.Scene {
     this.add.rectangle(0, 0, 160, 144)
             .setStrokeStyle(2, 0x212121)
             .setOrigin(0);
+    
+    this.add.image(64, 63, 'choco-ui', 'logo');
+    this.add.image(68, 39, 'choco-ui', 'frame');
+    this.add.image(104, 133, 'choco-ui', 'author');
+    this.add.image(72, 42, 'choco', Math.floor(Math.random() * 40)).setOrigin(0,0);
+
+    let x = UI.button(this, 42, 74, 2, 'pvp', () => console.log(1));
+    (x.getAt(0) as Phaser.GameObjects.Image).setTint(0x404040);
+    (x.getAt(1) as Phaser.GameObjects.Image).setTint(0x404040);
+
+    UI.button(this, 81, 74, 1, 'pve', () => console.log(2));
+    UI.button(this, 42, 89, 1, 'tree', () => this.scene.start('Tree'));
+    UI.button(this, 81, 89, 2, 'choco', () => console.log(4));
   }
 
   update() {
-    console.log(this.input.mousePointer.x);
-    console.log(this.input.mousePointer.y);
-    console.log('-------');
+  }
+}
 
+class Tree extends Phaser.Scene {
+  constructor() {
+    super('Tree');
+  }
+
+  create() {
+    this.add.rectangle(0, 0, 160, 144)
+            .setStrokeStyle(2, 0x212121)
+            .setOrigin(0);
+
+    this.input.on("wheel", (_: any, _1: any, _2: any, dy: number) =>
+      this.cameras.main.setZoom(this.cameras.main.zoom + (-dy * 0.01))
+    );
+
+    this.input.on("pointermove", (p: Phaser.Input.Pointer) => {
+      if (!this.input.mousePointer.rightButtonDown()) return;
+      this.cameras.main.scrollX -= (p.x - p.prevPosition.x) / this.cameras.main.zoom;
+      this.cameras.main.scrollY -= (p.y - p.prevPosition.y) / this.cameras.main.zoom;
+    });
   }
 }
 
 function setup(canvas: HTMLCanvasElement) {
   const config: Phaser.Types.Core.GameConfig = {
     canvas,
-    type: Phaser.CANVAS,
-    width: 160, // 160
-    height: 144, // 144
+    type: Phaser.WEBGL,
+    width: 160,
+    height: 144,
     zoom: 3,
     pixelArt: true,
-    backgroundColor: 0xff0000,
-    scene: [Loader, Home],
+    backgroundColor: 0xf6f6f6,
+    scene: [Loader, Home, Tree],
   };
 
   return new Phaser.Game(config);
