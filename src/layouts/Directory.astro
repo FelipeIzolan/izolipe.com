@@ -4,7 +4,6 @@ import { slugify } from '../utils';
 
 import Base from './Base.astro';
 
-import Path from '../components/Path.astro';
 import File from '../components/icons/File.astro';
 import Folder from '../components/icons/Folder.astro';
 
@@ -37,4 +36,5 @@ type Inodes = Inode[];
       }) 
     }
   </main>
+  <slot name="after"/>
 </Base>

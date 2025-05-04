@@ -12,6 +12,7 @@
     "@astrojs/mdx": "^4.0.8",
     "@astrojs/sitemap": "^3.2.1",
     "astro": "^5.2.5",
+    "astro-quiz": "^0.0.1",
     "js-beautify": "^1.15.4",
     "phaser": "^3.88.2",
     "rehype-katex": "^7.0.1",

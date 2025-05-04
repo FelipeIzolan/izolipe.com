@@ -43,7 +43,7 @@ img {
   max-width: 100%;
 }
 
-input {
+svg {
   vertical-align: middle;
 }
 
@@ -74,8 +74,8 @@ button:disabled {
 td,
 th,
 table {
-  border: 1px solid #212121;
   padding: 8px;
+  border: 1px solid #212121;
   border-collapse: collapse;
 }
 
@@ -114,4 +114,5 @@ nav,
 footer {
   display: flex;
   font-size: 14px;
+  gap: 3px;
 }

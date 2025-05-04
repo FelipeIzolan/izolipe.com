@@ -1,0 +1,17 @@
+---
+import { Image } from "astro:assets";
+import Directory from "#/layouts/Directory.astro";
+import Image1 from "@img/172.png";
+---
+<Directory
+  title="English"
+  inodes={[
+    { type: 'file', text: 'Alphabet' },
+    { type: 'folder', text: 'Nouns' },
+  ]}
+>
+<Image src={Image1} alt="United Kingdom pixel art flag"/>
+<p>
+English is a human language with origins in West Germanic, and it is widely used throughout the world.
+</p>
+</Directory>

@@ -140,8 +140,8 @@
 }
 
 .katex {
-  font: normal 1.2em KaTeX_Main, Times New Roman, serif;
-  line-height: 1.3em;
+  font: normal 1.4em KaTeX_Main, Times New Roman, serif;
+  line-height: 1.6;
   text-indent: 0;
   text-rendering: auto;
 }

@@ -2,10 +2,6 @@ import Post from '#/layouts/Post.astro';
 import { Image } from "astro:assets"; 
 
 import Image1 from "#/assets/imgs/9.png";
-import Image2 from "#/assets/imgs/65.png";
-import Image3 from "#/assets/imgs/66.png";
-import Image4 from "#/assets/imgs/67.png";
-import Image5 from "#/assets/imgs/68.png";
 
 <Post
   title='Math - Negative Numbers'
@@ -14,38 +10,63 @@ import Image5 from "#/assets/imgs/68.png";
 >
 
 <Image src={Image1} alt="Number line with hints" />
-Negative numbers are numbers **less than zero** and **represent debt, deficiency, direction, and more**.
+
+Negative numbers are a part of the real number system that can represent concepts such as debt, direction, and etc...
+
+---
+## For every real number $a$, has a negative $-a$
+
+$a + (-a) = 0$
+
+### Examples:
+
+- $77$ - $(-77)$
+- $12.\bar{6}$ - $(-12.\bar{6})$
+- $1.41421356237$ - $(-1.41421356237)$
 
 ---
 
-## Negative Number Arithmetic
+## Properties of Negative
 
-### Addition
+To works with negative numbers, we use following properties.
 
-<Image src={Image2} alt='Negative number addition example 1'/>
-$-5 + (-3) = -8$
-
-<Image src={Image3} alt='Negative number addition example 2'/>
-$-5 + 3 = -2$
-
-
-### Subtraction
-
-<Image src={Image4} alt='Negative number subtraction example 1'/>
-$8 - 3 = 5$
-
-<Image src={Image5} alt='Negative number subtraction example 2'/>
-$-3 - 3 = -6$
-
-### Multiplication
-
-$-3 \times 5 = -15$\
-$-3 \times -5 = 15$
-
-### Division
-
-$-10\div2 = -5$\
-$-10\div-2 = 5$
+<table>
+  <tr>
+    <th>Index</th>
+    <th>Property</th>
+    <th>Example</th>
+  </tr>
+  <tr>
+    <td style='text-align:center'>**1**</td>
+    <td>$(-1)x = -x$</td>
+    <td>$(-1)5 = -5$</td>
+  </tr>
+  <tr>
+    <td style='text-align:center'>**2**</td>
+    <td>$-(-x) = x$</td>
+    <td>$-(-5) = 5$</td>
+  </tr>
+  <tr>
+    <td style='text-align:center'>**3**</td>
+    <td>$(-x)y = x(-y) = -(xy)$</td>
+    <td>$(-2)3 = 2(-3) = -(2*3)$</td>
+  </tr>
+  <tr>
+    <td style='text-align:center'>**4**</td>
+    <td>$(-x)(-y) = xy$</td>
+    <td>$(-10)(-7) = 10 * 7$</td>
+  </tr>
+  <tr>
+    <td style='text-align:center'>**5**</td>
+    <td>$-(x + y) = -x - y$</td>
+    <td>$-(9 + 7) = -9 - 7$</td>
+  </tr>
+  <tr>
+    <td style='text-align:center'>**6**</td>
+    <td>$-(x - y) = y - x$</td>
+    <td>$-(3 - 5) = 5 - 3$</td>
+  </tr>
+</table>
 
 ---
 
