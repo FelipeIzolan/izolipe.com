@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+import Directory from "#/layouts/Directory.astro";
+import Image1 from "@img/166.png";
+---
+<Directory
+  title="Linux"
+  inodes={[
+    { type: 'file', text: 'Boot' },
+    { type: 'file', text: 'Daemon' },
+    { type: 'line' },
+    { type: 'folder', text: 'Void Linux' },  
+    { type: 'folder', text: 'DWM' },  
+  ]}
+>
+<Image src={Image1} alt="Tux pixel-art"/>
+<p>Linux is an open-source kernel, the core of an operating system. However, it’s important to note that Linux itself is not a complete operating system. A full operating system typically combines the Linux kernel with essential tools and software, such as GNU or musl.</p>
+</Directory>

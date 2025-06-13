@@ -1,0 +1,26 @@
+---
+import _katexCss from '#/assets/styles/katex.css?url';
+
+let title = Astro.props.title;
+let description = Astro.props.description;
+
+let katex = Astro.props.katex;
+---
+<head>
+  <title>{title}</title>
+  
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  {katex && <link rel="stylesheet" href={_katexCss} />}
+
+  <meta charset="utf-8" />
+  <meta name="description" content={description} />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <meta name="og:title" content={title} />
+  <meta name="og:description" content={description} />
+  <meta name="og:type" content="website" />
+  <meta name="og:image" content={Astro.site + 'og.png'}/>
+  <meta name="og:logo" content={Astro.site + 'logo.png'} />
+</head>

@@ -1,0 +1,24 @@
+---
+import Base from './Base.astro';
+
+let title = Astro.props.title;
+let description = Astro.props.description;
+
+let katex = Astro.props.katex; 
+
+let date = Astro.props.date;
+let author = Astro.props.author;
+---
+<Base 
+  date={date}
+  author={author}
+
+  title={title} 
+  description={description}
+  
+  katex={katex}
+>
+  <main>
+    <slot />
+  </main>
+</Base>

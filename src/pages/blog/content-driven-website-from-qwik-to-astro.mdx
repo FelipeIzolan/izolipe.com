@@ -1,0 +1,99 @@
+import Post from '#/layouts/Post.astro';
+import { Image } from 'astro:assets';
+
+import Image1 from "#/assets/imgs/128.png";
+import Image2 from "#/assets/imgs/130.png";
+import Image3 from "#/assets/imgs/154.png";
+import Image4 from "#/assets/imgs/167.png";
+import Image5 from "#/assets/imgs/168.png";
+
+<Post
+  title='Content-Driven Website: From Qwik to Astro'
+  date='2025.02.01'
+  description='Discover why I transitioned from Qwik to Astro for my content-driven website.'
+> 
+
+<Image src={Image3} alt="Anime-style illustration of a woman with long black hair and red eyes; Image generated with ChatGPT"/>
+
+Hi! I made a transition from [Qwik](https://qwik.dev/) to [Astro](https://astro.build/). If you're familiar with Qwik, you might be wondering why I chose it in the first place. It’s a solid framework, and I’ll definitely use it in future projects but for a content-driven website, it wasn’t the best fit.
+
+---
+
+## The Qwik
+<Image src={Image4} alt="Qwik pixel-art"/>
+
+[Qwik](https://qwik.dev/) is a framework that enables instant-loading web apps, without effort (yes, that's the description on GitHub 😆). It uses JSX (like React) and a variety of techniques to achieve instant loading and speed, such as service workers, prefetch, resumability, and more.
+
+<Image src={Image2} style='border:1px solid #212121;' alt='izolipe.com old version home screenshot'/>
+
+To generate a static website with Qwik, you can use [Qwik's Static Site Adapter](https://qwik.dev/docs/deployments/static/). By utilizing the static adapter, [MDX](https://qwik.dev/docs/guides/mdx/), and plugins for syntax highlighting and TeX, I created the first version of izolipe.com.
+
+### Qwik is ideal for JavaScript rely websites.
+
+Qwik is good for websites that require JavaScript. It splits the JavaScript into small chunks and loads them as needed by your app. However, this is why Qwik is not the best choice for my website. Most of the pages contain minimal JavaScript—just analytics. Actually, there are no components or pages with reactivity provided by a framework
+
+---
+
+## The Astro
+<Image src={Image5} alt="Astro pixel-art"/>
+
+[Astro](https://astro.build/) is a framework designed for developing content-driven websites. It optimizes JavaScript usage through a architecture called ["Astro Islands"](https://docs.astro.build/en/concepts/islands/), which renders the majority of the site as static HTML while using small, interactive "islands" of JavaScript for reactivity. 
+
+<Image src={Image1} style='border:1px solid #212121;' alt='izolipe.com home screenshot'/>
+
+Using Astro and MDX, I created the second version of izolipe.com.
+
+Astro offers an excellent workflow, allowing you to structure your site with layouts, pages, components, and more. To build components, you can use one or more frameworks (even Qwik). That's why I use Astro: for its great workflow, flexibility, and the freedom it provides! 🗽
+
+### Astro with Qwik
+
+Qwik [integrates](https://qwik.dev/docs/integrations/astro/) with Astro, allowing you to use Qwik components within Astro while maintaining Qwik's resumability.
+
+```tsx
+// counter.tsx
+import { component$, useSignal } from "@builder.io/qwik";
+
+export default component$(() => {
+  const counter = useSignal(0);
+
+  return (
+  <div>
+    <h2>{counter.value}</h2>
+    <button onClick$={() => counter.value++}>+</button>
+    <button onClick$={() => counter.value--}>-</button>
+  </div>
+  );
+});
+``` 
+
+```astro
+---
+// index.astro
+import Counter from "../components/counter";
+---
+<html lang="en">
+  <body>
+    <h1>Astro.js - Qwik</h1>
+    <!-- no hydration directive (client:* or server:*)! -->
+    <Counter />
+  </body>
+</html>
+```
+It’s good because Qwik components don’t need hydration (unlike Astro islands), which makes things faster ⚡.
+
+### So... Why not Qwik with Astro?
+
+Because my website doesn’t heavily rely on JavaScript, components, and so on, I do everything with VanillaJS, which is fast as hell 😎.
+
+However, the door to using Qwik isn’t closed. I might incorporate it into certain parts of my website in the future.
+
+---
+
+## The Future of Izolipe
+
+Izolipe is my personal brand. I want people to see Izolipe as a place where they can find useful, well-organized notes on various subjects and tools. That’s why the Izolipe logo is the division operator—it represents my mission to "divide knowledge with you ❤️."
+
+<img src='/og.png' style='border:1px solid #212121;' alt='izolipe.com open graph image'/>
+
+Looking ahead, I plan to add more high-quality content to my website, create useful free tools, write more blog posts. Stay tuned for exciting updates! 😆
+</Post>

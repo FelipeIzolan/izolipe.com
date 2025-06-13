@@ -1,0 +1,71 @@
+import Post from '#/layouts/Post.astro';
+import { Image } from "astro:assets"; 
+
+import Image1 from "#/assets/imgs/26.png";
+import Image2 from "#/assets/imgs/15.png";
+import Image3 from "#/assets/imgs/16.png";
+import Image4 from "#/assets/imgs/27.png";
+import Image5 from "#/assets/imgs/17.png";
+
+<Post
+  title='Math - Number Properties'
+  description='The fundamentals of number properties, commutative, associative and distributive property.'
+  katex={true}
+>
+
+Number properties refer to rules that you can apply to **real numbers** in mathematical operations.
+
+---
+
+## Commutative Property
+
+<Image src={Image1} alt="commutative property addition visual demonstration" /><br/>
+<Image src={Image2} alt="commutative property multiplication visual demonstration" />
+
+$a+b=b+a$\
+$a*b=b*a$
+
+The commutative property applies in:
+
+- **Addition**: Changing the order of the numbers does not affect the sum.
+  - Example: $3+5=5+3$
+  - Example: $7+1=1+7$
+- **Multiplication**: Changing the order of the numbers does not affect the product.
+  - Example: $2*3=3*2$
+  - Example: $6*7=7*6$
+
+---
+
+## Associative Property
+
+<Image src={Image3} alt="associative property addition visual demonstration" /><br/>
+<Image src={Image4} alt="associative property multiplication visual demonstration" />
+
+$(a+b)+c=(a+c)+b$\
+$(a*b)*c=(a*c)*b$
+
+The associative property applies in:
+
+- **Addition**: Changing the grouping of addends does not affect the sum.
+  - $(8+1)+3=(8+3)+1$
+  - $(9+2)+7=(7+9)+2$
+- **Multiplication**: Changing the grouping of factors does not affect the product.
+  - $(8*9)*10=(8*10)*9$
+  - $(2*7)*5=(5*7)*2$
+
+---
+
+## Distributive Property
+
+<Image src={Image5} alt="distributive property visual demonstration" />
+
+$a(b+c)=(a*b)+(a*c)$
+
+The distributive property connects addition/subtraction and multiplication by "distributing" multiplication over terms inside parentheses.
+
+### Examples
+
+- $3(2+5)=(3*2)+(3*5)$
+- $3(2+5)=(3*2)+(3*5)$
+
+</Post>

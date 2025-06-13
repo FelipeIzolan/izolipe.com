@@ -1,0 +1,124 @@
+@font-face {
+  font-family: Inter;
+  src: url(../fonts/Inter-Regular.woff2);
+  font-display: swap;
+}
+
+html,
+body {
+  color: #212121;
+  background: #FAFAFA;
+  font-size: 16px;
+  font-family: Inter, system-ui;
+  line-height: 1.6;
+}
+
+body {
+  margin: auto;
+  padding: 1em;
+  max-width: 48em;
+}
+
+p,
+main,
+section {
+  margin: 1em 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1em;
+  margin: 1em 0;
+}
+
+a {
+  color: inherit;
+}
+
+pre {
+  padding: 1em;
+  border-radius: 3px;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+blockquote {
+  margin: 0;
+  border-left: 4px solid #212121;
+  padding-left: 1em;
+}
+
+ul,
+ol {
+  padding: 0 1em;
+  list-style-position: inside;
+}
+
+pre,
+code {
+  color: white;
+  background: #212121;
+  overflow: auto;
+}
+
+input:disabled,
+button:disabled {
+  opacity: 0.9;
+}
+
+td,
+th,
+table {
+  padding: 8px;
+  border: 1px solid #212121;
+  border-collapse: collapse;
+}
+
+input,
+button,
+select,
+textarea {
+  outline: none;
+  background: none;
+  padding: 3px 7px;
+  border: 1px solid #212121;
+  border-radius: 3px;
+}
+
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+  color: #f6f6f6;
+  background: #212121;
+}
+
+.inode {
+  gap: 3px;
+  display: flex;
+  padding: 1px 0;
+  text-decoration: none;
+  transition: 200ms;
+}
+
+.inode:hover {
+  transform: translateX(3px);
+}
+
+nav,
+footer div {
+  display: flex;
+  font-size: 14px;
+  gap: 3px;
+}

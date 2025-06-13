@@ -1,0 +1,90 @@
+import Post from '#/layouts/Post.astro';
+
+<Post
+  title='Math - Fractions II'
+  description='The fundamentals of fraction arithmetic cover addition, subtraction, multiplication, and division of fractions, including steps for working with like and unlike denominators.'
+  katex={true}
+>
+
+## Addition & Subtraction (same denominator)
+
+$\frac{a}{b} \pm \frac{c}{b} = \frac{a \pm c}{b}$
+
+> When adding/subtracting fractions with the same denominator, add/subtract the numerators. 
+
+### Examples
+
+$\frac{4}{3} + \frac{7}{3} = \frac{11}{3}$\
+$\frac{-12}{4} - \frac{-15}{4} = \frac{-27}{4}$
+
+---
+
+## Addition & Subtraction (different denominator)
+
+$\frac{a}{b} \pm \frac{c}{d} = \frac{(a*d)\pm(c*b)}{b*d}$
+
+> When adding/subtracting fractions with different denominators, find a common denominator. Then add/subtract the numerators
+
+### Examples
+
+$\frac{5}{2} + \frac{7}{9} = \frac{(5*9) + (7*2)}{9*2} = \frac{59}{18}$\
+$\frac{9}{4} - \frac{7}{6} = \frac{(9*6) - (7*4)}{4*6} = \frac{26}{24}$
+
+### Using LCD
+
+The LCD (or LCM of the denominators) finds the smallest common denominator, making calculations easier.
+
+$
+\frac{10}{9} + \frac{9}{12}\\
+\frac{10*4}{9*4} + \frac{9*3}{12*3}\\
+\frac{40}{36} + \frac{27}{36}\\
+\frac{40 + 27}{36}\\
+\frac{67}{36}
+$
+> LCD(9,12) = $36$
+
+---
+
+## Multiplication
+
+$\frac{a}{b} * \frac{c}{d} = \frac{a * b}{c * d}$
+
+> When multiplying fractions, multiply numerators and denominators.
+
+### Examples
+
+$\frac{5}{3} * \frac{7}{2} = \frac{35}{6}$\
+$\frac{3}{4} * \frac{9}{2} = \frac{27}{8}$
+
+---
+
+## Division
+
+$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} * \frac{d}{c}$
+
+> When dividing fractions, invert the divisor and
+multiply.
+
+### Examples
+
+$\frac{6}{3} \div \frac{5}{3} = \frac{6}{3} * \frac{3}{5} = \frac{18}{15}$\
+$\frac{7}{8} \div \frac{4}{7} = \frac{7}{8} * \frac{7}{4} = \frac{49}{32}$ 
+
+---
+
+## Cancel
+
+$
+\frac{ac}{bc} = 
+\frac{a\cancel{c}}{b\cancel{c}} = 
+\frac{a}{b}
+$
+
+> Cancel numbers that are common factors in numerator and denominator
+
+### Examples
+
+$\frac{10 * 5}{2 * 5} = \frac{10 * \cancel{5}}{2 * \cancel{5}} = \frac{10}{2}$\
+$\frac{7 * 3}{3} = \frac{7 * \cancel{3}}{\cancel{3}} = 7$
+
+</Post>

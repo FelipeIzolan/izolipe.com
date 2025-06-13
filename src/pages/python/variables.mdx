@@ -1,0 +1,34 @@
+import { Image } from "astro:assets";
+import Post from "#/layouts/Post.astro";
+import Image1 from "@img/36.png";
+
+<Post
+  title="Python - Variables"
+  description=""
+>
+<Image src={Image1} alt="Python pixel-art" />
+
+Python doesn't use keywords like 'let' or 'var'; it uses a name/value structure for variables.
+
+---
+
+## Assignment
+
+```py
+name = "value"
+```
+
+A variable is created using the assignment operator (=), with the variable name on the left-side and the value on the right-side.
+
+---
+
+## Mutability
+
+Python variables (or names) store references to values, meaning you can assign/reassign them any value of any type.
+
+```python
+x = 22 # <- int
+x = (1, True, 'Hi!') # <- tuple
+```
+
+</Post>

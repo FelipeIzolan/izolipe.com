@@ -1,0 +1,47 @@
+import Post from '#/layouts/Post.astro';
+import { Image } from "astro:assets"; 
+
+import Image1 from "#/assets/imgs/24.png";
+
+<Post
+  title='Math - PEMDAS'
+  description='The fundamentals of PEMDAS guide the correct order to solve math expressions: Parentheses, Exponents, Multiplication, Division, Addition, and Subtraction.'
+  katex={true}
+>
+
+<Image src={Image1} alt="Order of operations" />
+
+**Order of Operations (PEMDAS)** is the rule for the **correct sequence to evaluate a math expression**.
+> **1** - **P**arenthesis\
+> **2** - **E**xponent\
+> **3** - **M**ultiplication\
+> **4** - **D**ivision\
+> **5** - **A**ddition\
+> **6** - **S**ubtraction
+
+---
+
+## Examples
+
+$
+10+7*2\\
+10+14\\
+24
+$
+
+
+$
+32 \div (2+2)^2\\
+32 \div 4^2\\
+32 \div 16\\
+2
+$
+
+
+$
+80 + 10 \div 5 * 2\\
+80 + 2 * 2\\
+80 + 4\\
+84
+$
+</Post>
