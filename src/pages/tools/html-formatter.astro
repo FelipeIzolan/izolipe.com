@@ -3,22 +3,36 @@ import Base from '#/layouts/Base.astro';
 ---
 <Base
   title='HTML Formatter'
-  description=''
+  description='Format your HTML code easily with this online HTML formatter. Customize indentation for clean, readable, and well-structured code.'
 >
 <b>A HTML formatter tidies up HTML code for readability.</b>
-<main>
-  <textarea style="width:100%;min-height:24em;resize:none" placeholder="Enter your HTML"></textarea>
+<section>
+  <textarea style="width:calc(100% - 1em);min-height:24em" placeholder="Enter your HTML"></textarea>
   <button>Format</button>
+  <input type="number" value="2" placeholder="Indent Size"/>
+</section>
+<hr/>
+<main>
+  <p>This HTML Formatter helps you quickly beautify messy HTML code. It adds proper indentation and spacing, making it easier to read, maintain, and debug. Simply paste your HTML into the text area, choose the indentation level, and click "Format" to see the result.</p>
+
+  <b>Input</b>
+  <pre><code>{`<body><div id="root"><h1>Hello, World!</h1></div></body>`}</code></pre>
+
+  <b>Output</b>
+  <pre><code>{`<body>
+  <div id="root">
+    <h1>Hello, World!</h1>
+  </div>
+</body>`}</code></pre>
 </main>
 <script>
   import { html } from 'js-beautify';
   
   let textarea = document.querySelector('textarea');
   let button = document.querySelector('button');
+  let input = document.querySelector('input');
   
-  button.onclick = () => {
-    textarea.value = html(textarea.value, { indent_size: 2 });
-  }
+  button.onclick = () =>
+    textarea.value = html(textarea.value, { indent_size: parseInt(input.value || 2) });
 </script>
 </Base>
-

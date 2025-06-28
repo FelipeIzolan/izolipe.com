@@ -9,11 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.2.5",
-    "astro-quiz": "^0.0.1",
     "@astrojs/mdx": "^4.0.8",
     "@astrojs/sitemap": "^3.2.1",
+    "astro": "^5.2.5",
     "js-beautify": "^1.15.4",
+    "markdown-it": "^14.1.0",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "typescript": "^5.7.3"

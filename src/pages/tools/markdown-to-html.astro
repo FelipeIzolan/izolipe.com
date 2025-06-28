@@ -1,0 +1,70 @@
+---
+import Base from '#/layouts/Base.astro';
+---
+<Base
+  title='Markdown to HTML'
+  description='Instantly convert Markdown to styled HTML with preview, formatting options, CSS themes, and downloadable output.'
+>
+<b>Convert your Markdown to clean, styled HTML instantly with preview and download.</b>
+<section>
+  <textarea style="width:calc(100% - 1em);min-height:24em" placeholder="Enter your Markdown"/>
+  <div>
+    <button id="download">Download</button>  
+    <button id="preview">Preview</button>  
+    <b>Style</b>
+    <select>
+      <option value="github">github.css</option>
+      <option value="spectre">spectre.css</option>
+      <option value="mi">mi.css</option>
+    </select>
+    <b>Format HTML</b>
+    <input type="checkbox"/>
+  </div>
+</section>
+<hr/>
+<main>
+  <p>Convert Markdown to HTML instantly with this free online tool. Paste your Markdown, preview the styled HTML, and download it with one click. Choose from clean CSS themes, no setup required. Fast, easy, and works right in your browser.</p>
+  <h2>How it Works</h2>
+  <ol>
+    <li>Enter Markdown into the textarea.</li>
+    <li>Select your preferred CSS theme.</li>
+    <li>Toggle HTML formatting if you want tidy output.</li>
+    <li>Click Preview to view the rendered HTML instantly.</li>
+    <li>Click Download to save the final HTML file.</li>
+  </ol>
+</main>
+<script>
+  // add plugins?
+  import { html } from 'js-beautify';
+  import markdownit from 'markdown-it';
+  
+  let select = document.querySelector('select');
+  let textarea = document.querySelector('textarea');
+  let checkbox = document.querySelector('input[type=checkbox]');
+  
+  const md = markdownit();
+  const styles = {
+    spectre: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre.min.css"/>',
+    github: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css"/>',
+    mi: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FelipeIzolan/mi.css@main/mi.css"/>',
+  }
+
+  let build = () => { 
+    let raw = `<html><head><title>Markdown</title>${styles[select.value]}<style>#root{margin:auto;padding:1em;max-width:40em}</style></head><body class='markdown-body'><div id="root" class='markdown-body'>${md.render(textarea.value)}</div></body></html>`;
+
+    return checkbox.value == 'on' ? html(raw) : raw;
+  }
+
+  document.querySelector('#download').onclick = () => {
+    let a = document.createElement('a');  
+    a.download = 'index.html';
+    a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(build());
+    a.click();
+  }
+
+  document.querySelector('#preview').onclick = () => {
+    let w = window.open('', '_blank');
+    w.document.write(build());
+  }
+</script>
+</Base>

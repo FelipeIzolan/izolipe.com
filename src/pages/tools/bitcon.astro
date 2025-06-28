@@ -7,7 +7,7 @@ let sources = Object.values(import.meta.glob('../../assets/bitcon/*.svg', { eage
   description='A library of customizable 16x16 SVG icons for easy use in web design and development.'
 >
   <b>~{sources.length} bitcons</b>
-  <div id='customize' style='display:flex;align-items:center;justify-content:space-around;border:2px solid #212121;padding:1em'>
+  <main id='customize' style='display:flex;align-items:center;justify-content:space-around;border:2px solid #212121;padding:1em;margin:0'>
     <div style='display:flex;flex-direction:column;gap:8px'>
       <h2 style='margin:0'>Customize</h2>
       <input type="range" min="1" max="8" value="8"/>
@@ -26,8 +26,8 @@ let sources = Object.values(import.meta.glob('../../assets/bitcon/*.svg', { eage
     <div style='width:128px;height:128px;display:flex;justify-content:center;align-items:center'>
       <svg viewBox='0 0 16 16' width='128px' height='128px'/>
     </div>
-  </div>
-  <blockquote style="margin:0.4em 0">
+  </main>
+  <blockquote style="margin:0.25em 0">
     ⚠️ The SVG data is raw; it's recommended to minify/compress it.
   </blockquote>
   <ul style="list-style:none;display:flex;justify-content:center;flex-wrap:wrap;margin:0;padding:0">
