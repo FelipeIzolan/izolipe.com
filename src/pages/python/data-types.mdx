@@ -1,0 +1,106 @@
+import { Image } from "astro:assets";
+import Paper from "@layouts/Paper.astro";
+import Image1 from "@images/36.png";
+
+<Paper
+  title="Python - Data Types"
+  description="Learn about Python data types including strings, numbers (integers, floats, complex), booleans, lists, tuples and dict."
+>
+<Image src={Image1} alt="Python pixel-art" />
+
+Data types determine the context of a value, variable, or memory bits.
+
+---
+
+## Built-in Data Types
+
+### Text Sequence Type (str)
+```python
+"Hi mom!"
+'This world is an illusion, exile!'
+```
+### Numeric Types (int, float & complex)
+```python
+1337
+3.14
+7j
+```
+### Boolean Type (True & False)
+```python
+True
+False
+```
+### Sequence Types (list, tuple & range)
+```python
+["Hi!", 33, True]
+("Bye!", 66, False)
+range(3, 15, 3)
+```
+
+### Mapping Type (dict)
+```python
+{ 
+  "key": "value",
+  "num": 1
+}
+```
+
+### Set Types (set, frozenset)
+```python
+{ "Dog", "Cat", "Elephant" }
+frozenset({})
+```
+
+---
+
+## The 'range' Type 
+
+The range type represents an immutable sequence of numbers and is commonly used for looping.
+
+```python
+for n in range(10):
+  print(n)
+```
+
+```python
+x = list(range(0, 100, 3))
+print(x)
+```
+
+https://docs.python.org/3/library/functions.html#func-range
+
+---
+
+## List vs Tuple
+
+The main difference is that a list is mutable (can be changed), while a tuple is immutable (cannot be changed).
+
+```python
+x = [1, 2, 3]
+x.append(4)
+print(x) # ok
+```
+
+```python
+x = (1, 2, 3)
+x.append(4) # error
+```
+
+---
+
+## Set vs FrozenSet
+
+The main difference is that a set is mutable (can be changed), while a frozenset is immutable (cannot be changed).
+
+```python
+x = {1, 2, 3}
+x.add(4)
+print(x) # ok
+```
+
+```python
+x = frozenset({1, 2, 3})
+x.add(4) # error
+```
+
+</Paper>

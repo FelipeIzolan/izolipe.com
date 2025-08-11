@@ -1,0 +1,66 @@
+import Paper from '@layouts/Paper.astro';
+import { Image } from "astro:assets"; 
+
+import Image1 from "@images/34.png";
+import Image2 from "@images/35.png";
+import Image3 from "@images/114.png";
+
+<Paper
+  title='Math - Logarithm'
+  description='The fundamentals of logarithms, including their relationship with exponents, negative logarithms, and the logarithms of 0 and 1. '
+  katex={true}
+>
+
+<Image src={Image1} alt="Logarithm" />
+
+The **logarithm** determines **how many times** a **number (the base)** must be **raised to a power** to **produce another number (the argument)**.
+
+---
+
+## Logarithms & Exponents
+
+<Image src={Image2} alt="Logarithm and Exponents relationship" />
+
+> $
+\log_bx=y\\
+b^y=x
+$
+
+---
+
+## Negative Logarithm
+
+The negative logarithm indicates that **the number is less than 1.**
+> $-\log_bx = \log_b\frac{1}{b}$
+
+---
+
+## Logarithm 0 & 1
+
+The **logarithm of 1** is always **0**
+> $\log_b1 = 0$\
+> $b^0 = 1$
+
+
+The **logarithm** with a **base equal to the argument** is always **1**.
+> $\log_bb = 1$\
+> $b^1 = b$
+
+---
+
+## Natural Logarithm
+
+<Image src={Image3} alt="Natural Logarithm" />
+The **natural logarithm** is a logarithm with **base $e$ (Euler's number)**.
+
+---
+
+## Logarithm Rules
+
+- **Product Rule**: <br/> $\log_nxy = \log_nx + \log_ny$
+- **Quotient Rule**: <br/> $\log_n\frac{x}{y} = \log_nx - \log_ny$
+- **Power Rule**: <br/> $\log_nx^y = y \times log_nx$
+- **Negative Rule**: <br/> $-\log_nx = \log_n\frac{1}{x}$
+- **Change of Base Rule**: <br/> $\log_nx = \frac{\log x}{\log n}$
+
+</Paper>

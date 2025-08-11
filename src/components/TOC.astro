@@ -1,0 +1,18 @@
+---
+import slugify from "@sindresorhus/slugify";
+let headings = Astro.props.headings as Array<{ title: string, depth: number }>;
+---
+<hr/>
+<h2>Table of Contents</h2>
+<ul>
+  {
+    headings
+    .map(
+    ({title, depth}) => {
+        depth--;
+        return <li style={depth ? `margin:0 ${depth}em` : null}><a href={`#${slugify(title)}`}>{title}</a></li>
+      }    
+    )
+  }
+</ul>
+<hr/>

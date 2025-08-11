@@ -1,0 +1,69 @@
+import Paper from '@layouts/Paper.astro';
+import { Image } from "astro:assets"; 
+
+import Image1 from "@images/29.png";
+import Image2 from "@images/30.png";
+import Image3 from "@images/31.png";
+import Image5 from "@images/33.png";
+
+<Paper
+  title='Math - Roots'
+  description='The fundamentals of radical expressions, including square roots, cubic roots, and simplifying radical expressions. Learn key radical rules and how to work with exponents and roots in mathematics.'
+  katex={true}
+>
+
+<Image src={Image1} alt="Radical expression" />
+A **root of x** is a number that, when raised to a certain **power (the index)**, equals **x (the radicand)**.
+
+---
+
+## Square Root
+
+<Image src={Image2} alt="Square root" />
+
+The square root is a number that, when multiplied by itself, equals the radicand.
+
+>$
+\sqrt{1} = 1~~~\sqrt{4} = 2\\
+\sqrt{9} = 3~~~\sqrt{16} = 4\\
+\sqrt{25} = 5~~~\sqrt{36} = 6\\
+\sqrt{49} = 7~~~\sqrt{64} = 8\\
+\sqrt{81} = 9~~~\sqrt{100} = 10
+$
+
+---
+
+## Cubic Root
+
+<Image src={Image3} alt="Cubic root" />
+
+The cubic root is a number that, when raised to the power of three, equals the radicand.
+
+>$
+\sqrt[3]{1} = 1~~~\sqrt[3]{8} = 2\\
+\sqrt[3]{27} = 3~~~\sqrt[3]{64} = 4\\
+\sqrt[3]{125} = 5~~~\sqrt[3]{216} = 6\\
+\sqrt[3]{343} = 7~~~\sqrt[3]{512} = 8\\
+\sqrt[3]{729} = 9~~~\sqrt[3]{1000} = 10
+$
+
+---
+
+## Simplifying Radical Expressions
+
+<Image src={Image5} alt="Examples of simplifying a radical expression" />
+
+[Simplifying Radicals - Best Explanation (youtube)](https://www.youtube.com/watch?v=5wCldWohDIg)\
+[Learn how to simplify a radical expression with variables and a number (youtube)](https://www.youtube.com/watch?v=VheIP4Xdrd8)
+
+---
+
+## Radical Rules
+
+- **Fractional Exponent Rule**: <br/> $\sqrt[n]{x^m} = x^{\frac{m}{n}}$
+- **Product Rule**: <br/> $\sqrt{xy} = \sqrt{x} \times \sqrt{y}$
+- **Power Rule 1**: <br/> $(\sqrt{x})^y = \sqrt{x^y}$
+- **Power Rule 2**: <br/> $\sqrt[n]{x^n} = x$
+- **Quotinent Rule**: <br/> $\sqrt{{\frac{x}{y}}} = \frac{\sqrt{x}}{\sqrt{y}}$
+
+</Paper>

@@ -1,0 +1,81 @@
+---
+title: Debugging a Window Manager (Xorg)
+description: Debugging window managers using Xephyr and C preprocessor logging. Tips for WM developers and hackers.
+date: '2025-03-11'
+---
+import { Image } from 'astro:assets';
+import Image1 from '@images/164.png';
+
+<Image src={Image1} alt="A white-haired warrior with a fiery scythe; Image generated with ChatGPT;"/>
+
+Hi! this will be a short post to help future window manager hackers. I’m currently developing a window manager and was having trouble debugging it from a TTY (yes, from TTY). After a bit of searching, I find the Xephyr.
+
+## Xephyr - A Nested X Server
+
+Xephyr is the best way to test and run a window manager. It basically runs an X server inside a window.
+
+### Installation (Arch Linux, Void Linux)
+
+```shell
+$ sudo pacman -S xorg-server-xephyr
+```
+
+```shell
+$ sudo xbps-install xorg-server-xephyr
+```
+
+### Usage
+
+```shell
+$ Xephyr -screen 1280x720 :1
+```
+
+Create a nested X server window with size 1280x720 and display name ":1".
+
+#### Launching applications
+
+```shell
+$ DISPLAY=:1 dwm
+```
+
+> Launch the `dwm` in display ":1".
+
+To launch an application, specify the display followed by the application command.
+
+#### Grabbing and un-grabbing user input
+
+Pressing Ctrl+Shift should lock/unlock your mouse pointer and your keystrokes inside Xephyr window exclusively if possible.
+
+#### Reference
+
+https://wiki.archlinux.org/title/Xephyr
+
+---
+
+## C - Preprocessors
+
+I could end this post here, but I want to share a useful way for logging in your application using C preprocessors:
+
+```c
+#include <stdio.h>
+
+#define LOG(str) printf("app --> %s\n", str);
+
+int main() {
+  int err = 0;
+
+  // ...
+
+  #ifdef LOG
+  LOG("<log> main();")
+  if (err)
+    LOG("<error> main();")
+  #endif
+
+  return 1;
+}
+```
+
+> C preprocessors enable conditional code inclusion based on macro definitions ([Conditional Compilation](https://en.wikipedia.org/wiki/C_preprocessor#Conditional_compilation)).
+
+Tadah! Now you can enable or disable the log system simply by commenting or uncommenting the `#define LOG` line. Of course, you can also apply this strategy using a library like [log.c](https://github.com/rxi/log.c).

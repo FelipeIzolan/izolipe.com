@@ -1,0 +1,25 @@
+{
+  "name": "izolipe",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/sitemap": "^3.4.1",
+    "@sindresorhus/slugify": "^2.2.1",
+    "astro": "^5.11.0",
+    "js-beautify": "^1.15.4",
+    "katex": "^0.16.22",
+    "micromark": "^4.0.2",
+    "micromark-extension-gfm": "^3.0.0",
+    "rehype-katex": "^7.0.1",
+    "remark-gemoji": "^8.0.0",
+    "remark-math": "^6.0.0",
+    "unslugify": "^1.0.4"
+  }
+}

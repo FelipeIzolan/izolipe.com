@@ -1,0 +1,62 @@
+import { Image } from "astro:assets";
+import Paper from "@layouts/Paper.astro";
+import Image1 from "@images/36.png";
+
+<Paper
+  title="Python - Hello, World!"
+  description={`Python installation guide for Windows & Linux, plus a simple "Hello, World!" example.`}
+>
+<Image src={Image1} alt="Python pixel-art" />
+
+Python is a high-level, interpreted and general-purpose programming language.
+
+---
+
+## Python Installation
+
+For Python installation, I highly recommend using a package manager, even on Windows.
+
+### Windows (Chocolatey, Scoop)
+
+```bash
+$ choco install python
+```
+
+```bash
+$ scoop bucket add main
+$ scoop install main/python
+```
+
+> [Chocolatey](https://chocolatey.org/) and [Scoop](https://scoop.sh/) are third-party package managers for Windows.\
+> [Winget](https://winget.run/) (Windows' built-in package manager) works, but I’m not a fan.
+
+
+### Linux (Debian/Ubuntu, Arch Linux, Void Linux)
+
+```bash
+$ sudo apt install python3
+```
+
+```bash
+$ sudo pacman -S python
+```
+
+```bash
+$ sudo xbps-install python
+```
+
+---
+
+## The "Hello, World!"
+
+To create a 'Hello, World!' program in Python, simply use the built-in print() function.
+
+```py
+# main.py
+print("Hello, World!")
+```
+
+```bash
+$ python main.py
+```
+</Paper>

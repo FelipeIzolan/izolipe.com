@@ -1,0 +1,20 @@
+---
+import Paper from "@layouts/Paper.astro";
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  let posts = await getCollection('blog');
+  return posts.map(post => {
+    return {
+      params: { id: post.id },
+      props: post
+    }
+  });
+}
+
+const post = Astro.props;
+const { Content } = await render(post);
+---
+<Paper {...post.data}>
+  <Content />
+</Paper>

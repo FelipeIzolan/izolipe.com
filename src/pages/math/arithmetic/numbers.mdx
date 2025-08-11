@@ -1,0 +1,116 @@
+import Paper from '@layouts/Paper.astro';
+import { Image } from "astro:assets"; 
+
+import Image1 from "@images/1.png";
+import Image2 from "@images/107.png";
+import Image3 from "@images/112.png";
+
+<Paper
+  title='Math - Numbers'
+  description='The fundamental concepts of numbers. Learn about natural numbers (N), integers (Z), rational numbers (Q), irrational numbers (I) and real numbers (R).'
+  katex={true}
+>
+
+## The Numbers
+
+<Image loading='lazy' src={Image2} alt="All numbers symbol"/>
+
+A number is a **mathematical object** used to count, meansure and label.
+
+- **0** - Zero
+- **1** - One
+- **2** - Two
+- **3** - Three
+- **4** - Four
+- **5** - Five
+- **6** - Six
+- **7** - Seven
+- **8** - Eight
+- **9** - Nine
+
+---
+
+## Types of Numbers
+
+<a href='https://commons.wikimedia.org/wiki/File:Venn_Diagram_of_Numbers_Expanded.svg'>
+<Image loading='lazy' src={Image1} alt="Venn Diagram of Numbers" />
+</a>
+
+- **Natural($\N$)**: All the whole numbers from one to infinity.
+- **Integer($\Z$)**: All the whole numbers that can be positive, negative or zero.
+- **Rational($\mathbb{Q}$)**: All the numbers that are a ratio of two integers.
+- **Irrational($\mathbb{I}$)**: All the numbers that aren't a rational number.
+- **Real($\mathbb{R}$)**: All the numbers that can be represented on the number line.
+
+### Examples
+$\N = \set{1, 2, 6, 24, 128, ...}$\
+$\Z = \set{-10, -4, -1, 0, 1, 4, 10, ...}$\
+$\mathbb{Q} = \set{-10/2, -5, \sqrt{81}, 9, 10.50/2, 5.25, ...}$\
+$\mathbb{I} = \set{\sqrt{2}, \sqrt{8}, \pi, e, ...}$\
+$\mathbb{R} = \set{3.5, -24/8, \pi, \sqrt{2}, 54, -33, 2/8, ...}$
+
+---
+
+## Rational Numbers
+
+A rational number is any number that can be written as a ratio of two integers.
+
+> $\Large\frac{a}{b}$
+
+> where:\
+> $b \neq 0$; ($b$ not equal to $0$)\
+> $a,b \in \Z$; ($a$ and $b$ are in integers set)
+
+### Examples
+
+- $7$ ($\frac{7}{1})$
+- $-51$ ($\frac{-51}{1}$)
+- $0.75$ ($\frac{3}{4}$)
+- $1.285714...$ $(\frac{9}{7})$
+
+---
+
+## Irrational Numbers
+
+A irrational number is a number that can't be written as a ratio of two integers.
+
+### Examples
+
+- $\sqrt{2} \approx 1.41421356237$
+- $\sqrt{7} \approx 2.64575131106$
+- $\pi \approx 3.14159$ 
+
+> $a \approx b$\
+> $a$ is approximately equal to $b$
+---
+
+## Real Number Line
+
+<Image loading='lazy' src={Image3} alt="Real number line" />
+
+<div style='display:flex;gap:8px;font-size:small;font-weight:bolder'>
+
+<div style='display:flex;gap:4px;align-items:center'>
+  <div style='width:1em;height:1em;background:#2bff80' />
+  <span>Natural</span>
+</div>
+
+<div style='display:flex;gap:4px;align-items:center'>
+  <div style='width:1em;height:1em;background:#ffd28c' />
+  <span>Integer</span>
+</div>
+
+<div style='display:flex;gap:4px;align-items:center'>
+  <div style='width:1em;height:1em;background:#ff4a79' />
+  <span>Rational</span>
+</div>
+
+<div style='display:flex;gap:4px;align-items:center'>
+  <div style='width:1em;height:1em;background:#4aa8ff' />
+  <span>Irrational</span>
+</div>
+
+</div>
+
+The real number line is a visual representation of real numbers used to show their order and magnitude, extending infinitely in both directions.
+</Paper>

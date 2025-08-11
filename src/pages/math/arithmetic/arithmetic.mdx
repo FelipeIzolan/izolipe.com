@@ -1,0 +1,120 @@
+import Paper from '@layouts/Paper.astro';
+import { Image } from "astro:assets"; 
+
+import Image1 from "@images/5.png";
+
+<Paper
+  title='Math - Arithmetic'
+  description='The fundamentals of arithmetic operations – addition, subtraction, multiplication and division. Learn how these mathematical processes combine and compute values, including examples of their applications and the law of signs.'
+  katex={true}
+
+>
+
+<Image src={Image1} alt="plus, minus, multiply and divide symbols" />
+
+Arithmetic is the study of numbers and basic operations like **addition**, **subtraction**, **multiplication** and **division**.
+
+---
+
+## Addition
+
+Addition is the process of combining two or more values.\
+The result of a addition = **"sum"**
+
+> $
+1 + 1 = 2\\
+8 + 4 = 12\\
+-12 + 37 = 25\\
+-128 + 371 = 243\\
+42.4 + 6.27 = 48.67\\
+-21.72 + 10.5 = -11.22
+$
+
+---
+
+## Subtraction
+
+Subtraction is the process of compute the difference between two or more values.\
+The result of a subtraction = **"difference"**
+
+> $
+2 - 2 = 0\\
+24 - 6 = 18\\
+-7 - 3 = -10\\
+-14 - 32 = -46\\
+5.325 - 1.125 = 4.2\\
+-32.64 - 32.64 = -64.128
+$
+
+---
+
+## Multiplication
+
+Multiplication is the process of repeating a sum of the same number.\
+The result of a multiplication = **"product"**
+
+> $
+10 \times 5 = 50\\
+4 \times 8 = 32\\
+-12 \times 3 = -36\\
+-7 \times -5 = 35
+$
+
+---
+
+## Division
+
+Division is the process of distributing a quantity into equal parts or groups.\
+The result of a division = **"quotient"**
+
+> $
+36 \div 6 = 6\\
+55 \div 4 = 13.75\\
+-100 \div 8 = -12.5\\
+-128 \div -4 = 32
+$
+
+---
+
+## Identity Property
+
+The identity property says that a special number (the identity element) keeps any number unchanged in an operation.
+
+### Additive Identity
+$a+0=a$
+> The additive identity is $0$.
+
+### Subtractive Identity
+$a-0=a$
+> The subtractive identity is $0$.
+
+### Multiplicative Identity
+$a*1=a$
+> The multiplicative identity is $1$.
+
+### Divisive Identity
+$a\div1=a$
+> The divisive identity is $1$.
+
+---
+
+## Law of Signs
+
+### Addition & Subtraction
+
+$
+(-)(-) = (-)\\
+(+)(+) = (+)\\
+\LARGE(-)\normalsize (+) = (-)\\
+\LARGE(+)\normalsize (-) = (+)
+$
+
+### Multiplication & Division
+
+$
+(-)(-) = (+)\\
+(+)(+) = (+)\\
+(-)(+) = (-)\\
+(+)(-) = (-)
+$
+</Paper>

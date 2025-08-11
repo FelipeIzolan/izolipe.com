@@ -1,0 +1,82 @@
+import { Image } from "astro:assets";
+import Paper from "@layouts/Paper.astro";
+import Image1 from "@images/36.png";
+
+<Paper
+  title="Python - Hello, pip!"
+  description="Guide to installing pip (Python's package manager) on Windows & Linux, with key commands for package management."
+>
+<Image src={Image1} alt="Python pixel-art" />
+
+Python has its own package manager called pip (Python's package installer).
+
+---
+
+## Pip Installation
+
+If pip was not installed with python, you will need to install it "manually".
+
+### Windows
+
+```shell
+$ curl https://bootstrap.pypa.io/get-pip.py | python -
+```
+> Don't forget to add Python scripts to your PATH.
+
+### Linunx (Debian/Ubuntu, Arch Linux, Void Linux)
+
+```shell
+$ sudo apt install python3-pip 
+```
+
+```shell
+$ sudo pacman -S python-pip
+```
+
+```shell
+$ sudo xbps-install python-pip
+```
+
+---
+
+## Basic Commands
+
+Basic pip commands, for more details, see the: https://pip.pypa.io/en/stable/cli/
+
+### Check version
+
+```shell
+pip --version
+```
+
+### Install a package
+
+```shell
+pip install <package>
+```
+
+### Uninstall a package
+
+```shell
+pip uninstall <package>
+```
+
+### List packages
+
+```shell
+pip list
+```
+
+### Install packages in requirements.txt
+
+```shell
+pip install -r requirements.txt
+```
+
+### List packages in requirements.txt format
+
+```shell
+pip freeze
+```
+
+</Paper>

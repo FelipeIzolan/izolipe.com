@@ -1,0 +1,96 @@
+import Paper from '@layouts/Paper.astro';
+import { Image } from 'astro:assets';
+
+import Image1 from "@images/45.png";
+
+<Paper
+  title='Math - Equations'
+  description='The fundamentals of solving mathematical equations, including addition, subtraction, multiplication, and division.'
+  katex={true}
+>
+
+<Image src={Image1} alt="Equation"/>
+Equations are mathematical expressions that contain an **'equal to (=)'** symbol, **relating two expressions**.
+
+---
+
+## Cheatsheet to Solve Equations
+
+<table>
+  <thead>
+    <th>Equation Type</th>
+    <th>General Form</th>
+    <th>Solution</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Addition</td>
+      <td>$x + y = n$</td>
+      <td>$x = n - y$</td>
+    </tr>
+    <tr>
+      <td>Subtraction</td>
+      <td>$x - y = n$</td>
+      <td>$x = n + y$</td>
+    </tr>   
+    <tr>
+      <td>Multiplication</td>
+      <td>$x * y = n$</td>
+      <td>$x = n \div y$</td>
+    </tr>   
+    <tr>
+      <td>Division</td>
+      <td>$x \div y = n$</td>
+      <td>$x = n * y$</td>
+    </tr>
+    <tr>
+      <td>Fraction</td>
+      <td>$\frac{x + y}{z} = n + m$</td>
+      <td>$x + y = z(n + m)$</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Solving simple equations
+
+To solve equations, you need to understand that **both expressions are related**. Whatever you do to one side, you must do to the other to maintain that relationship!
+
+
+### Addition Equation
+ 
+> $
+x + 4 = 9\\
+x + 4 - 4 = 9 - 4\\
+x = 5
+$
+
+
+### Subtraction Equation
+
+> $
+x - 6 = 32\\
+x - 6 + 6 = 32 + 6\\
+x = 38
+$
+
+
+### Multiplication Equation
+
+> $
+x * 8 = 32\\
+x * \frac{8}{8} = \frac{32}{8}\\
+x = 4
+$
+
+### Division Equation
+
+> $
+\frac{x}{8} = 6\\
+8 * \frac{x}{8} = 6 * 8\\
+\cancel{8} * \frac{x}{\cancel{8}} = 48\\
+x = 48
+$
+
+</Paper>

@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+import Directory from "@layouts/Directory.astro";
+import Image1 from "@images/36.png";
+---
+<Directory
+  title="Python"
+  inodes={[
+    { type: 'file', text: 'Hello, World!' },  
+    { type: 'file', text: 'Hello, pip!' },
+    { type: 'file', text: 'Virtual Environment' },
+    { type: 'file', text: 'Data Types' },
+    { type: 'file', text: 'Variables' },
+  ]}
+>
+<Image src={Image1} alt="Python pixel-art"/>
+<p>Python is a high-level, interpreted and general-purpose programming language.</p>
+</Directory>

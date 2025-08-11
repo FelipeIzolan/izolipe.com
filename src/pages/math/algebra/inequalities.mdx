@@ -1,0 +1,91 @@
+import Paper from '@layouts/Paper.astro';
+import { Image } from 'astro:assets';
+
+import Image1 from "@images/72.png";
+import Image2 from "@images/73.png";
+import Image3 from "@images/74.png";
+import Image4 from "@images/75.png";
+import Image5 from "@images/76.png";
+
+<Paper
+  title='Math - Inequalities'
+  description='The fundamentals of mathematical inequalities, including their symbols, how to solve them (addition, subtraction, multiplication, division).'
+  katex={true}
+>
+
+<Image src={Image1} alt="Inequality"/>
+Inequalities are mathematical expressions that compare values using the following symbols:
+
+- **\>**: Greater than
+- **\<**: Less than
+- **≥**: Greater than or equal to
+- **≤**: Less than or equal to
+
+Unlike equations, which express equality, **inequalities show a relationship where one value is not necessarily equal to another**.
+
+---
+
+## Inverting Inequality Operators
+When **multiplying or dividing** both sides of an inequality by a negative number, you must **reverse the inequality symbol**:
+
+- **\>** becomes **\<**;
+- **≥** becomes **≤**;
+- **\<** becomes **\>**;
+- **≤** becomes **≥**;
+
+### Example
+
+> $
+-2x > 6\\
+-2x * -1 > 6 * -1\\
+2x < -6
+$
+
+---
+
+## Solving Simple Inequalities
+
+To solve inequalities, it's similar to solving equations.
+
+### Addition Inequality
+
+<Image src={Image2} alt='Inequality of x > 8'/>
+   
+> $
+x + 4 > 12\\
+x + 4 - 4 > 12 - 4\\
+x > 8
+$
+
+### Subtraction Inequality
+
+<Image src={Image3} alt='Inequality of x < 9'/>
+
+> $
+x - 7 < 2\\
+x - 7 + 7 < 2 + 7\\
+x < 9
+$
+
+### Multiplication Inequality
+
+<Image src={Image4} alt='Inequality of x >= 4'/>
+
+> $
+3x \ge 12\\
+\frac{\cancel{3}x}{\cancel{3}} \ge \frac{12}{3}\\
+x \ge 4
+$
+
+### Division Inequality
+
+<Image src={Image5} alt='Inequality of x <= 6'/>
+
+> $
+\frac{x}{2} \le 3\\
+2 * \frac{x}{2} \le 3 * 2\\
+\cancel{2} * \frac{x}{\cancel{2}} \le 6\\
+x \le 6
+$
+
+</Paper>

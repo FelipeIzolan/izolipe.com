@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import Base from '@layouts/Base.astro';
+import Image1 from '@images/188.png';
+---
+<Base
+  title='Markdown to HTML'
+  description='Instantly convert Markdown to styled HTML with preview, formatting options, CSS themes, and downloadable output.'
+>
+<b>Convert your Markdown to styled HTML instantly.</b>
+<section>
+  <textarea style="width:calc(100% - 1em);min-height:24em" placeholder="Enter your Markdown"/>
+  <div>
+    <button id="download">Download</button>  
+    <button id="preview">Preview</button>  
+    <select>
+      <option value="github">github.css</option>
+      <option value="spectre">spectre.css</option>
+      <option value="tufte">tufte.css</option>
+      <option value="mi">mi.css</option>
+    </select>
+  </div>
+</section>
+<hr/>
+<main>
+  <p>
+Easily convert Markdown to beautiful, styled HTML with our free online Markdown to HTML converter. Write or paste your Markdown, choose from multiple CSS themes like GitHub, Spectre, or MI, and instantly preview the formatted output. Download your HTML file in one click.
+  </p>
+  <b>Input</b>
+  <pre><code>{`# Hello, World!\nMarkdown is simply amazing!\n- item1\n- item2`}</code></pre>
+  <b>Output</b>
+  <Image style="border:1px solid #212121" src={Image1} alt='Markdown to HTML output example'/>
+</main>
+<script>
+  import { micromark } from 'micromark';
+  import { gfm, gfmHtml } from 'micromark-extension-gfm';
+
+  let select = document.querySelector('select');
+  let textarea = document.querySelector('textarea');
+  
+  const styles = {
+    spectre: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre.min.css"/>',
+    github: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css"/>',
+    tufte: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/edwardtufte/tufte-css/tufte.css"/>',
+    mi: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FelipeIzolan/mi.css@main/mi.css"/>',
+  }
+
+  const build = () => {
+    let content = micromark(textarea.value, {
+      extensions: [gfm()],
+      htmlExtensions: [gfmHtml()]
+    });
+    return `<html><head><title>Markdown</title>${styles[select.value]}<style>body{width:100%;padding:0}#root{margin:auto;padding:1em;max-width:40em}</style></head><body class='markdown-body'><div id="root" class='markdown-body'>${content}</div></body></html>`;
+  }
+
+  document.querySelector('#download').onclick = () => {
+    let a = document.createElement('a');  
+    a.download = 'index.html';
+    a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(build());
+    a.click();
+  }
+
+  document.querySelector('#preview').onclick = () => {
+    let w = window.open('', '_blank');
+    w.document.write(build());
+  }
+</script>
+</Base>

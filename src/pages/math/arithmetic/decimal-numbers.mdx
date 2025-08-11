@@ -1,0 +1,65 @@
+import Paper from '@layouts/Paper.astro';
+import { Image } from "astro:assets"; 
+
+import Image1 from "@images/6.png";
+import Image2 from "@images/8.png";
+import Image3 from "@images/113.png";
+
+<Paper
+  title='Math - Decimal Numbers'
+  description='The fundamentals of decimal numbers explained. Learn about the base-10 system, place value, and how to break down decimal numbers into whole and fractional parts.'
+  katex={true}
+>
+
+<Image loading='lazy' src={Image3} alt="Decimal Number" />
+A decimal number consists of a **whole part** and a **fractional part**, separated by a **decimal point**.
+
+---
+
+## Base 10
+
+<Image loading='lazy' src={Image2} alt="Decimal base 10" />
+
+The decimal number system is a **base-10 system** where each **place value is a power of 10**. It uses ten digits (0-9) to represent all numbers.
+
+### Example:
+
+The number **9547.735** in **base 10** is interpreted as:
+
+#### Whole Part:
+- $9*10^3 = 9000$
+- $5*10^2 = 500$
+- $4*10^1 = 40$
+- $7*10^0 = 7$
+
+#### Fractional Part:
+- $7*10^{-1} = 0.7$
+- $3*10^{-2} = 0.03$
+- $5*10^{-3} = 0.005$
+
+#### Decimal Number:
+- $9547.735 = 9000 + 500 + 40 + 7 + 0.7 + 0.03 + 0.005$
+
+---
+
+## Place value
+
+<Image loading='lazy' src={Image1} alt="Decimal place value" />
+
+Every place in a decimal number carries a place value.
+
+### Example:
+The number **1249547.735**:
+- **1** Million
+- **2** Hundred Thousands
+- **4** Ten Thousands
+- **9** Thousands
+- **5** Hundreds
+- **4** Tens
+- **8** Ones
+- **.** Decimal Point
+- **7** Tenths
+- **3** Hundredths
+- **5** Thousandths
+
+</Paper>

@@ -1,0 +1,58 @@
+import Paper from '@layouts/Paper.astro';
+import { Image } from "astro:assets"; 
+
+import Image1 from "@images/116.png";
+import Image2 from "@images/117.png";
+
+<Paper
+  title='Math - Multiples & Factors'
+  description='The fundamentals of multiples and factors explain how numbers are created by multiplication and which numbers divide evenly into others.'
+  katex={true}
+>
+
+## Multiples
+
+<Image src={Image1} alt='Multiples of 7'/>
+> <small>**Multiples of 7**: $\{7, 14, 21, 28, 35, ...\}$</small>
+
+Multiples of a number are the numbers you get by multiplying that number by integers (positive, negative, or zero).
+
+- **Multiples of 8**:\
+  $\{8, 16, 24, 32, 40, 48, 56, 64, 72, 80, ...\}$
+- **Multiples of 3.5**:\
+  $\{3.5, 7, 10.5, 14, 17.5, 21, 24.5, 28, 31.5, 35, ...\}$
+- **Multiples of -5**:\
+  $\{-5, -10, -15, -20, -25, -30, -35, -40, -45, -50, ...\}$
+
+---
+
+## Factors
+
+<Image src={Image2} alt='Factors of 36'/>
+> <small>**Factors of 36**: $\{1, 2, 3, 4, 6, 9, 12, 18, 36\}$</small>
+
+Factors are whole numbers that can divide another number evenly, without leaving a remainder.
+
+- **Factors of 16**:\
+  $\{1, 2, 4, 8, 16\}$
+- **Factors of 35**:\
+  $\{1, 5, 7, 35\}$
+- **Factors of 52**:\
+  $\{1, 2, 4, 13, 26, 52\}$
+
+---
+
+## Divisibility
+
+
+Divisibility means a whole number can be divided by another number (the divisor) without leaving a remainder.
+
+**8 is divisibly by 2**\
+**8 not is divisibly by 3**
+
+### Divisibility Rule
+
+A divisibility rule is a fast way to determine whether a number is divisible by a divisor or not.\
+[Divisibility Rule for numbers 1-30 (wikipedia)](https://en.wikipedia.org/wiki/Divisibility_rule)
+
+</Paper>

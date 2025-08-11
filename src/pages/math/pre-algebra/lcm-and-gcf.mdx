@@ -1,0 +1,37 @@
+import Paper from '@layouts/Paper.astro';
+import { Image } from "astro:assets"; 
+
+<Paper
+  title='Math - LCM & GCF'
+  description='The fundamentals of LCM and GCF explain how to find the smallest common multiple and largest common factor of numbers with easy examples.'
+  katex={true}
+>
+
+## Least Common Multiple (LCM)
+Least common multiple (or LCM) is the process of finding the least common multiple of two or more numbers.
+
+- **LCM(5, 15)** = 30
+  > **Multiples of 5**: $\{5,10,15,20,25,\textcolor{#7932ff}{30},35,40,45,50,55,60\}$\
+  > **Multiples of 15**: $\{15,\textcolor{#7932ff}{30},45,60,75,90,105,120,135,150\}$
+- **LCM(8, 12, 9)** = 72
+  > **Multiples of 8**: $\{8,16,24,32,40,48,56,64,\textcolor{#7932ff}{72},80\}$\
+  > **Multiples of 12**: $\{12,24,36,48,60,\textcolor{#7932ff}{72},84,96,108,120\}$\
+  > **Multiples of 9**: $\{9,18,27,36,45,54,63,\textcolor{#7932ff}{72},81,90\}$
+
+[Finding the LCM using the "Ladder" Method (youtube)](https://www.youtube.com/watch?v=b6qehkDuioQ)
+
+---
+
+## Greatest Common Factor (GCF)
+Greatest common factor (or GCF) is the process of finding the greatest common factor of two or more numbers.
+
+- **GCF(140, 84)** = 28
+  > **Factors of 140** = $\{1,2,4,5,7,10,14,20,\textcolor{#7932ff}{28},35,70,140\}$\
+  > **Factors of 84** = $\{1,2,3,4,6,7,12,14,21,\textcolor{#7932ff}{28},42,84\}$
+- **GCF(9, 57, 78)** = 3
+  > **Factors of 9** = $\{1,\textcolor{#7932ff}{3},9\}$\
+  > **Factors of 57** = $\{1,\textcolor{#7932ff}{3},19,57\}$\
+  > **Factors of 78** = $\{1,2,\textcolor{#7932ff}{3},6,13,26,39,78\}$
+
+[Finding the GCF using the "Ladder" Method (youtube)](https://www.youtube.com/watch?v=myJraeUdGNI)
+</Paper>
