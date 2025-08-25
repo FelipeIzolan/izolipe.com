@@ -92,7 +92,7 @@
 <rect x="8" y="7" width="1" height="1" fill="#FFFFFF" />
 <rect x="9" y="7" width="1" height="1" fill="#0F0F0F" />
 <rect x="10" y="7" width="1" height="1" fill="#0F0F0F" />
-<rect x="11" y="7" width="1" height="1" fill="#353535" />
+<rect x="11" y="7" width="1" height="1" fill="#515151" />
 <rect x="12" y="7" width="1" height="1" fill="#0F0F0F" />
 <rect x="13" y="7" width="1" height="1" fill="#0F0F0F" />
 <rect x="14" y="7" width="1" height="1" fill="#0A0A0A" />
@@ -120,7 +120,7 @@
 <rect x="8" y="9" width="1" height="1" fill="#ACACAC" />
 <rect x="9" y="9" width="1" height="1" fill="#515151" />
 <rect x="10" y="9" width="1" height="1" fill="#0F0F0F" />
-<rect x="11" y="9" width="1" height="1" fill="#353535" />
+<rect x="11" y="9" width="1" height="1" fill="#515151" />
 <rect x="12" y="9" width="1" height="1" fill="#0F0F0F" />
 <rect x="13" y="9" width="1" height="1" fill="#0F0F0F" />
 <rect x="14" y="9" width="1" height="1" fill="#0A0A0A" />
@@ -134,7 +134,7 @@
 <rect x="8" y="10" width="1" height="1" fill="#0F0F0F" />
 <rect x="9" y="10" width="1" height="1" fill="#0F0F0F" />
 <rect x="10" y="10" width="1" height="1" fill="#0F0F0F" />
-<rect x="11" y="10" width="1" height="1" fill="#353535" />
+<rect x="11" y="10" width="1" height="1" fill="#ACACAC" />
 <rect x="12" y="10" width="1" height="1" fill="#0F0F0F" />
 <rect x="13" y="10" width="1" height="1" fill="#0F0F0F" />
 <rect x="14" y="10" width="1" height="1" fill="#0A0A0A" />
@@ -144,11 +144,11 @@
 <rect x="4" y="11" width="1" height="1" fill="#FFFFFF" />
 <rect x="5" y="11" width="1" height="1" fill="#FFFFFF" />
 <rect x="6" y="11" width="1" height="1" fill="#FFFFFF" />
-<rect x="7" y="11" width="1" height="1" fill="#FFFFFF" />
+<rect x="7" y="11" width="1" height="1" fill="#ACACAC" />
 <rect x="8" y="11" width="1" height="1" fill="#ACACAC" />
 <rect x="9" y="11" width="1" height="1" fill="#ACACAC" />
-<rect x="10" y="11" width="1" height="1" fill="#515151" />
-<rect x="11" y="11" width="1" height="1" fill="#515151" />
+<rect x="10" y="11" width="1" height="1" fill="#ACACAC" />
+<rect x="11" y="11" width="1" height="1" fill="#ACACAC" />
 <rect x="12" y="11" width="1" height="1" fill="#0F0F0F" />
 <rect x="13" y="11" width="1" height="1" fill="#0F0F0F" />
 <rect x="14" y="11" width="1" height="1" fill="#0A0A0A" />
