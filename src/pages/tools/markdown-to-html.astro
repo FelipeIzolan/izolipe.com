@@ -8,27 +8,27 @@ import Image1 from '@images/188.png';
   description='Instantly convert Markdown to styled HTML with preview, formatting options, CSS themes, and downloadable output.'
 >
 <b>Convert your Markdown to styled HTML instantly.</b>
-<section>
-  <textarea style="width:calc(100% - 1em);min-height:24em" placeholder="Enter your Markdown"/>
-  <div>
-    <button id="download">Download</button>  
-    <button id="preview">Preview</button>  
-    <select>
-      <option value="github">github.css</option>
-      <option value="spectre">spectre.css</option>
-      <option value="tufte">tufte.css</option>
-      <option value="mi">mi.css</option>
-    </select>
-  </div>
-</section>
-<hr/>
 <main>
+  <section>
+    <textarea style="width:calc(100% - 1em);min-height:24em" placeholder="Enter your Markdown"/>
+      <div>
+        <button id="download">Download</button>  
+        <button id="preview">Preview</button>  
+        <select>
+          <option value="github">github.css</option>
+          <option value="spectre">spectre.css</option>
+          <option value="tufte">tufte.css</option>
+          <option value="mi">mi.css</option>
+        </select>
+      </div>
+  </section>
+  <hr/>
   <p>
 Easily convert Markdown into beautiful, styled HTML. Write or paste your Markdown, choose a CSS theme, and instantly preview the formatted output. Download your HTML file with one click.
   </p>
-  <b>Input</b>
+  <h2>Input</h2>
   <pre><code>{`# Hello, World!\nMarkdown is simply amazing!\n- item1\n- item2`}</code></pre>
-  <b>Output</b>
+  <h2>Output</h2>
   <Image style="border:1px solid #212121" src={Image1} alt='Markdown to HTML output example'/>
 </main>
 <script>
@@ -50,7 +50,7 @@ Easily convert Markdown into beautiful, styled HTML. Write or paste your Markdow
       extensions: [gfm()],
       htmlExtensions: [gfmHtml()]
     });
-    return `<html><head><title>Markdown</title>${styles[select.value]}<style>body{width:100%;padding:0}#root{margin:auto;padding:1em;max-width:40em}</style></head><body class='markdown-body'><div id="root" class='markdown-body'>${content}</div></body></html>`;
+    return `<!DOCTYPE html><html><head><title>Markdown</title>${styles[select.value]}<style>body{width:100%;padding:0}#root{margin:auto;padding:1em;max-width:40em}</style></head><body class='markdown-body'><div id="root" class='markdown-body'>${content}</div></body></html>`;
   }
 
   document.querySelector('#download').onclick = () => {
@@ -62,7 +62,7 @@ Easily convert Markdown into beautiful, styled HTML. Write or paste your Markdow
 
   document.querySelector('#preview').onclick = () => {
     let w = window.open('', '_blank');
-    w.document.write(build());
+    w.document.writeln(build());
   }
 </script>
 </Base>

@@ -6,19 +6,17 @@ import Base from '@layouts/Base.astro';
   description='Format your HTML code easily with this online HTML formatter. Customize indentation for clean, readable, and well-structured code.'
 >
 <b>A HTML formatter tidies up HTML code for readability.</b>
-<section>
-  <textarea style="width:calc(100% - 1em);min-height:24em" placeholder="Enter your HTML"></textarea>
-  <button>Format</button>
-  <input type="number" value="2" placeholder="Indent Size"/>
-</section>
-<hr/>
 <main>
+  <section>
+    <textarea style="width:calc(100% - 1em);min-height:24em" placeholder="Enter your HTML"></textarea>
+    <button>Format</button>
+    <input type="number" value="2" placeholder="Indent Size"/>
+  </section>
+  <hr/>
   <p>This HTML Formatter helps you quickly beautify messy HTML code. It adds proper indentation and spacing, making it easier to read, maintain, and debug. Simply paste your HTML into the text area, choose the indentation level, and click "Format" to see the result.</p>
-
-  <b>Input</b>
+  <h2>Input</h2>
   <pre><code>{`<body><div id="root"><h1>Hello, World!</h1></div></body>`}</code></pre>
-
-  <b>Output</b>
+  <h2>Output</h2>
   <pre><code>{`<body>
   <div id="root">
     <h1>Hello, World!</h1>

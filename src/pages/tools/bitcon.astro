@@ -34,6 +34,21 @@ let sources = Object.values(import.meta.glob('../../assets/bitcon/*.svg', { eage
   const copy = document.querySelector('#copy');
   const download = document.querySelector('#download');
   // ---
+  function toCanvas(url, callback) {
+    let img = document.createElement('img');
+    let canvas = document.createElement('canvas');
+    let context = canvas.getContext('2d');
+
+    canvas.width = 16;
+    canvas.height = 16;
+
+    img.src = url;
+    img.onload = function() {
+      context.drawImage(img, 0, 0);
+      callback(canvas, context, img);
+    }
+  }
+  // ---
   function colorsSVG() {
     let map = [];
     for (const rect of preview.children) { 
@@ -54,7 +69,7 @@ let sources = Object.values(import.meta.glob('../../assets/bitcon/*.svg', { eage
     
     for (let color of colorsSVG()) {
       let element = document.createElement('input');
-        
+
       element.type = 'color';
       element.value = color;
       element.dataset.color = color;
@@ -73,12 +88,18 @@ let sources = Object.values(import.meta.glob('../../assets/bitcon/*.svg', { eage
   // ---
   copy.onclick = () => {
     let ext = document.querySelector('input[name="ext"]:checked').value;
+    let svg = buildSVG(preview.innerHTML);
 
     if (ext == 'svg')
-      navigator.clipboard.writeText(buildSVG(preview.innerHTML));
-    
-    if (ext == 'png')
-      alert('Copy to png is under development.');
+      navigator.clipboard.writeText(svg);
+  
+    if (ext == 'png') {
+      let blob = new Blob([svg], { type: 'image/svg+xml' });
+      let url = URL.createObjectURL(blob);
+      toCanvas(url, canvas => canvas.toBlob(blob => {
+        navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+      }));
+    }
   }
 
   download.onclick = () => {
@@ -93,21 +114,11 @@ let sources = Object.values(import.meta.glob('../../assets/bitcon/*.svg', { eage
       a.click();
     }
 
-    if (ext == 'png') {
-      let img = document.createElement('img');
-      let canvas = document.createElement('canvas');
-      let context = canvas.getContext('2d');
-
-      canvas.width = 16;
-      canvas.height = 16;
-
-      img.src = url;
-      img.onload = function() {
-        context.drawImage(img, 0, 0);
+    if (ext == 'png')
+      toCanvas(url, canvas => {
         a.href = canvas.toDataURL();
         a.click();
-      }
-    }
+      }) 
   }
   // ---
   for (const icon of icons) {
