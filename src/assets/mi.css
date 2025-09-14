@@ -6,11 +6,11 @@ body {
 }
 
 body {
-  margin: auto;
-  padding: 1em;
-  max-width: 40em;
   color: #212121;
   background: #FAFAFA;
+  margin: auto;
+  padding: 1em;
+  max-width: 42em;
 }
 
 h1,
