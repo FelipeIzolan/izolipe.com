@@ -1,0 +1,70 @@
+---
+import Base from '@layouts/Base.astro';
+import { Image } from 'astro:assets';
+import Image1 from '@images/00002.png';
+---
+<Base
+  title='Markdown para HTML'
+  description='Converta seu HTML para Markdown estilizado instantaneamente.'
+>
+<b>Converta seu HTML para Markdown estilizado instantaneamente.</b>
+<main>
+  <section>
+    <textarea style="width:calc(100% - 1em);min-height:24em" placeholder="Insira seu Markdown."/>
+      <div>
+        <button id="download">Download</button>  
+        <button id="preview">Preview</button>  
+        <select>
+          <option value="github">github.css</option>
+          <option value="spectre">spectre.css</option>
+          <option value="tufte">tufte.css</option>
+          <option value="mi">mi.css</option>
+        </select>
+      </div>
+  </section>
+  <hr/>
+  <section>
+    <h2>Input (com tufte.css)</h2>
+    <pre><code>{`![](https://i.imgur.com/x0MTyvc.png)
+# Apicultor(a)
+Ser apicultor é cuidar das abelhas e do ambiente onde elas vivem. O apicultor trabalha para manter as colmeias saudáveis, garantindo que as abelhas tenham alimento, abrigo e proteção contra doenças e predadores. Além disso, é responsável pela produção de mel.`}</code></pre>
+    
+    <h2>Output (com tufte.css)</h2>
+    <Image src={Image1} alt=""/>
+  </section>
+</main>
+<script>
+  import { micromark } from 'micromark';
+  import { gfm, gfmHtml } from 'micromark-extension-gfm';
+
+  let select = document.querySelector('select');
+  let textarea = document.querySelector('textarea');
+  
+  const styles = {
+    spectre: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre.min.css"/>',
+    github: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css"/>',
+    tufte: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/edwardtufte/tufte-css/tufte.css"/>',
+    mi: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FelipeIzolan/mi.css@main/mi.css"/>',
+  }
+
+  const build = () => {
+    let content = micromark(textarea.value, {
+      extensions: [gfm()],
+      htmlExtensions: [gfmHtml()]
+    });
+    return `<!DOCTYPE html><html><head><title>Markdown</title>${styles[select.value]}<style>body{width:100%;padding:0}#root{margin:auto;padding:1em;max-width:40em}</style></head><body class='markdown-body'><div id="root" class='markdown-body'>${content}</div></body></html>`;
+  }
+
+  document.querySelector('#download').onclick = () => {
+    let a = document.createElement('a');  
+    a.download = 'index.html';
+    a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(build());
+    a.click();
+  }
+
+  document.querySelector('#preview').onclick = () => {
+    let w = window.open('', '_blank');
+    w.document.writeln(build());
+  }
+</script>
+</Base>

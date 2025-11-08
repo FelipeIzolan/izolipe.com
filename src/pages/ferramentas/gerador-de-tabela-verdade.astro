@@ -1,0 +1,168 @@
+---
+import Base from '@layouts/Base.astro';
+---
+<Base
+  title='Gerador de Tabela-Verdade'
+  description='Gere e avalie expressões booleanas com nosso Gerador de Tabelas-Verdade. Insira fórmulas, veja tabelas detalhadas e copie o HTML facilmente.'
+>
+<b>Avalie suas expressões booleanas e visualize a tabela-verdade.</b>
+<main>
+  <input type="text" placeholder="Expressão"/>
+  <button id="generate">Gerar</button>
+  <fieldset style="display:flex;flex-direction:column;gap:4px;margin:1em 0;padding:1em">
+    <legend>Controls</legend>
+    <div>
+      <button>X</button>
+      <button>Y</button>
+      <button>Z</button>
+      <button>(</button>
+      <button>)</button>
+    </div>
+    <div style="display:flex;gap:4px">
+      <button>¬ NOT</button>
+      <button>∧ AND</button>
+      <button>∨ OR</button>
+      <button>⊼ NAND</button>
+      <button>⊽ NOR</button>
+      <button>⊻ XOR</button>
+      <button>↔ XNOR</button>
+    </div>
+    <button>⌫</button>
+  </fieldset>
+  <hr/>
+  <h2 style="margin:0">Resultado</h2>
+  <div id="result">
+    <p>Nenhuma tabela gerada.</p>
+  </div>
+  <button>Copiar HTML</button>
+</main>
+</Base>
+<script>
+import { html } from 'js-beautify';
+
+const input = document.querySelector('input');
+const result = document.querySelector('#result');
+const buttons = Array.from(document.querySelectorAll('button'));
+
+const generate = buttons.shift(); // remove 'Generate'
+const copy = buttons.pop(); // remove 'Copy HTML'
+const clear = buttons.pop(); // remove ⌫
+
+function _parse(input) {
+  let pos = -1;
+
+  const to = {
+    '∧': '&',
+    '⊼': '&',
+    '∨': '|',
+    '⊽': '|',
+    '⊻': '^',
+    '↔': '^'
+  }
+
+  const err = () => { throw `Unexpected token ${input[pos]}:${pos}` }
+  const look = (delta = 0) => input[pos + delta];
+  const eat = () => {
+    pos++;
+    return input[pos];
+  }
+
+  const value = () => {
+    let char = eat();
+     
+    if (char == '¬') {
+      return `!${value()}`
+    }
+
+    if (char == '(') {
+      let expr = secondary();
+      let next = eat();
+      if (next != ')')
+        err();
+      return `(${expr})`;
+    }
+
+    if (/[XYZ]/.test(char))
+      return char;
+
+    err();
+  }
+
+  const primary = () => {
+    let left = value();
+    while (/[⊼⊽↔]/.test(look(1))) {
+      let operator = eat();
+      let right = value();
+      left = `!(${left}${to[operator]}${right})`;
+    }
+    return left;
+  }
+
+  const secondary = () => {
+    let left = primary();
+    while (/[∧∨⊻]/.test(look(1))) {
+      let operator = eat();
+      let right = primary();
+      left = `${left}${to[operator]}${right}`;
+    }
+    return left;
+  }
+
+  return secondary();
+}
+
+function _vars() {
+  let vars = [];
+  for (const char of input.value) {
+    if (/[XYZ]/.test(char) && !vars.includes(char))
+      vars.push(char);
+  }
+  return vars;
+}
+
+for (const button of buttons)
+  button.onclick = () =>
+    input.value += button.innerText[0];
+  
+clear.onclick = () =>
+  input.value = input.value.slice(0, input.value.length - 1);
+
+copy.onclick = () =>
+  navigator.clipboard.writeText(html(result.innerHTML, {indent_size: 2}));
+
+input.onkeydown = e => 
+  e.preventDefault();
+
+generate.onclick = () => {
+  if (!input.value) return;
+
+  try {
+    let expr = _parse(input.value);
+    let vars = _vars();
+
+    let head = '';
+    let body = '';
+
+    vars.forEach(v => head += `<th>${v}</th>`)
+    head += `<th>${input.value}</th>`;
+
+    for (let r = 0; r < 2 ** vars.length; r++) {
+      let line = '';
+      let ce = expr;
+
+      for (let c = 0; c < vars.length; c++) {
+        const bit = ((r >> (vars.length - c - 1)) & 1).toString();
+        ce = ce.replaceAll(vars[c], bit);
+        line += `<td>${bit}</td>`;
+      }
+
+      line += `<td>${Number(eval(ce))}</td>`;
+      body += `<tr>${line}</tr>`;
+    }
+
+    result.innerHTML = `<table><thead>${head}</thead><tbody>${body}</tbody></table>` 
+  } catch (err) {
+    result.innerHTML = `<span style='color:red'>${err}</span>`;
+  }
+}
+</script>

@@ -1,0 +1,24 @@
+---
+import Directory from "@layouts/Directory.astro"
+
+import { Image } from "astro:assets";
+import Banner from "@images/banner.jpg";
+---
+<Directory
+  title={'Izolipe'}
+  description={'mi.astro template'}
+  inodes={[
+  // { type: "folder", text: "Matemática" },   
+  // { type: "folder", text: "Linguagem de Programação" },
+  // { type: "folder", text: "Sistema Operacional" },  
+    { type: "folder", text: "Ferramentas" },
+    { type: "folder", text: "Blog" },
+  ]}
+>
+<img src="/favicon.svg" alt="Izolipe Logo" width="80" height="80"/>
+<h2>Olá, Mundo!</h2>
+<p>Izolipe é um site leve e de <a href="https://github.com/felipeIzolan/izolipe.com">código aberto</a>, feito para compartilhar minhas anotações, ferramentas, projetos e etc...</p>
+<p slot="after">
+Sem anúncios, sem rastreadores - apenas conteúdo limpo.
+</p>
+</Directory>

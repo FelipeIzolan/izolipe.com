@@ -1,0 +1,17 @@
+---
+import Directory from "@layouts/Directory.astro"
+import { getCollection } from "astro:content";
+
+var posts = await getCollection('blog');
+const inodes = posts.sort((a, b) => {
+  let x = new Date(a.data.date as string).valueOf();
+  let y = new Date(b.data.date as string).valueOf();
+  return y - x;
+}).map(post => ({ type: 'file', text: post.data.title, slug: post.id }));
+---
+<Directory
+  title={'Izolipe - Blog'}
+  description={'mi.astro blog page'}
+  {inodes}
+>
+</Directory>

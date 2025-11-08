@@ -1,0 +1,89 @@
+---
+import Base from '@layouts/Base.astro';
+---
+<Base
+  title='Testador de Cópia/Cola'
+  description='Ferramenta para testar a função de cópia/cola e inspecionar o texto ou os arquivos copiados, com pré-visualizações para formatos compatíveis.'
+>
+<b>Uma ferramenta simples para testar cópia/cola.</b>
+<main>
+  <input
+    type="text" 
+    oninput="this.value=''"
+    style="width:100%;text-align:center;padding:4em 0" 
+    placeholder="(CTRL + V ou clique-direito + colar)"
+  />
+  <ul style='margin:0'></ul>
+</main>
+</Base>
+<script>
+  const ul = document.querySelector('ul');
+  const toTextSet = new Set([
+    'application/ecmascript',
+    'application/javascript',
+    'application/json',
+    'application/json+protobuf',
+    'application/mpegurl',
+    'application/vnd.apple.mpegurl',
+    'application/vnd.dart',
+    'application/xml',
+    'application/x-aspx',
+    'application/x-javascript',
+    'application/x-jsp',
+    'application/x-httpd-php',
+    'application/x-shellscript',
+    'application/x-mpegurl',
+    'audio/mpegurl',
+    'audio/x-mpegurl',
+  ]);
+
+  const previewText = (name, text) => {
+    let win = window.open('', '_blank');
+    let html = `<!DOCTYPE html><html><head><title>${name}</title></head><body><pre>${text}</pre></body></html>`;
+    win.document.writeln(html);
+  }
+
+  window.addEventListener('paste', async e => {
+    ul.innerHTML = '';
+    for (const item of e.clipboardData.items) {
+      let li = document.createElement('li');
+      let span = document.createElement('span');
+      let button = document.createElement('button');
+
+      li.style.cssText = 'margin: 0.2em 0;' +
+                         'border: 1px solid #212121;' +
+                         'border-radius: 3px;' +
+                         'display: flex;' +
+                         'justify-content: space-between;'
+      
+
+      span.style.margin = '0 7px';
+      span.innerText = `${item.kind} (${item.type})`;
+      
+      button.innerText = 'Consultar';
+
+      if (item.kind == 'string') {
+        let text = e.clipboardData.getData(item.type);
+        button.onclick = () => previewText(item.type, text);
+      }
+
+      if (item.kind == 'file') {
+        button.onclick = () => {
+          let file = item.getAsFile();
+          if (toTextSet.has(item.type)) {
+            let reader = new FileReader();
+            reader.onload = () => previewText(file.name, reader.result);
+            reader.readAsText(file);
+          } else {
+            let url = URL.createObjectURL(file);
+            window.open(url, '_blank');
+          }
+        }
+      }
+
+      li.appendChild(span);
+      li.appendChild(button);
+      ul.appendChild(li); 
+    }
+  })
+</script>
