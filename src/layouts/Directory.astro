@@ -21,9 +21,9 @@ import Folder from "@/assets/folder.svg"
       let Icon = type == 'file' ? File : Folder;
       return (
         <a 
-          class="inode"
-          aria-label={label} 
           href={join(Astro.url.pathname, slug ?? slugify(text))}
+          style="gap:4px;display:flex;align-items:center"
+          aria-label={label} 
         >
         <Icon/>{text}
         </a>

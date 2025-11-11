@@ -1,0 +1,149 @@
+import Paper from '@layouts/Paper.astro';
+
+import { Image } from "astro:assets";
+import Image1 from "@images/00003.png";
+import Image2 from "@images/00004.png";
+import Image3 from "@images/00005.png";
+import Image4 from "@images/00006.png";
+import Image5 from "@images/00007.png";
+import Image6 from "@images/00008.png";
+
+<Paper
+  title="Número"
+  description="O que são números, suas funções básicas e como o sistema decimal representa quantidades, medidas e frações no dia a dia."
+  css={{
+    katex: true,
+    teffe: true
+  }}
+>
+
+<Image src={Image1} alt='números pixel-art'/>
+
+Número é um conceito matemático usado para representar quantidade, medida e ordem.
+
+---
+
+## Números
+
+As funções mais básicas dos números são contar objetos concretos, representar diferenças (como perdas e débitos) e indicar uma parte de um todo.
+
+### Contando Maçãs (Números Naturais)
+
+<Image src={Image4} quality={100} alt='maçãs pixel-art'/>
+
+A função mais primordial dos números é contar, ou seja, ter noção de quantidade. 
+
+#### Por exemplo
+
+Imagine que você está sentado embaixo de uma macieira comendo uma maçã ($1$). Por sorte (ou azar) do destino, algo cai em sua cabeça: uma maçã ($2$). E, por mais sorte (ou azar) isso acontece de novo ($3$)... e de novo ($4$).
+
+Agora pense:
+
+1. Quantas maçãs **cairam** em sua cabeça?
+2. Quantas maçãs **ao todo** aparece nesse cenário?
+
+As respostas são: <span class='hide'>$3$ e $4$</span>
+
+### Andando em uma Reta (Números Inteiros)
+
+<Image src={Image5} quality={100}  alt='pé em uma reta pixel-art'/>
+
+> “Se a função primordial dos números é contar, como vou contar algo negativo?”
+
+De fato, não é possível contar algo negativo. Os **números negativos** não servem para contar objetos concretos, mas sim para representar **diferenças**, débito, direção e perda. 
+
+Todo número que possui o símbolo de menos na frente é um número negativo, ou seja, está abaixo de zero.
+
+#### Por exemplo
+
+Imagine que você está parado no centro de uma rua, esse é o seu ponto de origem (posição $0$). Você anda dois passos para frente (posição $2$). Em seguida, anda três passos para trás (posição $-1$). 
+
+Agora pense:
+
+1. Qual é sua posição em relação ao ponto de origem?
+2. Se, a partir do ponto de origem, você andasse nove passos para trás, qual seria sua posição?
+
+As respostas são: <span class='hide'>posição $-1$ e posição $-9$</span>
+
+### O Rato Guloso (Números Não-Inteiros)
+
+<Image src={Image6} alt='rato e queijo pixel-art'/>
+
+> "Se, a partir do ponto de origem, eu desse meio passo em vez de um passo inteiro, qual seria minha posição?"
+
+Seria a posição $0.5$; Todo número que tem um valor maior que zero após o ponto é um **número não-inteiro**. A parte após o ponto representa uma **parte (fração) de um inteiro**.
+
+#### Por exemplo
+
+Imagine que você é um rato guloso, não o bastante para comer um queijo inteiro, mas guloso o suficiente para devorar uma boa parte dele.
+
+Na sua caçada por queijo, você encontra $4$ queijos. Você, um rato guloso, começa a comer sem parar um deles e, ao terminar, percebe que devorou mais da metade do queijo. Agora, em vez de $4$ queijos inteiros, restam $3.4$ queijos.
+
+Agora pense:
+
+1. Quantos queijos **inteiros** restam?
+2. Quanto de queijo falta para completar o quarto queijo inteiro?
+
+As respostas são: <span class='hide'>$3$ e $0.6$</span>
+
+---
+
+## Sistema de Numeração Decimal
+
+<Image src={Image2} alt='número decimal pixel-art'/>
+
+O sistema númerico comumente usado por nós, humanos, é o sistema decimal, que possui 10 algarismos (símbolos). Isso se deve ao fato de possuirmos 10 dedos.
+
+O sistema decimal pode representar tanto números inteiros quanto não-inteiros. Um número decimal é formado por uma **parte inteira**, um **ponto decimal** (ou vírgula, dependendo da convenção) e uma **parte fracionária**.
+
+Um número inteiro não precisa de ponto decimal; porém, é possível representá-lo com casas decimais sem alterar o seu valor.
+> Por exemplo: $73 = 73.00$
+
+### Os algarismos
+
+- $0$ - Zero.
+- $1$ - Um.
+- $2$ - Dois.
+- $3$ - Três.
+- $4$ - Quatro.
+- $5$ - Cinco.
+- $6$ - Seis.
+- $7$ - Sete.
+- $8$ - Oito.
+- $9$ - Nove.
+
+Com esses dígitos podemos formar qualquer número.
+> Por exemplo: $95572.83$
+
+### Base 10
+
+<Image src={Image3} alt='base 10 pixel-art'/>
+
+O sistema decimal é um sistema de base 10, ou seja, cada dígito de um número decimal representa uma potência de 10.
+
+#### Por exemplo
+
+O número $18736.785$ dentro do sistema decimal é interpretado como:
+
+##### Parte Inteira
+
+- $1 * 10^4 = 10000$
+- $8 * 10^3 = 8000$
+- $7 * 10^2 = 700$
+- $3 * 10^1 = 30$
+- $6 * 10^0 = 6$
+
+##### Parte Fracionária
+
+- $7 * 10^{-1} = 0.7$
+- $8 * 10^{-2} = 0.08$
+- $5 * 10^{-3} = 0.005$
+
+##### Número Decimal
+
+$10000 + 8000 + 700 + 30 + 6 + 0.7 + 0.08 + 0.005 = 18736.785$
+
+> Para compreender isso, você precisa compreender o básico de potênciação.
+
+
+</Paper>

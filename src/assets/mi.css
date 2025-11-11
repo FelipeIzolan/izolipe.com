@@ -129,17 +129,6 @@ input[type="submit"] {
   background: #212121;
 }
 
-.inode {
-  gap: 4px;
-  display: flex;
-  align-items: center;
-  transition: 200ms;
-}
-
-.inode:hover {
-  transform: translateX(3px);
-}
-
 nav,
 footer div {
   gap: 2px;
