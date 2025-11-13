@@ -1,0 +1,110 @@
+import Paper from '@layouts/Paper.astro';
+
+import { Image } from "astro:assets";
+import Image1 from "@images/00010.png";
+
+<Paper
+  title="Subtração"
+  description="Subtração é a operação matemática que determina a diferença entre dois números. Aprenda regras, propriedades e exemplos práticos."
+  css={{
+    katex: true,
+  }}
+>
+
+<Image src={Image1} quality={100} alt='duas laranjas e uma maçã pixel-art'/>
+
+Subtração é uma operação matemática que obtém a diferença entre dois valores, resultando na **diferença** dos valores.
+
+---
+
+## O Básico
+
+$a - b$
+
+> O simbolo que representa a operação de subtração é o $-$.
+
+$a - b = a + (-b)$
+
+A subtração pode ser interpretada como uma operação que desfaz a adição; ou seja, para subtrair, basta somar um número por um número negativo.
+
+### Exemplos
+
+$9 - 3 = 6$\
+$10 - 15 = -5$\
+$8 - 2.4 = 5.6$\
+$-9.5 - 8.4  = -17.9$
+
+> Vídeo ensinando subtração:\
+> https://www.youtube.com/watch?v=a-Q4MaWDIO8
+
+---
+
+## Propriedade de Identidade da Subtração
+
+$a - 0 = a$
+
+A propriedade de identidade diz que existe um elemento neutro que, quando usado em uma operação com outro número, não altera o valor desse número.
+
+Portanto a identidade da subtração é $0$, pois um número menos zero, não altera o valor.
+
+---
+
+## Propriedades dos Números Negativos
+
+<table style="text-align:center">
+  <tr>
+    <th>Índice</th>
+    <th>Propriedade</th>
+    <th>Exemplo</th>
+  </tr>
+  <tr>
+    <td>**1**</td>
+    <td>$(-1)x = -x$</td>
+    <td>$(-1)5 = -5$</td>
+  </tr>
+  <tr>
+    <td>**2**</td>
+    <td>$-(-x) = x$</td>
+    <td>$-(-5) = 5$</td>
+  </tr>
+  <tr>
+    <td>**3**</td>
+    <td>$(-x)y = x(-y) = -(xy)$</td>
+    <td>$(-2)3 = 2(-3) = -(2*3)$</td>
+  </tr>
+  <tr>
+    <td>**4**</td>
+    <td>$(-x)(-y) = xy$</td>
+    <td>$(-10)(-7) = 10 * 7$</td>
+  </tr>
+  <tr>
+    <td>**5**</td>
+    <td>$-(x + y) = -x - y$</td>
+    <td>$-(9 + 7) = -9 - 7$</td>
+  </tr>
+  <tr>
+    <td>**6**</td>
+    <td>$-(x - y) = y - x$</td>
+    <td>$-(3 - 5) = 5 - 3$</td>
+  </tr>
+</table>
+
+Essas propriedades nos ajudam a realizar operações com números negativos.
+
+---
+
+## Regra dos Sinais
+
+$(-a) - b = (-)$
+> Um número negativo $-$ um número $=$ um número negativo.\
+> Por exemplo: $-5 - 2 = -7$
+
+$\LARGE a\normalsize-b = (+)$
+> Um número positivo (de maior valor absoluto) $-$ um número $=$ um número positivo.\
+> Por exemplo: $5 - 2 = 3$
+
+$a-\LARGE b\normalsize = (-)$
+> Um número positivo $-$ um número (de maior valor absoluto) $=$ um número negativo.\
+> Por exemplo: $2 - 5 = -3$
+
+</Paper>

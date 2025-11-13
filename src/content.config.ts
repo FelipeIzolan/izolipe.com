@@ -8,8 +8,7 @@ const blog = defineCollection({
   }),
   schema: z.object({
     css: z.object({
-      katex: z.boolean().optional(),
-      teffe: z.boolean().optional()
+      katex: z.boolean().optional()
     }).optional(),
     date: z.string().regex(/^\d{2}-\d{2}-\d{4}$/).optional(),
     title: z.string(),

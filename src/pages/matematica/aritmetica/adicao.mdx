@@ -1,0 +1,65 @@
+import Paper from '@layouts/Paper.astro';
+
+import { Image } from "astro:assets";
+import Image1 from "@images/00009.png";
+
+<Paper
+  title="Adição"
+  description="Adição é a operação matemática que combina dois ou mais valores, resultando na soma."
+  css={{
+    katex: true
+  }}
+>
+<Image src={Image1} quality={100} alt='duas laranjas e uma maçã pixel-art'/>
+
+Adição é uma operação matemática que combina dois ou mais valores em um, resultando na **soma** dos valores.
+
+---
+
+# O Básico
+
+$a + b$
+
+> O simbolo que representa a operação de adição é o $+$.
+
+### Exemplos
+
+$2 + 4 = 6$\
+$8 + 5 = 13$\
+$4.2 + 5.3 = 9.5$\
+$7.32 + 9.83 = 17.15$
+
+> Vídeo ensinando adição:\
+> https://www.youtube.com/watch?v=HjyCT6K5O1I
+
+---
+
+## Propriedade de Identidade da Adição
+
+$a + 0 = a$
+
+A propriedade de identidade diz que existe um elemento neutro que, quando usado em uma operação com outro número, não altera o valor desse número.
+
+Portanto a identidade da adição é $0$, pois um número mais zero, não altera o valor.
+
+---
+
+## Regra dos Sinais
+
+$a+b = (+)$
+> Um número positivo $+$ um número positivo $=$ um número positivo.\
+> Por exemplo: $2 + 5 = 7$
+
+$(-a)+(-b) = (-)$
+> Um número negativo $+$ um número negativo $=$ um número negativo.\
+> Por exemplo: $-2 + (-5) = -7$
+
+$\LARGE a\normalsize + (-b) = (+)$
+> Um número positivo (de maior valor absoluto) $+$ um número negativo $=$ um número positivo.\
+> Por exemplo: $10 + (-5) = 5$
+
+$\LARGE(-a)\normalsize + b = (-)$
+> Um número negativo (de maior valor absoluto) $+$ um número positivo $=$ um número negativo.\
+> Por exemplo: $-10 + 5 = -5$
+
+</Paper>
