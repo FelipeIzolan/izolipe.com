@@ -1,0 +1,66 @@
+import Paper from '@layouts/Paper.astro';
+
+import { Image } from "astro:assets";
+import Image1 from "@images/00011.png";
+
+<Paper
+  title="Multiplicação"
+  description="Multiplicação é uma operação matemática que repete a adição n vezes, resultando no produto dos valores."
+  css={{
+    katex: true
+  }}
+>
+
+<Image src={Image1} quality={100} alt='três abacaxis e dois humanos pixel-art'/>
+
+Multiplicação é uma operação matemática que repete a adição $n$ vezes, resultando no **produto** dos valores.
+
+---
+
+## O Básico 
+
+$a * b$
+
+> O símbolo que representa a operação de multiplicação é o $*$ ou $\cdot$ (ponto).
+
+### Exemplos
+
+$2*4=8$\
+$-3*5=-15$\
+$-7*-3=-21$\
+$4.2*9.3=39.06$
+
+> Vídeo ensinando multiplicação:\
+> https://www.youtube.com/watch?v=DjEx1pdEqSM
+
+---
+
+## Propriedade de Identidade da Multiplicação
+
+$a*1=a$
+
+A propriedade de identidade diz que existe um elemento neutro que, quando usado em uma operação com outro número, não altera o valor desse número.
+
+Portanto a identidade da multiplicação é $1$, pois um número multiplicado por um, não altera o valor.
+
+---
+
+## Regra dos Sinais
+
+$a*b=(+)$
+> Um número positivo $*$ um número positivo $=$ Um número positivo\
+> Por exemplo: $2*4=8$
+
+$a*(-b)=(-)$
+> Um número positivo $*$ um número negativo $=$ Um número negativo\
+> Por exemplo: $2*(-4)=-8$
+
+$(-a)*b=(-)$
+> Um número negativo $*$ um número positivo $=$ Um número negativo\
+> Por exemplo: $(-3)*3=-9$
+
+$(-a)*(-b)=(+)$
+> Um número negativo $*$ um número negativo $=$ Um número positivo\
+> Por exemplo: $(-3)*(-3)=9$
+
+</Paper>

@@ -1,0 +1,72 @@
+import Paper from '@layouts/Paper.astro';
+
+import { Image } from "astro:assets";
+import Image1 from "@images/00012.png";
+
+<Paper
+  title="Divisão"
+  description="Divisão é uma operação matemática que separa uma quantidade em partes iguais, resultando no **quociente** dos valores."
+  css={{
+    katex: true
+  }}
+>
+<Image src={Image1} quality={100} alt='seis abacaxis e dois humanos pixel-art'/>
+
+Divisão é uma operação matemática que separa uma quantidade em partes iguais, resultando no **quociente** dos valores.
+
+---
+
+## O Básico
+
+$a / b$
+
+> O símbolo que representa a operação de divisão é o $/$ (barra) ou $\div$.\
+> O $a$ é o **dividendo** (o número que será divido).\
+> O $b$ é o **divisor** (o número pelo qual se divide).
+
+$a * (1/b) = a / b$
+
+> A divisão é a operação inversa da multiplicação.\
+> A divisão pode ser interpretada como uma multiplicação pelo inverso do divisor.
+
+### Exemplos
+
+$8/4 = 2$\
+$(-12)/3 = -4$\
+$500/10 = 50$\
+$7.3/2.4 = 3.04166...$
+
+> Vídeo ensinando divisão:\
+> https://www.youtube.com/watch?v=NGG3gylKnWQ
+
+---
+
+## Propriedade de Identidade da Divisão
+
+$a/1=a$
+
+A propriedade de identidade diz que existe um elemento neutro que, quando usado em uma operação com outro número, não altera o valor desse número.
+
+Portanto a identidade da divisão é $1$, pois um número divido por um, não altera o valor.
+
+---
+
+## Regra dos Sinais
+
+$a/b=(+)$
+> Um número positivo $/$ um número positivo $=$ Um número positivo\
+> Por exemplo: $6/3=2$
+
+$a/(-b)=(-)$
+> Um número positivo $/$ um número negativo $=$ Um número negativo\
+> Por exemplo: $15/(-3)=-5$
+
+$(-a)/b=(-)$
+> Um número negativo $/$ um número positivo $=$ Um número negativo\
+> Por exemplo: $(-7)/7=-1$
+
+$(-a)/(-b)=(+)$
+> Um número negativo $/$ um número negativo $=$ Um número positivo\
+> Por exemplo: $(-14)/(-7)=2$
+
+</Paper>
