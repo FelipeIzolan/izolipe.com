@@ -1,0 +1,52 @@
+import Paper from '@layouts/Paper.astro';
+
+import { Image } from "astro:assets";
+import Image1 from "@images/00019.png";
+
+<Paper
+  title="Logaritmo"
+  description=""
+  css={{
+    katex: true
+  }}
+>
+<Image src={Image1} quality={100} alt='logaritmo pixel-art'/>
+
+Logaritmo é uma função matemática que ..., resultando no **expoente** necessário.
+
+---
+
+## O Básico
+
+$\log_b{n}$
+
+> O $b$ é a **base**.\
+> O $n$ é o **argumento**.
+
+$\log_b{n} = x \iff b^x = n$
+
+> O logaritmo é uma função relacionada
+
+$\log x = \log_{10} x$
+
+> Quando a base não é explícita, a base é $10$.\
+> ⚠️ Isso pode ser relativo.
+
+---
+
+## Logaritmo Natural (ou Neperiano)
+
+$\log_e$
+
+O logaritmo natural é um logaritmo que usa como base o número euler ($e$).
+
+$\ln = \log_e$
+
+Podemos usar $\ln$ como uma notação para $\log_e$.
+
+> Só ignore isso por agora, é algo mais "avançado".
+
+---
+
+## Propriedades do Logaritmo
+</Paper>

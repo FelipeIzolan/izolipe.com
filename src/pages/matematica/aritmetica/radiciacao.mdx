@@ -1,0 +1,113 @@
+import Paper from '@layouts/Paper.astro';
+
+import { Image } from "astro:assets";
+import Image1 from "@images/00016.png";
+import Image2 from "@images/00017.png";
+import Image3 from "@images/00018.png";
+
+<Paper
+  title="Radiciação"
+  description="Radiciação é uma operação matemática que obtém a raiz de um número."
+  css={{
+    katex: true
+  }}
+>
+
+<Image src={Image1} alt='radiciação pixel-art'/>
+
+Radiciação é uma operação matemática que obtém a **raiz** de um número, ou seja, um valor que, quando elevado a uma potência igual ao índice, resulta no radicando.
+
+---
+
+## O Básico
+
+$
+\sqrt[n]{x}
+$
+
+> O $n$ é o **índice**.\
+> O $x$ é o **radicando**.\
+> O $\sqrt{}$ é o **símbolo radical**.
+
+$\sqrt[n]{x}=m \iff m^n=x$
+> A radiciação é a operação inversa da potenciação com expoente fixo.
+
+$x^{\frac{1}{n}} = \sqrt[n]{x}$
+
+> A radiciação pode ser interpretada como uma potenciação com expoente fracionário.
+
+$\sqrt{x} = \sqrt[2]{x}$
+
+> Quando o índice não é explícito, o índice é $2$. 
+
+### Exemplos
+
+$\sqrt{121} = 11$\
+$\sqrt[3]{125} = 5$\
+$\sqrt{37} \approx 6.0827$\
+$\sqrt[3]{89} \approx 4.4647$
+
+> Vídeo ensinando radiciação:\
+> https://www.youtube.com/watch?v=ZV4HavJfpII
+
+---
+
+## Raiz Quadrada
+
+<Image src={Image2} alt='raiz quadrada pixel-art' quality={100}/>
+
+>$
+\sqrt{1} = 1~~~\sqrt{4} = 2\\
+\sqrt{9} = 3~~~\sqrt{16} = 4\\
+\sqrt{25} = 5~~~\sqrt{36} = 6\\
+\sqrt{49} = 7~~~\sqrt{64} = 8\\
+\sqrt{81} = 9~~~\sqrt{100} = 10
+$
+
+---
+
+## Raiz Cúbica
+
+<Image src={Image3} alt='raiz cúbica pixel-art' quality={100}/>
+
+>$
+\sqrt[3]{1} = 1~~~\sqrt[3]{8} = 2\\
+\sqrt[3]{27} = 3~~~\sqrt[3]{64} = 4\\
+\sqrt[3]{125} = 5~~~\sqrt[3]{216} = 6\\
+\sqrt[3]{343} = 7~~~\sqrt[3]{512} = 8\\
+\sqrt[3]{729} = 9~~~\sqrt[3]{1000} = 10
+$
+
+---
+
+## Propriedades da Radiciação
+
+<table style="text-align:center">
+  <tr>
+    <th>Índice</th>
+    <th>Propriedade</th>
+    <th>Exemplo</th>
+  </tr> 
+  <tr>
+    <td>**Regra do Produto**</td>
+    <td>$\sqrt{ab} = \sqrt{a} * \sqrt{b}$</td>
+    <td>$\sqrt{5 * 4} = \sqrt{5} * \sqrt{4}$</td>
+  </tr>
+  <tr>
+    <td>**Regra do Quociente**</td>
+    <td>$\sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}$</td>
+    <td>$\sqrt{\frac{9}{2}} = \frac{\sqrt{9}}{\sqrt{2}} $</td>
+  </tr>
+  <tr>
+    <td>**Regra da Potência**</td>
+    <td>$(\sqrt{a})^m = \sqrt{a^m}$</td>
+    <td>$(\sqrt{5})^4 = \sqrt{5^4}$</td>
+  </tr>
+  <tr>
+    <td>**Regra do Expoente Fracionário**</td>
+    <td>$\sqrt[n]{a^m} = a^{\frac{m}{n}}$</td>
+    <td>$\sqrt[2]{2^8} = 2^{\frac{8}{2}}$</td>
+  </tr>
+</table>
+
+</Paper>

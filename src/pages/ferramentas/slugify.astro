@@ -1,0 +1,29 @@
+---
+import Base from '@layouts/Base.astro';
+---
+<Base
+  title='Slugify'
+  description='Converta seu título em um formato limpo e otimizado para URLs.'
+>
+<b>Converta seu título em um formato limpo e otimizado para URLs.</b>
+<main>
+<h2>Por que usar *slugs* nas URLs?</h2> <p>Os *slugs* tornam as URLs legíveis para humanos, otimizadas para SEO e fáceis de compartilhar. Ao incluir palavras-chave descritivas (por exemplo, /por-que-usar-slugs), eles melhoram o ranqueamento nos mecanismos de busca e ajudam os usuários a entender o conteúdo antes de clicar. Mantenha-os simples, limpos e significativos!</p>
+  <section>
+    <input type="text" placeholder="Título"/>
+    <button>Slugify</button>
+    <div id="result">
+    </div>
+  </section>
+</main>
+</Base>
+<script>
+  import slugify from '@sindresorhus/slugify';
+  
+  let input = document.querySelector('input');
+  let button = document.querySelector('button');
+  let result = document.querySelector('#result');
+
+  button.onclick = () => { 
+    result.innerHTML = `<p><b>Resultado</b>: ${slugify(input.value)}</p>`
+  }
+</script>

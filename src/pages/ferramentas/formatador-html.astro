@@ -1,0 +1,43 @@
+---
+import Base from '@layouts/Base.astro';
+---
+<Base
+  title='Formatador HTML'
+  description='Formate seu código HTML facilmente com este formatador online. Personalize a indentação para um código limpo, legível e bem estruturado.'
+>
+<b>Formate seu HTML para melhor legibilidade.</b>
+<main>
+  <section>
+    <textarea spellcheck="false" style="width:calc(100% - 1em);min-height:24em" placeholder="Insira seu HTML."></textarea>
+    <button id='format'>Formatar</button>
+    <button id='copy'>Copiar</button>
+    <input type="number" placeholder="Espaços"/>
+  </section>
+  <hr/>
+  <section>
+    <h2>Input</h2>
+    <pre><code>{`<body><div id="root"><h1>Hello, World!</h1></div></body>`}</code></pre>
+    <h2>Output</h2>
+    <pre><code>{`<body>
+  <div id="root">
+    <h1>Hello, World!</h1>
+  </div>
+</body>`}</code></pre>
+  </section>
+</main>
+<script>
+  import { html } from 'js-beautify';
+  
+  let format = document.querySelector('#format');
+  let copy = document.querySelector('#copy')
+  
+  let textarea = document.querySelector('textarea');
+  let input = document.querySelector('input');
+  
+  format.onclick = () =>
+    textarea.value = html(textarea.value, { indent_size: parseInt(input.value || 2) });
+
+  copy.onclick = () =>
+    navigator.clipboard.writeText(textarea.value);
+</script>
+</Base>

@@ -1,0 +1,131 @@
+---
+import Base from '@layouts/Base.astro';
+let sources = Object.values(import.meta.glob('../../assets/bitcon/*.svg', { eager: true }));
+---
+<Base
+  title='Bitcon - 16x16 Ícones'
+  description='Uma biblioteca de ícones SVG personalizáveis de 16x16 para uso fácil em design e desenvolvimento web.'
+>
+  <b>~{sources.length} bitcons</b>
+  <main id='customize'>
+    <div style='margin:auto;text-align:center;width:192px'>
+      <div style="margin:auto;width:128px;height:128px">
+        <svg viewBox='0 0 16 16' width='128' height='128' />
+      </div>
+      <div style="margin-bottom:8px" id='colors'></div>
+      <button id='download'>Download</button>
+      <button id='copy'>Copiar</button>
+      <div>
+        <input type="radio" value="svg" name="ext" checked />
+        <label>svg</label>
+        <input type="radio" value="png" name="ext"/>
+        <label>png</label>
+      </div>
+    </div>
+  </main>
+  <ul style="list-style:none;display:flex;justify-content:center;flex-wrap:wrap;margin:0;padding:0;margin-bottom:1em">
+    {sources.map(Icon => <li><Icon.default/></li>)}
+  </ul>
+</Base>
+<script>
+  const preview = document.querySelector('#customize svg');
+  const colors = document.querySelector('#colors');
+  const icons = document.querySelectorAll('li>svg');
+  const copy = document.querySelector('#copy');
+  const download = document.querySelector('#download');
+  // ---
+  function toCanvas(url, callback) {
+    let img = document.createElement('img');
+    let canvas = document.createElement('canvas');
+    let context = canvas.getContext('2d');
+
+    canvas.width = 16;
+    canvas.height = 16;
+
+    img.src = url;
+    img.onload = function() {
+      context.drawImage(img, 0, 0);
+      callback(canvas, context, img);
+    }
+  }
+  // ---
+  function colorsSVG() {
+    let map = [];
+    for (const rect of preview.children) { 
+      let color = rect.getAttribute('fill');
+      if(!map.includes(color))
+        map.push(color);
+    }
+    return map;
+  }
+  
+  function buildSVG(data) {
+    return `<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'>${data}</svg>`;
+  }
+
+  function loadSVG(svg) {
+    colors.innerHTML = '';
+    preview.innerHTML = svg;
+    
+    for (let color of colorsSVG()) {
+      let element = document.createElement('input');
+
+      element.type = 'color';
+      element.value = color;
+      element.dataset.color = color;
+      element.oninput = function () {
+        for (const rect of preview.children) {
+          let color = rect.getAttribute('fill');
+          if (color == this.dataset.color)
+            rect.setAttribute('fill', this.value);
+        }
+        this.dataset.color = this.value;
+      }
+
+      colors.appendChild(element);
+    }
+  }
+  // ---
+  copy.onclick = () => {
+    let ext = document.querySelector('input[name="ext"]:checked').value;
+    let svg = buildSVG(preview.innerHTML);
+
+    if (ext == 'svg')
+      navigator.clipboard.writeText(svg);
+  
+    if (ext == 'png') {
+      let blob = new Blob([svg], { type: 'image/svg+xml' });
+      let url = URL.createObjectURL(blob);
+      toCanvas(url, canvas => canvas.toBlob(blob => {
+        navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+      }));
+    }
+  }
+
+  download.onclick = () => {
+    let ext = document.querySelector('input[name="ext"]:checked').value;
+    let url = URL.createObjectURL(new Blob([buildSVG(preview.innerHTML)], { type: 'image/svg+xml' }));
+    
+    let a = document.createElement('a');
+    a.download = 'icon.' + ext;
+
+    if (ext == 'svg') {
+      a.href = url;
+      a.click();
+    }
+
+    if (ext == 'png')
+      toCanvas(url, canvas => {
+        a.href = canvas.toDataURL();
+        a.click();
+      }) 
+  }
+  // ---
+  for (const icon of icons) {
+    icon.setAttribute('width', '32');
+    icon.setAttribute('height', '32');
+    icon.setAttribute('viewBox', '0 0 16 16');
+    icon.onclick = function() { loadSVG(this.innerHTML); }
+  }
+  loadSVG(icons[Math.floor(Math.random() * icons.length)].innerHTML);
+</script>

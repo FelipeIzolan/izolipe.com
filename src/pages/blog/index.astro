@@ -1,0 +1,20 @@
+---
+import Directory from "@layouts/Directory.astro"
+import { getCollection } from "astro:content";
+
+import { title, href } from "./rss.xml.ts";
+
+var posts = await getCollection('blog');
+const inodes = posts.sort((a, b) => {
+  let x = new Date(a.data.date);
+  let y = new Date(b.data.date);
+  return y - x;
+}).map(post => ({ type: 'file', text: post.data.title, slug: post.id }));
+---
+<Directory
+  rss={{ title, href }}
+  title={'Izolipe - Blog'}
+  description={'Posts do Blog Izolipe.'}
+  {inodes}
+>
+</Directory>
