@@ -1,0 +1,73 @@
+import Paper from '@layouts/Paper.astro';
+
+import { Image } from "astro:assets";
+import Image1 from "@images/00004.png";
+import Image2 from "@images/00005.png";
+
+<Paper
+  title="Sistema de Numeração Decimal"
+  description=""
+  css={{
+    katex: true
+  }}
+>
+
+<Image src={Image1} alt='número decimal pixel-art'/>
+
+O sistema numérico comumente usado por nós, humanos, é o sistema decimal, que possui 10 algarismos (símbolos).
+
+O sistema decimal pode representar tanto números inteiros quanto não-inteiros. Um número decimal é formado por uma **parte inteira**, um **ponto decimal** (ou vírgula, dependendo da convenção) e uma **parte fracionária**.
+
+Um número inteiro não precisa de ponto decimal; porém, é possível representá-lo com casas decimais sem alterar o seu valor.
+> Por exemplo: $73 = 73.00$
+
+## Os Algarismos
+
+- $0$ - Zero.
+- $1$ - Um.
+- $2$ - Dois.
+- $3$ - Três.
+- $4$ - Quatro.
+- $5$ - Cinco.
+- $6$ - Seis.
+- $7$ - Sete.
+- $8$ - Oito.
+- $9$ - Nove.
+
+Com esses algarismos podemos formar qualquer número.
+> Por exemplo: $95572.83$
+
+{/*Não esquecer de adicionar valor posicional*/}
+
+## Base 10
+
+<Image src={Image2} alt='base 10 pixel-art'/>
+
+O sistema decimal é um sistema de base 10, ou seja, cada dígito de um número decimal representa uma potência de 10.
+
+### Por exemplo
+
+O número $18736.785$ dentro do sistema decimal é interpretado como:
+
+#### Parte Inteira
+
+- $1 * 10^4 = 10000$
+- $8 * 10^3 = 8000$
+- $7 * 10^2 = 700$
+- $3 * 10^1 = 30$
+- $6 * 10^0 = 6$
+
+#### Parte Fracionária
+
+- $7 * 10^{-1} = 0.7$
+- $8 * 10^{-2} = 0.08$
+- $5 * 10^{-3} = 0.005$
+
+#### Número Decimal
+
+$10000 + 8000 + 700 + 30 + 6 + 0.7 + 0.08 + 0.005 = 18736.785$
+
+> Para compreender isso, você precisa compreender o básico de [potenciação](../aritmetica/potenciacao).
+
+
+</Paper>

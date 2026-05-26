@@ -1,0 +1,122 @@
+import Paper from '@layouts/Paper.astro';
+
+import { Image } from "astro:assets";
+import Image1 from "@images/00021.png";
+import Image2 from "@images/00022.png";
+
+<Paper
+  title="Conjunto Numérico"
+  description=""
+  css={{
+    katex: true
+  }}
+>
+<a title="Daniele Pugliesi, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Venn_Diagram_of_Numbers_Expanded.svg"><Image width={526} src={Image1} quality={100} alt='diagrama de veen'/></a>
+
+Os conjuntos numéricos são os conjuntos padrão dos números, usado para agrupar/categorizar números com características semelhantes.
+
+---
+
+## Natural ($\N$)
+
+$\N = \{1,2,3,4,5,6,7,8,9,10,11,...\}$
+
+O conjunto dos números naturais agrupa todos os números inteiros positivos.
+
+> **Observação**: O zero dependendo da convenção pode ou não ser um número natural.\
+> **Opinião**: Eu não incluo o zero ao conjunto, pois não contamos objetos a partir do zero.
+
+### Exemplos
+
+- $5$
+- $2$
+- $432$
+- $7832195712$
+
+---
+
+## Inteiro ($\Z$)
+
+$\Z = \{...,-3,-2,-1,0,1,2,3,...\}$
+
+O conjunto dos números inteiros agrupa todos os números negativos, zero e positivos.
+
+### Exemplos
+
+- $-9179$
+- $-8$
+- $0$
+- 25
+
+---
+
+## Racional ($\mathbb{Q}$)
+
+$\mathbb{Q} = \left\{ \frac{a}{b} \;\middle|\; a,b \in \mathbb{Z},\ b \neq 0 \right\}$
+
+> $a,b \in \Z$ ($a,b$ está no conjunto inteiro).\
+> $b \neq 0$ ($b$ não é igual a zero).
+
+O conjunto dos números racionais agrupa todos os números que podem ser escritos em forma de fração.
+
+### Exemplos
+
+- $-\frac{5}{1} = -5$
+- $-\frac{2}{3} = -0.6\overline{6}$
+- $\frac{0}{1} = 0$
+- $\frac{5}{2} = 2.5$
+
+---
+
+## Irracionais ($\mathbb{I}$)
+
+$\mathbb{I} = \left\{ x \;\middle|\; x \in \R,\ x \notin \mathbb{Q} \right\}$
+
+> $x \in \R$ ($x$ está no conjunto real).\
+> $x \notin \mathbb{Q}$ ($x$ não está no conjunto racional).
+
+O conjunto dos números irracionais agrupa todos os números que **não** podem ser escritos em forma de fração. Eles apresentam casas decimais infinitas e sem repetição periódica.
+
+### Exemplos
+
+- $\pi \approx 3.14$
+- $\sqrt{2} \approx 1.14$
+- $\sqrt{3} \approx 1.73$
+- $e \approx 2.71$
+
+> $a \approx b$ ($a$ aproximadamente igual a $b$)
+
+---
+
+## Reais ($\R$)
+
+$\R = \mathbb{Q} \cup \mathbb{I}$
+> O conjunto real é a união do conjunto racional com o conjunto irracional.
+
+O conjunto dos números reais agrupa todos os números que podem ser demonstrados em uma reta.
+
+### Reta dos Números Reais
+
+<Image src={Image2} alt='reta dos números reais matemática'/>
+<div style='display:flex;gap:8px;font-size:small;font-weight:bolder'>
+  <div style='display:flex;gap:4px'>
+    <div style='width:1em;height:1em;background:#ff5555' />
+    <span>Natural</span>
+  </div>
+  <div style='display:flex;gap:4px'>
+    <div style='width:1em;height:1em;background:#ff9955' />
+    <span>Inteiro</span>
+  </div>
+  <div style='display:flex;gap:4px'>
+    <div style='width:1em;height:1em;background:#ffe680' />
+    <span>Racional</span>
+  </div>
+  <div style='display:flex;gap:4px'>
+    <div style='width:1em;height:1em;background:#89a02c' />
+    <span>Irracional</span>
+  </div>
+</div>
+
+A reta dos números reais é uma representação visual dos números reais, usada para demonstrar a ordem dos números, estendendo-se infinitamente em ambas as direções.
+
+</Paper>

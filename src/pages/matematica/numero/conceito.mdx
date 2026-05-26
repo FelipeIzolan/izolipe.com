@@ -1,0 +1,70 @@
+import Paper from '@layouts/Paper.astro';
+
+import { Image } from "astro:assets";
+import Image1 from "@images/00003.png";
+import Image2 from "@images/00004.png";
+import Image3 from "@images/00005.png";
+import Image4 from "@images/00006.png";
+import Image5 from "@images/00007.png";
+import Image6 from "@images/00008.png";
+import Image7 from "@images/00020.png";
+
+<Paper
+  title="Conceito"
+  description="O que são números, suas funções básicas e como números representam quantidades, medidas e frações"
+  css={{
+    katex: true
+  }}
+>
+
+<Image src={Image1} alt='números pixel-art'/>
+
+O conceito de número surge da necessidade humana de representar a realidade, seja para contar quantidades, registrar perdas ou dividir em partes.
+
+---
+
+## Tipos de Número
+
+Para uma introdução aos números, irei separá-los em três tipos: números positivos, negativos e não inteiros. Uma maneira fácil de se habituar com os números é por meio de operações com dinheiro, por exemplo:
+
+> **Observação**: Esses três tipos não são o padrão de classificação dos números que se dá pelo [Conjunto Numérico](./conjunto-numerico) na matemática, e sim apenas uma maneira de introdução aos números.
+
+### Dinheiro (Positivo)
+
+<Image src={Image4} quality={100} alt='dinheiro e maçã pixel-art'/>
+
+A função mais básica dos números é representar quantidades.
+
+Imagine que você tenha R\$ 1 (um real) e ganhe mais R\$ 3 (três reais) totalizando R\$ 4 (quatro reais). Você vai ao mercado e decide comprar duas maçãs, cada maçã custa R\$ 2, então você compra duas maçãs por R$ 4 (quatro reais).
+
+> **Observação**: O importante desse exemplo é você ter a noção de quantidade: 4 reais foram trocados por duas maçãs.
+
+### Perdendo Dinheiro (Negativo)
+
+<Image src={Image5} quality={100}  alt='dívida pixel-art'/>
+
+No mundo real não podemos quantificar objetos abaixo de zero, não temos como ter -2 (menos duas) maçãs, por exemplo. Portanto podemos representar perdas, dívidas e diferenças negativas em relação a origem.
+
+Imagine que você tenha um saldo de R\$ 3000 (três mil reais) no banco, durante o mês você gasta R\$ 5000 (cinco mil reais) e acaba ficando com o saldo de R\$ -2000 (menos dois mil reais).
+
+> **Observação**: O importante desse exemplo é você ter a noção que o R\$ -2000 (menos dois mil) representa uma dívida, onde você está a R$ 2000 (dois mil reais) abaixo de zero.
+
+#### Zero
+
+<Image src={Image7} quality={100}  alt='zero pixel-art'/>
+
+O número 0 (zero) é neutro, ele representa a ausência de quantidade, o "vazio".
+> Todo número ao lado direito da reta / acima de zero é um número positivo.\
+> Todo número ao lado esquerdo da reta / abaixo de zero é um número negativo.
+
+### Centavos (Não Inteiro)
+
+<Image src={Image6} alt='cédula e moeda pixel-art'/>
+
+Os números também nos permitem representar frações de um número inteiro.
+
+Imagine que você tenha R\$ 12.00 (doze reais). Você decide sair para comprar uma lata de energético cujo preço é de R\$ 10.50 (dez reais e cinquenta centavos). Após a compra, o caixa te retorna R\$ 1.50 (um real e cinquenta centavos). 
+
+> **Observação**: O importante desse exemplo é você ter a noção de que os R\$ 0.50 (cinquenta centavos) representam uma fração de R\$ 1.00 (um real); ou seja, para ter um real inteiro, você precisaria de mais R\$ 0.50 (cinquenta centavos).
+
+</Paper>

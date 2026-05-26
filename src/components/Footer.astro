@@ -7,7 +7,7 @@ const { rss } = Astro.props;
     <a aria-label="Link to: Codeberg" href="https://codeberg.org/felipeizolan">Codeberg</a> /
     <a aria-label="Link to: YouTube" href="https://www.youtube.com/@felipeizolann">YouTube</a> /
     <a aria-label="Link to: GitHub" href="https://github.com/felipeizolan">GitHub</a> /
-    {rss && <a aria-label="Link to: RSS" href={rss.href}>RSS</a>} /
+    {rss && <><a aria-label="Link to: RSS" href={rss.href}>RSS</a> /</>}
     <a aria-label="Link to: Mail" href="mailto:felipeizolan@proton.me">Mail</a> /
     <a aria-label="Link to: X" href="https://x.com/felipeizolann">X</a>
   </div>
